@@ -1,0 +1,14 @@
+
+
+html {
+    background: url(./images/car_background.jpg) center / cover no-repeat;
+    background-color: rgba(0, 0, 0, 0.7);
+   height: 100vh;
+}
+
+header {
+    text-align: center;
+    color: antiquewhite;
+    font-size: 1.4rem;
+    height: 40vh;
+}

@@ -1,0 +1,100 @@
+
+
+html {
+    background: url(./images/car_background.jpg) center / cover no-repeat;
+    background-color: rgba(0, 0, 0, 0.9);
+   height: 100vh;
+   font-family: 'Arvo', serif;
+   font-weight: 700;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: antiquewhite;
+    font-size: 1.4rem;
+    margin-top: 2em;
+}
+.input-field {
+    position: relative;
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #333;
+    border-radius: 5px;
+    overflow: hidden;
+    
+  }
+  
+  label {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 50px); /* adjust this value to center the label */
+    color: #999;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.2s ease-in-out;
+    transform: translateY(-50%);
+  }
+  
+  
+  input[type="text"] {
+    border: none;
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    padding: 1em 0.5em;
+    font-size: 16px;
+    background-color: transparent;
+    color: #fff;
+  }
+  
+  input[type="text"]::placeholder {
+    color: transparent;
+  }
+  
+  .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #0077FF;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  input[type="text"]:focus + label,
+  input[type="text"]:not(:placeholder-shown) + label {
+    transform: translateY(-24px) scale(0.8);
+    color: #48ff00;
+    padding-bottom: 0.5em;
+  }
+  
+  input[type="text"]:focus + .underline {
+    transform: scaleX(1);
+  }
+  
+  input[type="text"]:focus::-webkit-input-placeholder {
+    color: #999;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  input[type="text"]:focus + label::before {
+    content: attr(placeholder);
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    padding: 0 20px;
+    font-size: 16px;
+    color: #999;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  input[type="text"]:focus:not(:placeholder-shown) + label::before {
+    transform: translateY(-10px) scale(0.8);
+    color: #0077FF;
+  }
+  

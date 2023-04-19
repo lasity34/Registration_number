@@ -1,0 +1,16 @@
+
+
+html {
+    background: url(./images/car_background.jpg) center / cover no-repeat;
+    background-color: rgba(0, 0, 0, 0.9);
+   height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: antiquewhite;
+    font-size: 1.4rem;
+    margin-top: 2em;
+}

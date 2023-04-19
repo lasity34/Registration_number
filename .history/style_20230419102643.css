@@ -1,0 +1,23 @@
+
+
+html {
+    background: url(./images/car_background.jpg) center / cover no-repeat;
+    background-color: rgba(0, 0, 0, 0.9);
+   height: 100vh;
+   font-family: 'Arvo', serif;
+   font-weight: 700;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: antiquewhite;
+    font-size: 1.4rem;
+    margin-top: 2em;
+}
+
+.input_section {
+    text-align: center;
+}
+
