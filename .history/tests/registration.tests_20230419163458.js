@@ -9,14 +9,4 @@ describe("this is a input values", function() {
         
         assert.equal("CJ10234", regInstance.getValueInput())
     })
-
-    it("This will return false if any anything other than a string or number is passed", function() {
-        const regInstance = registrationNumber()
-
-        regInstance.setValueInput("CJ31204#")
-
-
-        assert.equal(false, regInstance.getValueInput())
-    })
-    
 })

@@ -11,15 +11,14 @@ function registrationNumber() {
     }
 
 
-    
+    function testRegex() {
+        if (regex.test(regInput)) {
+            getValueInput()
+        }
+    }
 
     function getValueInput() {
-        if (regex.test(regInput)) {
-            return regInput
-        } else {
-           return false
-        }
-        
+        return regInput
     }
 
 

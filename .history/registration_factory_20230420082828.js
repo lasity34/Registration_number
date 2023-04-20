@@ -17,7 +17,7 @@ function registrationNumber() {
         if (regex.test(regInput)) {
             return regInput
         } else {
-           return false
+            false
         }
         
     }
