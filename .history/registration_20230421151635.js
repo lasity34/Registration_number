@@ -1,6 +1,6 @@
 const addRegNumBtn = document.querySelector(".add_btn");
 const regInput = document.querySelector(".form__input");
-const regDisplay = document.querySelector("#reg_display_container .reg_display");
+const regDisplay = document.querySelector(".reg_display");
 
 
 
