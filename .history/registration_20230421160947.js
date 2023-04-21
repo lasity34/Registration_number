@@ -1,20 +1,19 @@
 const addRegNumBtn = document.querySelector(".add_btn");
 const regInput = document.querySelector(".form__input");
-const regDisplay = document.querySelector(".reg_display");
+const regDisplay = document.querySelector(".reg_display")
 
 function registrationNumAdd() {
+  
   const regValue = regInput.value;
   regInstance.setValueInput(regValue);
 
-  console.log(regInstance.getValueInput());
-  if (regInstance.getValueInput() === undefined) {
-    return;
-  } else {
-    const newLi = document.createElement("li");
+  const newLi = document.createElement("li");
+  if (regInstance.getValueInput === "") {
     newLi.textContent = regInstance.getValueInput();
 
-    regDisplay.appendChild(newLi);
+  regDisplay.appendChild(newLi);
   }
+  
 }
 const regInstance = registrationNumber();
 

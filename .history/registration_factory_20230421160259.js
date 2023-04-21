@@ -14,7 +14,9 @@ function registrationNumber() {
       errorMessage = "input is too short";
     } else if (regInput.length >= 7) {
       errorMessage = "input is too long";
-    } 
+    } else {
+        return 
+    }
   }
 
   function getValueInput() {
@@ -24,8 +26,6 @@ function registrationNumber() {
       regInput.length <= 7
     ) {
       return regInput;
-    } else {
-        return 
     }
   }
 

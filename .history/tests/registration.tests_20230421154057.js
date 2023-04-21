@@ -45,5 +45,13 @@ describe("this is a input values", function () {
     assert.equal("input is too long", regInstance.getErrorMessage());
   });
 
- 
+  it("this will return false if first 2 or last 2 numbers are not letters", function () {
+    const regInstance = registrationNumber();
+
+    regInstance.setValueInput("C11gda");
+    regInstance.getValueInput()
+    regInstance.testValueInput()
+
+    assert.equal("First 2 or last 2 characters need to be letters", regInstance.getErrorMessage());
+  });
 });

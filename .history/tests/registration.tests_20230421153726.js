@@ -19,10 +19,8 @@ describe("this is a input values", function () {
     const regInstance = registrationNumber();
 
     regInstance.setValueInput("CJ31204#");
-    regInstance.getValueInput()
-    regInstance.testValueInput()
 
-    assert.equal("May only contain numbers and strings", regInstance.getErrorMessage());
+    assert.equal(undefined, regInstance.getValueInput());
   });
 
   it("this will return error if length of string is below 4", function () {
@@ -32,18 +30,22 @@ describe("this is a input values", function () {
     regInstance.getValueInput()
     regInstance.testValueInput()
 
-    assert.equal("input is too short", regInstance.getErrorMessage());
+    assert.equal(undefined, regInstance.getValueInput());
   });
 
   it("this will return error if length of string is above 7", function () {
     const regInstance = registrationNumber();
 
     regInstance.setValueInput("CJ1gdasd");
-    regInstance.getValueInput()
-    regInstance.testValueInput()
 
-    assert.equal("input is too long", regInstance.getErrorMessage());
+    assert.equal(undefined, regInstance.getValueInput());
   });
 
- 
+  it("this will return false if first 2 or last 2 numbers are not letters", function () {
+    const regInstance = registrationNumber();
+
+    regInstance.setValueInput("C11gdasd");
+
+    assert.equal(undefined, regInstance.getValueInput());
+  });
 });
