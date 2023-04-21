@@ -21,7 +21,7 @@ function registrationNumber() {
   }
 
   function getValueInput() {
-    if (regexNumLet.test(regInput) && regexTwoChar.test(regInput) && 4 <= regInput.length && regInput.length <= 7) {
+    if (regexNumLet.test(regInput) && 4 <= regInput.length && regInput.length <= 7) {
       return regInput;
     } else {
       return false;

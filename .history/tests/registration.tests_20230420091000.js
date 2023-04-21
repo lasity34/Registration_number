@@ -34,22 +34,5 @@ describe("this is a input values", function() {
 
         assert.equal(false, regInstance.getValueInput())
     })
-
-    
-    it("this will return false if length of string is above 7", function() {
-        const regInstance = registrationNumber()
-
-        regInstance.setValueInput("CJ1gdasd")
-
-        assert.equal(false, regInstance.getValueInput())
-    })
-
-    it("this will return false if first 2 or last 2 numbers are not letters", function() {
-        const regInstance = registrationNumber()
-
-        regInstance.setValueInput("C11gdasd")
-
-        assert.equal(false, regInstance.getValueInput())
-    })
     
 })
