@@ -6,10 +6,5 @@ const regInstance = registrationNumber()
 
 function registrationNumAdd() {
 
-    regInstance.setValueInput(regInput)
-
-    document.createElement("li")
-
-    
 
 }

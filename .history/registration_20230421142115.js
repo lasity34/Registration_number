@@ -10,6 +10,4 @@ function registrationNumAdd() {
 
     document.createElement("li")
 
-    
-
 }
