@@ -25,19 +25,23 @@ const regInstance = registrationNumber();
 
 function inputValid() {
   const regValue = regInput.value;
-  const valid = regInstance.setValueInput(regValue);
+  regInstance.setValueInput(regValue);
   regInstance.testValueInput();
-
+  errorMessage.innerHTML = "";
   
 
   if (regInstance.getErrorMessage()) {
     errorMessage.innerHTML = regInstance.getErrorMessage();
-    validator.classList.add("invalid")
-  } else {
-    validator.classList.remove("invalid")
-    errorMessage.innerHTML = "";
+    validator.classList.toggle("invalid");
   }
-  
+  if (regInstance.getErrorMessage1()) {
+    errorMessage1.innerHTML = regInstance.getErrorMessage1();
+    validator1.classList.toggle("invalid2");
+  }
+  if (regInstance.getErrorMessage2()) {
+    errorMessage2.innerHTML = regInstance.getErrorMessage2();
+    validator2.classList.toggle("invalid3");
+  }
 }
 
 addRegNumBtn.addEventListener("click", registrationNumAdd);

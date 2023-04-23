@@ -25,19 +25,35 @@ const regInstance = registrationNumber();
 
 function inputValid() {
   const regValue = regInput.value;
-  const valid = regInstance.setValueInput(regValue);
+  regInstance.setValueInput(regValue);
   regInstance.testValueInput();
+  errorMessage.innerHTML = "";
+  errorMessage1.innerHTML = "";
+  errorMessage2.innerHTML = "";
+  validator.classList.remove("invalid");
+  validator.classList.add("valid");
+  validator.classList.remove("invalid");
+  validator.classList.add("valid");
+  validator.classList.remove("invalid");
+  validator.classList.add("valid");
 
-  
 
   if (regInstance.getErrorMessage()) {
     errorMessage.innerHTML = regInstance.getErrorMessage();
-    validator.classList.add("invalid")
-  } else {
-    validator.classList.remove("invalid")
-    errorMessage.innerHTML = "";
+    validator.classList.remove("valid");
+    validator.classList.add("invalid");
+  } 
+  if (regInstance.getErrorMessage1()) {
+    errorMessage1.innerHTML = regInstance.getErrorMessage1();
+    validator.classList.remove("valid2");
+    validator.classList.add("invalid2");
   }
+  if (regInstance.getErrorMessage2()) {
+    errorMessage2.innerHTML = regInstance.getErrorMessage2();
   
+    validator.classList.remove("valid3");
+    validator.classList.add("invalid3");
+  }
 }
 
 addRegNumBtn.addEventListener("click", registrationNumAdd);

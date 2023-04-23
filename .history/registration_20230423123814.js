@@ -27,15 +27,12 @@ function inputValid() {
   const regValue = regInput.value;
   const valid = regInstance.setValueInput(regValue);
   regInstance.testValueInput();
-
+  errorMessage.innerHTML = "";
   
 
   if (regInstance.getErrorMessage()) {
     errorMessage.innerHTML = regInstance.getErrorMessage();
-    validator.classList.add("invalid")
-  } else {
-    validator.classList.remove("invalid")
-    errorMessage.innerHTML = "";
+    validator.classList.toggle("invalid");
   }
   
 }

@@ -19,11 +19,6 @@ header {
   margin-top: 2em;
 }
 /* input */
-.input_section {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
 
 .form__label {
     font-family: 'Roboto', sans-serif;
@@ -175,34 +170,21 @@ header {
   }
 
   /* valid checker */
-  .validCheck {
-    display: flex;
-   
-    height: 40px;
-  }
 
-  .valid{
-   
-    background-image: url("./images/green-tick\(2\).png");
+  .valid, .valid2, .valid1 {
+    border: 1px solid green;
+    background-image: url(./images/yes.png);
     background-position: right center;
     background-repeat: no-repeat;
-    width: 20px;
-    margin-left: 1em;
-    
+    padding-right: 20px;
   }
   
-  .invalid{
-   
+  .invalid .invalid2, .invalid3{
+    border: 1px solid red;
     
-    background-image: url("./images/close\(1\)\(1\).png");
+    background-image: url(./images/delete.png);
     background-position: right center;
     background-repeat: no-repeat;
-    
-    
-  }
-
-  #error {
-    margin-left: 1em;
-  align-self: center;
+    padding-right: 20px;
   }
   

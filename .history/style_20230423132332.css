@@ -177,8 +177,9 @@ header {
   /* valid checker */
   .validCheck {
     display: flex;
-   
-    height: 40px;
+   align-content: center;
+   width: 3vw;
+    height: 5vh;
   }
 
   .valid{
@@ -186,8 +187,6 @@ header {
     background-image: url("./images/green-tick\(2\).png");
     background-position: right center;
     background-repeat: no-repeat;
-    width: 20px;
-    margin-left: 1em;
     
   }
   
@@ -197,12 +196,11 @@ header {
     background-image: url("./images/close\(1\)\(1\).png");
     background-position: right center;
     background-repeat: no-repeat;
-    
-    
+ 
   }
 
   #error {
     margin-left: 1em;
-  align-self: center;
+   
   }
   

@@ -10,13 +10,13 @@ function registrationNumber() {
   function testValueInput() {
     if (!regexNumLet.test(regInput)) {
       errorMessage = "May only contain numbers and strings";
-    } else if (4 >= regInput.length) {
-      errorMessage = "input is too short";
-    } else if (regInput.length >= 7) {
-      errorMessage = "input is too long";
-    } else {
-      errorMessage = ""
     }
+     if (4 >= regInput.length) {
+      errorMessage = "input is too short";
+    }
+     if (regInput.length >= 7) {
+      errorMessage = "input is too long";
+    } 
   }
 
   function getValueInput() {

@@ -19,11 +19,6 @@ header {
   margin-top: 2em;
 }
 /* input */
-.input_section {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
 
 .form__label {
     font-family: 'Roboto', sans-serif;
@@ -178,7 +173,6 @@ header {
   .validCheck {
     display: flex;
    
-    height: 40px;
   }
 
   .valid{
@@ -186,9 +180,7 @@ header {
     background-image: url("./images/green-tick\(2\).png");
     background-position: right center;
     background-repeat: no-repeat;
-    width: 20px;
-    margin-left: 1em;
-    
+    padding: 15px
   }
   
   .invalid{
@@ -197,12 +189,10 @@ header {
     background-image: url("./images/close\(1\)\(1\).png");
     background-position: right center;
     background-repeat: no-repeat;
-    
-    
+    padding-right: 20px;
   }
 
   #error {
     margin-left: 1em;
-  align-self: center;
   }
   

@@ -177,8 +177,8 @@ header {
   /* valid checker */
   .validCheck {
     display: flex;
-   
-    height: 40px;
+   align-content: center;
+   height: 10vh;
   }
 
   .valid{

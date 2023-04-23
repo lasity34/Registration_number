@@ -1,6 +1,9 @@
 function registrationNumber() {
   let regInput;
   let errorMessage = "";
+  let errorMessage1 = '';
+  let errorMessage2 = ''
+  let errorMessage3 = ''
   const regexNumLet = /^[a-zA-Z0-9]*$/;
 
   function setValueInput(input) {
@@ -10,13 +13,13 @@ function registrationNumber() {
   function testValueInput() {
     if (!regexNumLet.test(regInput)) {
       errorMessage = "May only contain numbers and strings";
-    } else if (4 >= regInput.length) {
-      errorMessage = "input is too short";
-    } else if (regInput.length >= 7) {
-      errorMessage = "input is too long";
-    } else {
-      errorMessage = ""
     }
+     if (4 >= regInput.length) {
+      errorMessage1 = "input is too short";
+    }
+     if (regInput.length >= 7) {
+      errorMessage1 = "input is too long";
+    } 
   }
 
   function getValueInput() {
@@ -35,10 +38,19 @@ function registrationNumber() {
     return errorMessage;
   }
 
+  function getErrorMessage1() {
+    return errorMessage1;
+  }
+  function getErrorMessage2() {
+    return errorMessage2;
+  }
+
   return {
     setValueInput,
     getValueInput,
     testValueInput,
     getErrorMessage,
+    getErrorMessage1,
+    getErrorMessage2
   };
 }
