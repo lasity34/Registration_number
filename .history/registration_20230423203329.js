@@ -5,31 +5,26 @@ const errorMessage = document.querySelector("#error");
 const validator = document.querySelector(".valid");
 
 const regInstance = registrationNumber();
-let regArr = [];
+let regMap = {};
 
 function registrationNumAdd() {
   const regValue = regInput.value;
   regInstance.setValueInput(regValue);
-  const reg = regInstance.getValueInput();
+   regInstance.getValueInput();
+   regMap = regInstance.getObj()
 
-  if (reg) {
-    regInstance.callRegNum();
-    regArr = regInstance.getObj();
-    localStorage.setItem("regNum", JSON.stringify(regArr));
-    regArr.forEach((reg) => {
-      const newLi = document.createElement("li");
-      newLi.textContent = reg.reg;
-      regDisplay.appendChild(newLi);
-    });
+  if (regNum === undefined) {
+    return;
   }
-}
-if (localStorage.getItem("regNum")) {
-  regArr = JSON.parse(localStorage.getItem("regNum"));
-  regArr.forEach((reg) => {
-    const newLi = document.createElement("li");
-    newLi.textContent = reg.reg;
-    regDisplay.appendChild(newLi);
-  });
+
+  regInstance.callRegNum();
+  localStorage.setItem("regNum", JSON.stringify(regMap));
+
+  const newLi = document.createElement("li");
+  regMap = JSON.parse(localStorage.getItem("regNum"));
+  newLi.textContent = regMap
+
+  regDisplay.appendChild(newLi);
 }
 
 function inputValid() {

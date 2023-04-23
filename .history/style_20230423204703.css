@@ -1,10 +1,15 @@
 html {
-  background: url(./images/car_background.jpg) center / cover no-repeat;
+  
   background-color: rgba(0, 0, 0, 0.1);
   height: 100vh;
   font-family: "Arvo", serif;
   font-weight: 700;
   color: #fff;
+}
+
+body {
+  background: url(./images/car_background.jpg) center / cover no-repeat;
+  margin: 0;
 }
 
 header {
@@ -195,13 +200,12 @@ ul {
 }
 
 li {
-  
+  margin: 0;
   list-style: none;
   font-size: 2rem;
   font-weight: bold;
   align-self: center;
   width: 25%;
-  padding-bottom: 3em;
   margin-top: 0.5em;
   margin-right: 100px;
   max-width: 200px;

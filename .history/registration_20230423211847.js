@@ -11,25 +11,25 @@ function registrationNumAdd() {
   const regValue = regInput.value;
   regInstance.setValueInput(regValue);
   const reg = regInstance.getValueInput();
+  
 
   if (reg) {
     regInstance.callRegNum();
-    regArr = regInstance.getObj();
-    localStorage.setItem("regNum", JSON.stringify(regArr));
-    regArr.forEach((reg) => {
-      const newLi = document.createElement("li");
-      newLi.textContent = reg.reg;
-      regDisplay.appendChild(newLi);
-    });
+    regMap = regInstance.getObj();
+    localStorage.setItem("regNum", JSON.stringify(regMap));
   }
-}
-if (localStorage.getItem("regNum")) {
-  regArr = JSON.parse(localStorage.getItem("regNum"));
-  regArr.forEach((reg) => {
-    const newLi = document.createElement("li");
-    newLi.textContent = reg.reg;
-    regDisplay.appendChild(newLi);
-  });
+
+  
+  
+  
+  regMap = JSON.parse(localStorage.getItem("regNum"));
+  console.log(regMap)
+  for (const regNum in regMap) {
+      const newLi = document.createElement("li");
+      newLi.textContent = regNum;
+      regDisplay.appendChild(newLi);
+    }
+    
 }
 
 function inputValid() {

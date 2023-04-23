@@ -16,6 +16,8 @@ function registrationNumAdd() {
     regInstance.callRegNum();
     regArr = regInstance.getObj();
     localStorage.setItem("regNum", JSON.stringify(regArr));
+
+    
     regArr.forEach((reg) => {
       const newLi = document.createElement("li");
       newLi.textContent = reg.reg;
@@ -23,14 +25,8 @@ function registrationNumAdd() {
     });
   }
 }
-if (localStorage.getItem("regNum")) {
-  regArr = JSON.parse(localStorage.getItem("regNum"));
-  regArr.forEach((reg) => {
-    const newLi = document.createElement("li");
-    newLi.textContent = reg.reg;
-    regDisplay.appendChild(newLi);
-  });
-}
+
+regArr = JSON.parse(localStorage.getItem("regNum"));
 
 function inputValid() {
   const regValue = regInput.value;
@@ -45,6 +41,8 @@ function inputValid() {
     validator.classList.remove("invalid");
   }
 }
+
+
 
 addRegNumBtn.addEventListener("click", registrationNumAdd);
 regInput.addEventListener("input", inputValid);

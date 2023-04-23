@@ -10,26 +10,24 @@ let regArr = [];
 function registrationNumAdd() {
   const regValue = regInput.value;
   regInstance.setValueInput(regValue);
-  const reg = regInstance.getValueInput();
+  regInstance.getValueInput();
+  regMap = regInstance.getObj();
 
-  if (reg) {
-    regInstance.callRegNum();
-    regArr = regInstance.getObj();
-    localStorage.setItem("regNum", JSON.stringify(regArr));
-    regArr.forEach((reg) => {
-      const newLi = document.createElement("li");
-      newLi.textContent = reg.reg;
-      regDisplay.appendChild(newLi);
-    });
+  if (regMap === undefined) {
+    return;
   }
-}
-if (localStorage.getItem("regNum")) {
-  regArr = JSON.parse(localStorage.getItem("regNum"));
-  regArr.forEach((reg) => {
-    const newLi = document.createElement("li");
-    newLi.textContent = reg.reg;
-    regDisplay.appendChild(newLi);
-  });
+
+  localStorage.setItem("regNum", JSON.stringify(regMap));
+  
+  
+  regMap = JSON.parse(localStorage.getItem("regNum"));
+  console.log(regMap)
+  for (const regNum in regMap) {
+      const newLi = document.createElement("li");
+      newLi.textContent = regNum;
+      regDisplay.appendChild(newLi);
+    }
+    regInstance.callRegNum();
 }
 
 function inputValid() {

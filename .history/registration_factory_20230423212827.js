@@ -26,14 +26,14 @@ function registrationNumber() {
     if (!regArr.some((reg) => reg.reg === regInput)) {
       regArr.push({ reg: regInput, count: 0 });
   }
-  }
+
   
   function getValueInput() {
     if (
       regexNumLet.test(regInput) &&
       7 < regInput.length &&
       9 > regInput.length &&
-      !regArr.some((reg) => reg.reg === regInput)
+      regObj[regInput] != 0
       ) {
         
         return regInput

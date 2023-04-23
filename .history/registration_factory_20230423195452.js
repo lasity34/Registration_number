@@ -2,7 +2,7 @@ function registrationNumber() {
   let regInput;
   let errorMessage = "";
   const regexNumLet = /^[a-zA-Z0-9]*$/;
-  const regArr = [];
+  const regObj = {};
 
   function setValueInput(input) {
     regInput = input.replace(/[a-zA-Z]/g, (letter) => letter.toUpperCase());
@@ -23,27 +23,31 @@ function registrationNumber() {
   }
 
   function callRegNum() {
-    if (!regArr.some((reg) => reg.reg === regInput)) {
-      regArr.push({ reg: regInput, count: 0 });
+    if (regObj[regInput] === undefined) {
+      regObj[regInput] = 0;
+    }
   }
-  }
+
   
   function getValueInput() {
     if (
       regexNumLet.test(regInput) &&
       7 < regInput.length &&
       9 > regInput.length &&
-      !regArr.some((reg) => reg.reg === regInput)
+      regObj[regInput] === undefined
       ) {
-        
-        return regInput
+        return regInput;
       } else {
         return;
       }
     }
-
-    function getObj() {
-      return regArr
+    console.log(regObj)
+    function setLocalStorage() {
+      localStorage.setItem("regNum", JSON.stringify(regInput));
+    }
+  
+    function getLocalStorage() {
+      regInput = localStorage.getItem("regNum")
     }
     
     function getErrorMessage() {
@@ -56,6 +60,7 @@ function registrationNumber() {
     testValueInput,
     getErrorMessage,
     callRegNum,
-  getObj
+    setLocalStorage,
+    getLocalStorage
   };
 }

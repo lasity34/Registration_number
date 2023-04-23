@@ -33,7 +33,7 @@ function registrationNumber() {
       regexNumLet.test(regInput) &&
       7 < regInput.length &&
       9 > regInput.length &&
-      !regArr.some((reg) => reg.reg === regInput)
+      regObj[regInput] != 0
       ) {
         
         return regInput

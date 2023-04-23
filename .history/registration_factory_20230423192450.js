@@ -2,7 +2,7 @@ function registrationNumber() {
   let regInput;
   let errorMessage = "";
   const regexNumLet = /^[a-zA-Z0-9]*$/;
-  const regArr = [];
+  const regObj = {};
 
   function setValueInput(input) {
     regInput = input.replace(/[a-zA-Z]/g, (letter) => letter.toUpperCase());
@@ -11,42 +11,38 @@ function registrationNumber() {
   function testValueInput() {
     if (!regexNumLet.test(regInput)) {
       errorMessage = "numbers and letters only";
-    } else if (7 > regInput.length) {
+    } else if (7 >  regInput.length) {
       errorMessage = "Too short";
-    } else if (9 < regInput.length) {
-      errorMessage = "Too long";
-    } else if (regObj[regInput] === 0) {
-      errorMessage = "Already used";
-    } else {
+    } else if (9 < regInput.length){
+      errorMessage = "Too long"
+    }
+    else if (regObj[regInput] === 0) {
+      errorMessage = "Already used"
+    }
+    else {
       errorMessage = "";
     }
   }
 
   function callRegNum() {
-    if (!regArr.some((reg) => reg.reg === regInput)) {
-      regArr.push({ reg: regInput, count: 0 });
+    if (regObj[regInput] === undefined) {
+      regObj[regInput] = 0 && 7 >  regInput.length && 9 < regInput.length
+    }
   }
-  }
-  
+
   function getValueInput() {
     if (
       regexNumLet.test(regInput) &&
-      7 < regInput.length &&
-      9 > regInput.length &&
-      !regArr.some((reg) => reg.reg === regInput)
-      ) {
-        
-        return regInput
-      } else {
-        return;
-      }
+      7 === regInput.length &&
+      regObj[regInput] === undefined
+    ) {
+      return regInput;
+    } else {
+      return;
     }
+  }
 
-    function getObj() {
-      return regArr
-    }
-    
-    function getErrorMessage() {
+  function getErrorMessage() {
     return errorMessage;
   }
 
@@ -56,6 +52,5 @@ function registrationNumber() {
     testValueInput,
     getErrorMessage,
     callRegNum,
-  getObj
   };
 }
