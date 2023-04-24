@@ -42,7 +42,7 @@ function registrationNumAdd() {
 
     regInstance.filterReg();
     regInstance.getFilteredArr();
-    console.log(regInstance.getFilteredArr())
+
     regDisplay.innerHTML = "";
 
     storedRegArr.forEach((reg) => {

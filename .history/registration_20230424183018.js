@@ -41,19 +41,20 @@ function registrationNumAdd() {
     localStorage.setItem("regNum", JSON.stringify(storedRegArr));
 
     regInstance.filterReg();
-    regInstance.getFilteredArr();
-    console.log(regInstance.getFilteredArr())
-    regDisplay.innerHTML = "";
+    const filteredArr = regInstance.getFilteredArr();
 
-    storedRegArr.forEach((reg) => {
-      const newLi = document.createElement("li");
-      newLi.textContent = reg.reg;
-      regDisplay.appendChild(newLi);
-    });
+    regDisplay.innerHTML = "";
+   
+      storedRegArr.forEach((reg) => {
+        const newLi = document.createElement("li");
+        newLi.textContent = reg.reg;
+        regDisplay.appendChild(newLi);
+      })
+    }
+
+    regInput.value = "";
   }
 
-  regInput.value = "";
-}
 
 // error code input
 
@@ -86,14 +87,14 @@ function moveDown() {
 function changeTown() {
   regInstance.filterReg();
   const filteredArr = regInstance.getFilteredArr();
-  console.log(filteredArr);
+  console.log(filteredArr)
   regDisplay.innerHTML = "";
   if (filteredArr) {
     filteredArr.forEach((reg) => {
       const newLi = document.createElement("li");
       newLi.textContent = reg.reg;
       regDisplay.appendChild(newLi);
-    });
+    }) 
   } else {
     regDisplay.innerHTML = "";
   }

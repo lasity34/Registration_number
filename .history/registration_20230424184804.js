@@ -84,7 +84,7 @@ function moveDown() {
 }
 
 function changeTown() {
-  regInstance.filterReg();
+  
   const filteredArr = regInstance.getFilteredArr();
   console.log(filteredArr);
   regDisplay.innerHTML = "";

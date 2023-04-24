@@ -5,7 +5,6 @@ const regDisplay = document.querySelector(".reg_display");
 const errorMessage = document.querySelector("#error");
 const validator = document.querySelector(".valid");
 const townSelect = document.querySelector("#dropdown");
-const town = document.querySelector(".town");
 
 const regInstance = registrationNumber();
 
@@ -41,18 +40,26 @@ function registrationNumAdd() {
     localStorage.setItem("regNum", JSON.stringify(storedRegArr));
 
     regInstance.filterReg();
-    regInstance.getFilteredArr();
-    console.log(regInstance.getFilteredArr())
+    const filteredArr = regInstance.getFilteredArr()
+
     regDisplay.innerHTML = "";
+    if (filteredArr) {
+        filteredArr.forEach((reg) => {
+        const newLi = document.createElement("li");
+        newLi.textContent = reg.reg;
+        regDisplay.appendChild(newLi);
+      });
+    } else {
 
-    storedRegArr.forEach((reg) => {
-      const newLi = document.createElement("li");
-      newLi.textContent = reg.reg;
-      regDisplay.appendChild(newLi);
-    });
+      storedRegArr.forEach((reg) => {
+        const newLi = document.createElement("li");
+        newLi.textContent = reg.reg;
+        regDisplay.appendChild(newLi);
+      });
+    }
+
+    regInput.value = "";
   }
-
-  regInput.value = "";
 }
 
 // error code input
@@ -81,25 +88,9 @@ function clear() {
 
 function moveDown() {
   document.querySelector(".btn_container").style.paddingTop = "5em";
+
 }
 
-function changeTown() {
-  regInstance.filterReg();
-  const filteredArr = regInstance.getFilteredArr();
-  console.log(filteredArr);
-  regDisplay.innerHTML = "";
-  if (filteredArr) {
-    filteredArr.forEach((reg) => {
-      const newLi = document.createElement("li");
-      newLi.textContent = reg.reg;
-      regDisplay.appendChild(newLi);
-    });
-  } else {
-    regDisplay.innerHTML = "";
-  }
-}
-
-town.addEventListener("click", changeTown);
 townSelect.addEventListener("click", moveDown);
 clearBtn.addEventListener("click", clear);
 addRegNumBtn.addEventListener("click", registrationNumAdd);
