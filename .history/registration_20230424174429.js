@@ -12,7 +12,7 @@ const regInstance = registrationNumber();
 
 let regArr = JSON.parse(localStorage.getItem("regNum")) || [];
 regInstance.setSavedArr(regArr);
-
+console.log(regArr)
 regInstance.setLocationValue(townSelect.value);
 if (Array.isArray(regArr)) {
   regArr.forEach((reg) => {

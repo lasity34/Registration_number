@@ -38,17 +38,15 @@ function registrationNumAdd() {
     regArr.push(...newRegArr);
     const storedRegArr = [...regArr];
     localStorage.setItem("regNum", JSON.stringify(storedRegArr));
-
     regInstance.filterReg();
     const filteredArr = regInstance.getFilteredArr();
 
-    regDisplay.innerHTML = "";
+       regDisplay.innerHTML = "";
     storedRegArr.forEach((reg) => {
       const newLi = document.createElement("li");
       newLi.textContent = reg.reg;
       regDisplay.appendChild(newLi);
-    });
-
+    });;
     regInput.value = "";
   }
 }

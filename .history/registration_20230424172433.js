@@ -26,31 +26,30 @@ regInstance.filterReg();
 // add reg number
 
 function registrationNumAdd() {
-  // sett value
-
   const regValue = regInput.value;
+
   regInstance.setValueInput(regValue);
   const reg = regInstance.getObj();
+
+  regInstance.filterReg();
+  const filteredArr = regInstance.getFilteredArr();
+
 
   if (reg) {
     regInstance.callRegNum();
     const newRegArr = regInstance.getObj();
+    console.log(newRegArr);
     regArr.push(...newRegArr);
     const storedRegArr = [...regArr];
     localStorage.setItem("regNum", JSON.stringify(storedRegArr));
-
-    regInstance.filterReg();
-    const filteredArr = regInstance.getFilteredArr();
-
-    regDisplay.innerHTML = "";
-    storedRegArr.forEach((reg) => {
-      const newLi = document.createElement("li");
-      newLi.textContent = reg.reg;
-      regDisplay.appendChild(newLi);
-    });
-
+    const newLi = document.createElement("li");
+    newLi.textContent = JSON.stringify(reg.reg);
+    newLi.textContent = JSON.stringify(filteredArr.reg);
+    regDisplay.appendChild(newLi);
     regInput.value = "";
   }
+
+  location.reload();
 }
 
 // error code input

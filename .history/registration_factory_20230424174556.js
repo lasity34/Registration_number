@@ -98,7 +98,6 @@ function registrationNumber() {
   }
 
   function getFilteredArr() {
-    console.log(filteredArr)
     return filteredArr;
   }
 

@@ -14,13 +14,13 @@ function registrationNumber() {
 
   function setLocationValue(location) {
     locationVal = location;
+
   }
 
   function setSavedArr(arr) {
-    locationArr = arr;
+    locationArr = arr
+   
   }
-
-  // tests for error messages
 
   function testValueInput() {
     if (!regexNumLet.test(regInput)) {
@@ -75,9 +75,9 @@ function registrationNumber() {
   }
 
   function filterReg() {
-    filteredArr = locationArr
-      .filter((reg) => reg.location === locationVal)
-      .map((reg) => reg.reg);
+    
+    filteredArr = locationArr.filter((reg) => reg.location === locationVal).map((reg) => reg.reg);
+   
   }
 
   function getValueInput() {
@@ -98,8 +98,7 @@ function registrationNumber() {
   }
 
   function getFilteredArr() {
-    console.log(filteredArr)
-    return filteredArr;
+    return filteredArr
   }
 
   function getErrorMessage() {
@@ -116,6 +115,6 @@ function registrationNumber() {
     filterReg,
     getObj,
     getFilteredArr,
-    setSavedArr,
+    setSavedArr
   };
 }

@@ -8,12 +8,11 @@ const townSelect = document.querySelector("#dropdown");
 
 const regInstance = registrationNumber();
 
-// global code
 
-let regArr = JSON.parse(localStorage.getItem("regNum")) || [];
-regInstance.setSavedArr(regArr);
+let regArr = JSON.parse(localStorage.getItem("regNum")) || []
+console.log(regArr)
 
-regInstance.setLocationValue(townSelect.value);
+regInstance.setLocationValue(townSelect.value)
 if (Array.isArray(regArr)) {
   regArr.forEach((reg) => {
     const newLi = document.createElement("li");
@@ -21,39 +20,43 @@ if (Array.isArray(regArr)) {
     regDisplay.appendChild(newLi);
   });
 }
-regInstance.filterReg();
+regInstance.filterReg()
 
-// add reg number
 
 function registrationNumAdd() {
-  // sett value
-
+ 
   const regValue = regInput.value;
+
   regInstance.setValueInput(regValue);
-  const reg = regInstance.getObj();
+  const reg = regInstance.getObj()
+  console.log(reg)
+  console.log(reg)
+  regInstance.filterReg()
+  const locationReg = regInstance.getLocationObj()
+  
+  
 
   if (reg) {
     regInstance.callRegNum();
-    const newRegArr = regInstance.getObj();
-    regArr.push(...newRegArr);
-    const storedRegArr = [...regArr];
+    const newRegArr =  regInstance.getObj()
+    console.log(newRegArr)
+    regArr.push(...newRegArr)
+    const storedRegArr = [...regArr]
     localStorage.setItem("regNum", JSON.stringify(storedRegArr));
-
-    regInstance.filterReg();
-    const filteredArr = regInstance.getFilteredArr();
-
-    regDisplay.innerHTML = "";
-    storedRegArr.forEach((reg) => {
-      const newLi = document.createElement("li");
-      newLi.textContent = reg.reg;
-      regDisplay.appendChild(newLi);
-    });
-
+    const newLi = document.createElement("li");
+    newLi.textContent = JSON.stringify(reg.reg);
+    newLi.textContent = JSON.stringify(locationReg.reg);
+    regDisplay.appendChild(newLi);
     regInput.value = "";
   }
+
+  location.reload()
+  
 }
 
-// error code input
+
+
+
 
 function inputValid() {
   const regValue = regInput.value;
@@ -74,11 +77,14 @@ function clear() {
   errorMessage.innerHTML = "";
   regDisplay.innerHTML = "";
   regInput.value = "";
-  regArr = [];
+  regArr = []
 }
+ 
 
 function moveDown() {
-  document.querySelector(".btn_container").style.paddingTop = "5em";
+  
+    document.querySelector(".btn_container").style.paddingTop = "5em";
+    
 }
 
 townSelect.addEventListener("click", moveDown);

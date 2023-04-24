@@ -1,12 +1,10 @@
 function registrationNumber() {
   let regInput = "";
   let errorMessage = "";
-  let locationVal = "";
   const regexNumLet = /^[a-zA-Z0-9]*$/;
-
   let regArr = [];
   let locationArr = [];
-  let filteredArr = [];
+  let locationVal = "";
 
   function setValueInput(input) {
     regInput = input.replace(/[a-zA-Z]/g, (letter) => letter.toUpperCase());
@@ -14,13 +12,8 @@ function registrationNumber() {
 
   function setLocationValue(location) {
     locationVal = location;
+    console.log('locationVal:', locationVal);
   }
-
-  function setSavedArr(arr) {
-    locationArr = arr;
-  }
-
-  // tests for error messages
 
   function testValueInput() {
     if (!regexNumLet.test(regInput)) {
@@ -41,8 +34,6 @@ function registrationNumber() {
       errorMessage = "";
     }
   }
-
-  // Creates new object
 
   function callRegNum() {
     if (!regArr.some((reg) => reg.reg === regInput)) {
@@ -75,9 +66,9 @@ function registrationNumber() {
   }
 
   function filterReg() {
-    filteredArr = locationArr
-      .filter((reg) => reg.location === locationVal)
-      .map((reg) => reg.reg);
+    console.log(regArr)
+    locationArr = regArr.filter((reg) => reg.location === locationVal).map((reg) => reg.reg);
+    console.log(locationArr)
   }
 
   function getValueInput() {
@@ -97,9 +88,8 @@ function registrationNumber() {
     return regArr;
   }
 
-  function getFilteredArr() {
-    console.log(filteredArr)
-    return filteredArr;
+  function getLocationObj() {
+    return locationArr;
   }
 
   function getErrorMessage() {
@@ -115,7 +105,6 @@ function registrationNumber() {
     callRegNum,
     filterReg,
     getObj,
-    getFilteredArr,
-    setSavedArr,
+    getLocationObj,
   };
 }

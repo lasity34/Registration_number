@@ -38,7 +38,6 @@ function registrationNumAdd() {
     regArr.push(...newRegArr);
     const storedRegArr = [...regArr];
     localStorage.setItem("regNum", JSON.stringify(storedRegArr));
-
     regInstance.filterReg();
     const filteredArr = regInstance.getFilteredArr();
 
