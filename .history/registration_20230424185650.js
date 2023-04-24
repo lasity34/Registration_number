@@ -92,7 +92,7 @@ function changeTown() {
   if (filteredArr) {
     filteredArr.forEach((reg) => {
       const newLi = document.createElement("li");
-      newLi.textContent = reg
+      newLi.textContent = JSON.parse(reg)
       regDisplay.appendChild(newLi);
     });
   } else {

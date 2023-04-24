@@ -84,7 +84,6 @@ function moveDown() {
 }
 
 function changeTown() {
-  regInstance.callRegNum();
   regInstance.filterReg();
   const filteredArr = regInstance.getFilteredArr();
   console.log(filteredArr);
@@ -92,7 +91,7 @@ function changeTown() {
   if (filteredArr) {
     filteredArr.forEach((reg) => {
       const newLi = document.createElement("li");
-      newLi.textContent = reg
+      newLi.textContent = reg.reg;
       regDisplay.appendChild(newLi);
     });
   } else {
@@ -100,7 +99,6 @@ function changeTown() {
   }
 }
 
-changeTown()
 town.addEventListener("click", changeTown);
 townSelect.addEventListener("click", moveDown);
 clearBtn.addEventListener("click", clear);
