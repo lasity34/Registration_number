@@ -1,7 +1,7 @@
 html {
   background: url(./images/car_background.jpg) center / cover no-repeat;
   background-color: rgba(0, 0, 0, 0.1);
-  height: 150vh;
+  height: 100vh;
   font-family: "Arvo", serif;
   font-weight: 700;
   color: #fff;
@@ -61,10 +61,6 @@ header {
 
 
 /*  button */
-
-.btn_container {
-  padding-top: 0.5em; 
-}
 
 button {
   text-align: center;
@@ -300,3 +296,6 @@ option {
   display: block;
 }
 
+.space_select {
+  margin-top: 0.5em;
+}

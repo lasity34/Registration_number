@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registration number</title>
 
+    <link href="./semantic.css" rel="stylesheet" type="text/css" />
     <link href="./style.css" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,17 +35,16 @@
         <p id="error"></p>
       </div>
     </section>
-    <section class="select_town">
-      <label for="dropdown">Town:</label>
-      <select id="dropdown" name="dropdown" >
-        <option value="default">Select Town</option>
-        <option value="cape_town">Cape Town</option>
-        <option value="george">George</option>
-        <option value="strand">Strand</option>
-      </select>
-      <div class="space_select"></div>
+    <section>
+      <label for="dropdown">Select an option:</label>
+  <select id="dropdown" name="dropdown">
+    <option value="option1">Select Town</option>
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+  </select>
     </section>
-    <section class="btn_container">
+    <section>
       <button class="custom-btn btn-12 add_btn">
         <span>Click!</span><span>Add Reg Num</span>
       </button>
@@ -57,10 +57,5 @@
     </section>
     <script src="./registration_factory.js"></script>
     <script src="./registration.js"></script>
-    <script>
-    
-     
-      
-    </script>
   </body>
 </html>

@@ -1,7 +1,7 @@
 html {
   background: url(./images/car_background.jpg) center / cover no-repeat;
   background-color: rgba(0, 0, 0, 0.1);
-  height: 150vh;
+  height: 100vh;
   font-family: "Arvo", serif;
   font-weight: 700;
   color: #fff;
@@ -61,10 +61,6 @@ header {
 
 
 /*  button */
-
-.btn_container {
-  padding-top: 0.5em; 
-}
 
 button {
   text-align: center;
@@ -274,11 +270,8 @@ li {
 .select_town {
   display: flex;
   justify-content: center;
-  margin-right: 4em;
-  margin-bottom: 5em;
+  
 }
-
-
 
 .select_town label {
   align-self: center;
@@ -286,17 +279,15 @@ li {
 }
 
 select {
-  color: rgba(250, 235, 215, 0.742);
+ 
   padding: 10px;
   font-size: 1rem;
-  
+  border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: rgb(56, 46, 46);
+  background-color: #fff;
   width: 200px;
 }
 
 option {
   margin: 1em 0;
-  display: block;
 }
-

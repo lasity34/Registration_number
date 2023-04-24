@@ -6,14 +6,8 @@ const errorMessage = document.querySelector("#error");
 const validator = document.querySelector(".valid");
 const townSelect = document.querySelector("#dropdown")
 
-console.log(townSelect)
 const regInstance = registrationNumber();
 let regArr = [];
-
-function moveDown() {
-  document.querySelector('.btn_container').style.paddingTop = '5em';
-}
-
 
 function registrationNumAdd() {
   const regValue = regInput.value;
@@ -66,7 +60,10 @@ function clear() {
     regInput.value = ""
 }
 
-
+function moveDown() {
+  alert('Dropdown options changed!');
+  document.querySelector('.btn_container').style.paddingTop = '3em';
+}
 
 clearBtn.addEventListener("click", clear)
 addRegNumBtn.addEventListener("click", registrationNumAdd);

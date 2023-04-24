@@ -67,7 +67,7 @@ function clear() {
 }
 
 
-
+townSelect.addEventListener("click", moveDown)
 clearBtn.addEventListener("click", clear)
 addRegNumBtn.addEventListener("click", registrationNumAdd);
 regInput.addEventListener("input", inputValid);
