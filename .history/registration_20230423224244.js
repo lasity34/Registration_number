@@ -1,5 +1,4 @@
 const addRegNumBtn = document.querySelector(".add_btn");
-const clearBtn = document.querySelector(".clear_btn")
 const regInput = document.querySelector(".form__input");
 const regDisplay = document.querySelector(".reg_display");
 const errorMessage = document.querySelector("#error");
@@ -21,11 +20,8 @@ function registrationNumAdd() {
     const newLi = document.createElement("li");
     newLi.textContent = reg;
     regDisplay.appendChild(newLi);
-    regInput.value = ""
   }
 }
-
-
 if (localStorage.getItem("regNum")) {
   regArr = JSON.parse(localStorage.getItem("regNum"));
   if (Array.isArray(regArr)) {
@@ -35,7 +31,6 @@ if (localStorage.getItem("regNum")) {
       regDisplay.appendChild(newLi);
     });
   }
- 
 }
 
 function inputValid() {
@@ -52,13 +47,5 @@ function inputValid() {
   }
 }
 
-function clear() {
-    localStorage.clear
-    errorMessage.innerHTML = ""
-    regDisplay.innerHTML = ""
-    regInput.value = ""
-}
-
-clearBtn.addEventListener("click", clear)
 addRegNumBtn.addEventListener("click", registrationNumAdd);
 regInput.addEventListener("input", inputValid);

@@ -148,13 +148,8 @@ button {
 }
 
 .clear_btn {
-  margin-top:  3em;
-  width: 100px;
-  margin-left: 44%;
-}
-
-.clear_btn span {
-  background: linear-gradient(90deg, rgb(12, 14, 15) 0%, rgb(161, 45, 7) 100%);
+  margin-top: 2em;
+  background-color: red;
 }
 
 /* valid checker */
@@ -243,10 +238,6 @@ li {
     margin-left: 35%;
   }
 
-  .clear_btn {
-    margin-left: 40%;
-  }
-
   .validCheck {
     margin-top: 1em;
     align-self: center;
@@ -255,11 +246,7 @@ li {
 
 @media only screen and (max-width: 468px) {
   .btn-12 {
-    margin-left: 22%;
-  }
-
-  .clear_btn {
-    margin-left: 30%;
+    margin-left: 25%;
   }
 
   li {

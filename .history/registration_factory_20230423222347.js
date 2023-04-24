@@ -23,13 +23,13 @@ function registrationNumber() {
   }
 
   function callRegNum() {
-    if (!regArr.some((reg) => reg.reg === regInput)) {
+    const index = regArr.findIndex((reg) => reg.reg === regInput);
+    if (index === -1) {
       regArr.push({ reg: regInput, count: 0 });
-      return true
+      return true;
     }
-    return false
+    return false;
   }
-
   function getValueInput() {
     if (
       regexNumLet.test(regInput) &&

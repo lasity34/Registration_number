@@ -15,7 +15,7 @@ function registrationNumber() {
       errorMessage = "Too short";
     } else if (9 < regInput.length) {
       errorMessage = "Too long";
-    } else if (regArr.some((reg) => reg.reg === regInput)) {
+    } else if (regObj[regInput] === 0) {
       errorMessage = "Already used";
     } else {
       errorMessage = "";
@@ -25,15 +25,13 @@ function registrationNumber() {
   function callRegNum() {
     if (!regArr.some((reg) => reg.reg === regInput)) {
       regArr.push({ reg: regInput, count: 0 });
-      return true
     }
-    return false
   }
 
   function getValueInput() {
     if (
       regexNumLet.test(regInput) &&
-      7 <= regInput.length &&
+      7 < regInput.length &&
       9 > regInput.length &&
       !regArr.some((reg) => reg.reg === regInput)
     ) {

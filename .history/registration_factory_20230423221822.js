@@ -25,9 +25,7 @@ function registrationNumber() {
   function callRegNum() {
     if (!regArr.some((reg) => reg.reg === regInput)) {
       regArr.push({ reg: regInput, count: 0 });
-      return true
     }
-    return false
   }
 
   function getValueInput() {

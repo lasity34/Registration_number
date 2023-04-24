@@ -25,15 +25,13 @@ function registrationNumber() {
   function callRegNum() {
     if (!regArr.some((reg) => reg.reg === regInput)) {
       regArr.push({ reg: regInput, count: 0 });
-      return true
     }
-    return false
   }
 
   function getValueInput() {
     if (
       regexNumLet.test(regInput) &&
-      7 <= regInput.length &&
+      7 < regInput.length &&
       9 > regInput.length &&
       !regArr.some((reg) => reg.reg === regInput)
     ) {

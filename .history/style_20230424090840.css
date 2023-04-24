@@ -148,9 +148,8 @@ button {
 }
 
 .clear_btn {
-  margin-top:  3em;
-  width: 100px;
-  margin-left: 44%;
+  margin:  3em auto;
+  width: 25%;
 }
 
 .clear_btn span {
@@ -243,10 +242,6 @@ li {
     margin-left: 35%;
   }
 
-  .clear_btn {
-    margin-left: 40%;
-  }
-
   .validCheck {
     margin-top: 1em;
     align-self: center;
@@ -255,11 +250,7 @@ li {
 
 @media only screen and (max-width: 468px) {
   .btn-12 {
-    margin-left: 22%;
-  }
-
-  .clear_btn {
-    margin-left: 30%;
+    margin-left: 25%;
   }
 
   li {
