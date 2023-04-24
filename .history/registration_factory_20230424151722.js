@@ -1,5 +1,5 @@
 function registrationNumber() {
-  let regInput = "";
+  let regInput;
   let errorMessage = "";
   const regexNumLet = /^[a-zA-Z0-9]*$/;
   let regArr = [];
@@ -64,6 +64,8 @@ function registrationNumber() {
     }
   }
 
+  console.log(regArr);
+
   function filterReg() {
     locationArr = regArr
       .filter((reg) => reg.location === locationVal)
@@ -77,18 +79,16 @@ function registrationNumber() {
       9 > regInput.length &&
       !regArr.some((reg) => reg.reg === regInput)
     ) {
-      return regArr.regInput;
+      return regInput;
     } else {
       return;
     }
   }
 
   function getObj() {
-    return regArr;
-  }
-
-  function getLocationObj() {
-    return locationArr;
+  
+      return regArr;
+    
   }
 
   function getErrorMessage() {
@@ -104,6 +104,5 @@ function registrationNumber() {
     callRegNum,
     filterReg,
     getObj,
-    getLocationObj,
   };
 }

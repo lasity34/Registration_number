@@ -17,20 +17,19 @@ if (Array.isArray(regArr)) {
     newLi.textContent = reg.reg;
     regDisplay.appendChild(newLi);
   });
-}
-regInstance.filterReg()
-console.log(regInstance.getLocationObj())
+
+
 
 function registrationNumAdd() {
  
   const regValue = regInput.value;
 
   regInstance.setValueInput(regValue);
-  const reg = regInstance.getLocationObj() ? regInstance.getLocationObj() : regInstance.getObj()
+  const reg = regInstance.getObj()
   console.log(reg)
   if (reg) {
     regInstance.callRegNum();
-    const newRegArr =  regInstance.getObj()
+    const newRegArr = regInstance.getObj();
     regArr.push(...newRegArr)
     const storedRegArr = [...regArr]
     localStorage.setItem("regNum", JSON.stringify(storedRegArr));
@@ -40,8 +39,7 @@ function registrationNumAdd() {
     regInput.value = "";
   }
 
-  location.reload()
-  
+}
 }
 
 

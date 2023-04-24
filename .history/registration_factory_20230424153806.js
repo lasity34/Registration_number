@@ -1,5 +1,5 @@
 function registrationNumber() {
-  let regInput = "";
+  let regInput;
   let errorMessage = "";
   const regexNumLet = /^[a-zA-Z0-9]*$/;
   let regArr = [];
@@ -58,12 +58,21 @@ function registrationNumber() {
           location: "paarl",
         });
       }
+      localStorage.setItem("regArr", JSON.stringify(regArr));
       return true;
     } else {
       return false;
     }
   }
 
+
+  function getRegArr() {
+   
+    regArr = JSON.parse(localStorage.getItem("regArr")) || [];
+    return regArr;
+  }
+
+  console.log(regArr)
   function filterReg() {
     locationArr = regArr
       .filter((reg) => reg.location === locationVal)
@@ -77,18 +86,20 @@ function registrationNumber() {
       9 > regInput.length &&
       !regArr.some((reg) => reg.reg === regInput)
     ) {
-      return regArr.regInput;
+      return regInput;
     } else {
       return;
     }
   }
 
   function getObj() {
-    return regArr;
+  
+      return regArr;
+    
   }
 
   function getLocationObj() {
-    return locationArr;
+    return locationArr
   }
 
   function getErrorMessage() {
@@ -105,5 +116,7 @@ function registrationNumber() {
     filterReg,
     getObj,
     getLocationObj,
+    getLocalStorage,
+    setLocalStorage
   };
 }

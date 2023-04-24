@@ -51,7 +51,6 @@ describe("this is a input values", function () {
     regInstance.setValueInput("CJ1gdasd");
     regInstance.testValueInput()
     regInstance.callRegNum()
-    regInstance.getValueInput()
 
     regInstance.setValueInput("CJ1gdasd");
     regInstance.getValueInput();

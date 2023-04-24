@@ -49,13 +49,11 @@ describe("this is a input values", function () {
     const regInstance = registrationNumber();
 
     regInstance.setValueInput("CJ1gdasd");
-    regInstance.testValueInput()
-    regInstance.callRegNum()
-    regInstance.getValueInput()
-
+    regInstance.getObj();
+    regInstance.testValueInput();
     regInstance.setValueInput("CJ1gdasd");
-    regInstance.getValueInput();
-    regInstance.callRegNum()
+    regInstance.getObj()
+    regInstance.testValueInput();
 
     assert.equal("Already used", regInstance.getErrorMessage());
   });

@@ -26,7 +26,7 @@ function registrationNumAdd() {
   const regValue = regInput.value;
 
   regInstance.setValueInput(regValue);
-  const reg = regInstance.getLocationObj() ? regInstance.getLocationObj() : regInstance.getObj()
+  const reg = regInstance.getObj()
   console.log(reg)
   if (reg) {
     regInstance.callRegNum();

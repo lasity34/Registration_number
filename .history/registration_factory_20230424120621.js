@@ -1,17 +1,17 @@
 function registrationNumber() {
-  let regInput = "";
+  let regInput;
   let errorMessage = "";
   const regexNumLet = /^[a-zA-Z0-9]*$/;
-  let regArr = [];
-  let locationArr = [];
-  let locationVal = "";
+  const regArr = [];
+ let locationVal = ""
+ let locationArr = []
 
   function setValueInput(input) {
     regInput = input.replace(/[a-zA-Z]/g, (letter) => letter.toUpperCase());
   }
 
   function setLocationValue(location) {
-    locationVal = location;
+    locationVal = location
   }
 
   function testValueInput() {
@@ -37,37 +37,24 @@ function registrationNumber() {
   function callRegNum() {
     if (!regArr.some((reg) => reg.reg === regInput)) {
       if (regInput.startsWith("CAW")) {
-        regArr.push({
-          reg: regInput,
-          count: 0,
-          regLocation: "CAW",
-          location: "george",
-        });
+        regArr.push({ reg: regInput, count: 0, location: "CAW" });
       } else if (regInput.startsWith("CA")) {
-        regArr.push({
-          reg: regInput,
-          count: 0,
-          regLocation: "CA",
-          location: "cape_town",
-        });
+        regArr.push({ reg: regInput, count: 0, location: "CA" });
       } else if (regInput.startsWith("CJ")) {
-        regArr.push({
-          reg: regInput,
-          count: 0,
-          regLocation: "CJ",
-          location: "paarl",
-        });
+        regArr.push({ reg: regInput, count: 0, location: "CJ" });
       }
-      return true;
-    } else {
-      return false;
     }
+    return false;
   }
 
   function filterReg() {
-    locationArr = regArr
-      .filter((reg) => reg.location === locationVal)
-      .map((reg) => reg.reg);
+    regArr.filter((reg) => {
+      if (locationVal === "cape town") {
+        locationArr.push(reg.reg)
+      }
+
+    }
+    )
   }
 
   function getValueInput() {
@@ -77,7 +64,7 @@ function registrationNumber() {
       9 > regInput.length &&
       !regArr.some((reg) => reg.reg === regInput)
     ) {
-      return regArr.regInput;
+      return regInput;
     } else {
       return;
     }
@@ -87,23 +74,16 @@ function registrationNumber() {
     return regArr;
   }
 
-  function getLocationObj() {
-    return locationArr;
-  }
-
   function getErrorMessage() {
     return errorMessage;
   }
 
   return {
     setValueInput,
-    setLocationValue,
     getValueInput,
     testValueInput,
     getErrorMessage,
     callRegNum,
-    filterReg,
     getObj,
-    getLocationObj,
   };
 }

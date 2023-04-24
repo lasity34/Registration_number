@@ -1,5 +1,5 @@
 function registrationNumber() {
-  let regInput = "";
+  let regInput = ""
   let errorMessage = "";
   const regexNumLet = /^[a-zA-Z0-9]*$/;
   let regArr = [];
@@ -9,6 +9,8 @@ function registrationNumber() {
   function setValueInput(input) {
     regInput = input.replace(/[a-zA-Z]/g, (letter) => letter.toUpperCase());
   }
+
+  console.log(regInput)
 
   function setLocationValue(location) {
     locationVal = location;
@@ -64,6 +66,9 @@ function registrationNumber() {
     }
   }
 
+
+
+  console.log(regArr)
   function filterReg() {
     locationArr = regArr
       .filter((reg) => reg.location === locationVal)
@@ -77,18 +82,20 @@ function registrationNumber() {
       9 > regInput.length &&
       !regArr.some((reg) => reg.reg === regInput)
     ) {
-      return regArr.regInput;
+      return regArr.regInput
     } else {
       return;
     }
   }
 
   function getObj() {
-    return regArr;
+  
+      return regArr;
+    
   }
 
   function getLocationObj() {
-    return locationArr;
+    return locationArr
   }
 
   function getErrorMessage() {
@@ -105,5 +112,6 @@ function registrationNumber() {
     filterReg,
     getObj,
     getLocationObj,
+   
   };
 }

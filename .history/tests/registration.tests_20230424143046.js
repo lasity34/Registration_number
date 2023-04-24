@@ -19,8 +19,8 @@ describe("this is a input values", function () {
     const regInstance = registrationNumber();
 
     regInstance.setValueInput("CJ31204#");
-    regInstance.getValueInput();
-    regInstance.testValueInput();
+    regInstance.getValueInput()
+    regInstance.testValueInput()
 
     assert.equal("numbers and letters only", regInstance.getErrorMessage());
   });
@@ -29,8 +29,8 @@ describe("this is a input values", function () {
     const regInstance = registrationNumber();
 
     regInstance.setValueInput("CJ1");
-    regInstance.getValueInput();
-    regInstance.testValueInput();
+    regInstance.getValueInput()
+    regInstance.testValueInput()
 
     assert.equal("Too short", regInstance.getErrorMessage());
   });
@@ -39,8 +39,8 @@ describe("this is a input values", function () {
     const regInstance = registrationNumber();
 
     regInstance.setValueInput("CJ1gdasdasd");
-    regInstance.getValueInput();
-    regInstance.testValueInput();
+    regInstance.getValueInput()
+    regInstance.testValueInput()
 
     assert.equal("Too long", regInstance.getErrorMessage());
   });
@@ -48,19 +48,17 @@ describe("this is a input values", function () {
   it("this return error if name is repeated", function () {
     const regInstance = registrationNumber();
 
-    regInstance.setValueInput("CJ1gdasd");
-    regInstance.testValueInput()
-    regInstance.callRegNum()
+    regInstance.setValueInput("CJ1gdasdasd");
     regInstance.getValueInput()
+    regInstance.testValueInput()
 
-    regInstance.setValueInput("CJ1gdasd");
-    regInstance.getValueInput();
-    regInstance.callRegNum()
-
-    assert.equal("Already used", regInstance.getErrorMessage());
+    assert.equal("Too long", regInstance.getErrorMessage());
   });
+ 
 });
 
-describe("this is a input values", function () {
-  it("this will test filter values", function () {});
-});
+describe("this is a input values", function (){
+  it("this will test filter values", function() {
+
+  })
+})

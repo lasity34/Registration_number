@@ -12,6 +12,7 @@ function registrationNumber() {
 
   function setLocationValue(location) {
     locationVal = location;
+    console.log(locationVal);
   }
 
   function testValueInput() {
@@ -84,10 +85,12 @@ function registrationNumber() {
   }
 
   function getObj() {
+    
     return regArr;
   }
 
   function getLocationObj() {
+  
     return locationArr;
   }
 

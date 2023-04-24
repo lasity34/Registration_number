@@ -7,45 +7,36 @@ const validator = document.querySelector(".valid");
 const townSelect = document.querySelector("#dropdown");
 
 const regInstance = registrationNumber();
-
-
 let regArr = JSON.parse(localStorage.getItem("regNum")) || []
 regInstance.setLocationValue(townSelect.value)
-if (Array.isArray(regArr)) {
-  regArr.forEach((reg) => {
-    const newLi = document.createElement("li");
-    newLi.textContent = reg.reg;
-    regDisplay.appendChild(newLi);
-  });
-}
-regInstance.filterReg()
-console.log(regInstance.getLocationObj())
 
 function registrationNumAdd() {
- 
   const regValue = regInput.value;
 
   regInstance.setValueInput(regValue);
-  const reg = regInstance.getLocationObj() ? regInstance.getLocationObj() : regInstance.getObj()
-  console.log(reg)
+  const reg = regInstance.getValueInput();
+  
   if (reg) {
     regInstance.callRegNum();
-    const newRegArr =  regInstance.getObj()
+    const newRegArr = regInstance.getObj();
     regArr.push(...newRegArr)
     const storedRegArr = [...regArr]
     localStorage.setItem("regNum", JSON.stringify(storedRegArr));
     const newLi = document.createElement("li");
-    newLi.textContent = JSON.stringify(reg.reg);
+    newLi.textContent = reg;
     regDisplay.appendChild(newLi);
     regInput.value = "";
   }
-
-  location.reload()
-  
 }
 
 
-
+  if (Array.isArray(regArr)) {
+    regArr.forEach((reg) => {
+      const newLi = document.createElement("li");
+      newLi.textContent = reg.reg;
+      regDisplay.appendChild(newLi);
+    });
+  }
 
 
 function inputValid() {
