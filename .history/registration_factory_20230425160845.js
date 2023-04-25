@@ -88,10 +88,10 @@ function registrationNumber() {
   }
 
   function filteredMessage() {
-    if ((filteredArr = [] && locationVal === "select_town")) {
-      return (filterMessage = `The are no reg numbers for any town`);
+    if ((filteredArr = [] && locationVal)) {
+      return (filterMessage = `The are no reg numbers`);
     } else if ((filteredArr = [])) {
-      return (filterMessage = `The are no reg numbers for ${locationVal.charAt(0).toUpperCase() + locationVal.slice(1)}`);
+      return (filterMessage = `The are no reg numbers for ${locationVal}`);
     }
   }
 

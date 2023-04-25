@@ -6,7 +6,6 @@ const errorMessage = document.querySelector("#error");
 const validator = document.querySelector(".valid");
 const townSelect = document.querySelector("#dropdown");
 const town = document.querySelector(".town");
-const filterMessageDisplay = document.querySelector(".filter_message")
 
 const regInstance = registrationNumber();
 
@@ -87,8 +86,7 @@ function moveDown() {
 function changeTown() {
   regInstance.filterReg();
   const filteredArr = regInstance.getFilteredArr();
-  const filterMessage = regInstance.filteredMessage()
-  filterMessageDisplay.innerHTML = filterMessage
+
   regDisplay.innerHTML = "";
   if (filteredArr) {
     filteredArr.forEach((reg) => {

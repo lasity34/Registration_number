@@ -4,7 +4,8 @@ function registrationNumber() {
   let locationVal = "";
   const regexNumLet = /^[a-zA-Z0-9]*$/;
   const firstTwoLetterCheck = /^\w{2}\d+$/;
-  let filterMessage = "";
+  let filterMessage = ""
+
   let locationArr = [];
   let filteredArr = [];
 
@@ -88,22 +89,22 @@ function registrationNumber() {
   }
 
   function filteredMessage() {
-    if ((filteredArr = [] && locationVal === "select_town")) {
-      return (filterMessage = `The are no reg numbers for any town`);
-    } else if ((filteredArr = [])) {
-      return (filterMessage = `The are no reg numbers for ${locationVal.charAt(0).toUpperCase() + locationVal.slice(1)}`);
+    if (filteredArr = []) {
+      filteredArr = `The are no reg numbers for ${locationVal}`
     }
   }
 
   function getValueInput() {
     if (
-      (regexNumLet.test(regInput) &&
-        7 <= regInput.length &&
-        9 > regInput.length &&
-        !locationArr.some((reg) => reg.reg === regInput) &&
-        regInput.startsWith("CJ")) ||
+      regexNumLet.test(regInput) &&
+      7 <= regInput.length &&
+      9 > regInput.length &&
+      !locationArr.some((reg) => reg.reg === regInput) &&
+    
+      regInput.startsWith("CJ") ||
       regInput.startsWith("CL") ||
-      (regInput.startsWith("CA") && firstTwoLetterCheck.test(regInput))
+      regInput.startsWith("CA") &&
+      firstTwoLetterCheck.test(regInput)
     ) {
       return regInput;
     } else {
@@ -134,6 +135,6 @@ function registrationNumber() {
     getArr,
     getFilteredArr,
     setSavedArr,
-    filteredMessage,
+    filteredMessage
   };
 }
