@@ -144,24 +144,4 @@ describe("This checks filters", function() {
 
     assert.equal("CA12334", regInstance.getFilteredArr())
   })
-
-  it("This will check if Cape Town reg is filtered", function() {
-    const regInstance = registrationNumber();
-
-    regInstance.setLocationValue("cape_town")
-    regInstance.setValueInput("CJ22334");
-    regInstance.callRegNum()
-    regInstance.filterReg()
-    regInstance.getFilteredArr()
-    regInstance.setValueInput("CL12334")
-    regInstance.callRegNum()
-    regInstance.filterReg()
-    regInstance.getFilteredArr()
-    regInstance.setValueInput("CA12334");
-    regInstance.callRegNum()
-    regInstance.filterReg()
-    regInstance.getFilteredArr()
-
-    assert.equal("CA12334", regInstance.getFilteredArr())
-  })
 })

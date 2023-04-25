@@ -44,7 +44,7 @@ function registrationNumAdd() {
     const newRegArr = regInstance.getFilteredArr()
     newRegArr.forEach((reg) => {
       const newLi = document.createElement("li");
-      newLi.textContent = reg
+      newLi.textContent = reg.reg;
       regDisplay.appendChild(newLi);
     });
   }
