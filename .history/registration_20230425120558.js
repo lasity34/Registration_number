@@ -29,10 +29,10 @@ function registrationNumAdd() {
   // set value
 
   const regValue = regInput.value;
- 
+  console.log(regValue)
   regInstance.setValueInput(regValue);
   const reg = regInstance.getValueInput();
-  console.log(reg)
+
   if (reg) {
     if (regInstance.callRegNum()) {
       const storedRegArr = regInstance.getArr();
@@ -86,7 +86,7 @@ function changeTown() {
  
   regInstance.filterReg();
   const filteredArr = regInstance.getFilteredArr();
-
+  console.log(filteredArr)
   regDisplay.innerHTML = "";
   if (filteredArr) {
     filteredArr.forEach((reg) => {

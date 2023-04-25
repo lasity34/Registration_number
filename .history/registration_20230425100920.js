@@ -13,8 +13,8 @@ const regInstance = registrationNumber();
 
 let regArr = JSON.parse(localStorage.getItem("regNum")) || [];
 regInstance.setSavedArr(regArr);
-regInstance.setLocationValue(townSelect.value);
 
+regInstance.setLocationValue(townSelect.value);
 if (Array.isArray(regArr)) {
   regArr.forEach((reg) => {
     const newLi = document.createElement("li");
@@ -22,6 +22,7 @@ if (Array.isArray(regArr)) {
     regDisplay.appendChild(newLi);
   });
 }
+regInstance.filterReg();
 
 // add reg number
 
@@ -29,10 +30,10 @@ function registrationNumAdd() {
   // set value
 
   const regValue = regInput.value;
- 
   regInstance.setValueInput(regValue);
+
   const reg = regInstance.getValueInput();
-  console.log(reg)
+  
   if (reg) {
     if (regInstance.callRegNum()) {
       const storedRegArr = regInstance.getArr();
@@ -41,7 +42,10 @@ function registrationNumAdd() {
 
     regDisplay.innerHTML = "";
     const newRegArr = regInstance.getArr();
-    newRegArr.forEach((reg) => {
+  
+
+  
+    storedRegArr.forEach((reg) => {
       const newLi = document.createElement("li");
       newLi.textContent = reg.reg;
       regDisplay.appendChild(newLi);
@@ -83,15 +87,14 @@ function moveDown() {
 }
 
 function changeTown() {
- 
   regInstance.filterReg();
   const filteredArr = regInstance.getFilteredArr();
-
+  console.log(filteredArr);
   regDisplay.innerHTML = "";
   if (filteredArr) {
     filteredArr.forEach((reg) => {
       const newLi = document.createElement("li");
-      newLi.textContent = reg
+      newLi.textContent = reg;
       regDisplay.appendChild(newLi);
     });
   } else {

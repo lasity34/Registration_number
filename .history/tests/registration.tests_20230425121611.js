@@ -3,9 +3,11 @@ describe("this is a input values", function () {
     const regInstance = registrationNumber();
 
     regInstance.setValueInput("CJ10234");
-   
-   
-
+    setLocationValue("select_town")
+    regInstance.callRegNum()
+    regInstance.getArr()
+    regInstance.setSavedArr(regInstance.getArr());
+    regInstance.callRegNum()
 
     assert.equal("CJ10234", regInstance.getValueInput());
   });
@@ -41,7 +43,7 @@ describe("this is a input values", function () {
   it("this will return error if length of string is above 9", function () {
     const regInstance = registrationNumber();
 
-    regInstance.setValueInput("CJ11233434");
+    regInstance.setValueInput("CJ1gdasdasd");
     regInstance.getValueInput();
     regInstance.testValueInput();
 
@@ -51,19 +53,19 @@ describe("this is a input values", function () {
   it("this return error if name is repeated", function () {
     const regInstance = registrationNumber();
 
-    regInstance.setValueInput("CJ12334");
+    regInstance.setValueInput("CJ1gdasd");
+    regInstance.testValueInput()
+    regInstance.callRegNum()
+    regInstance.getValueInput()
+
+    regInstance.setValueInput("CJ1gdasd");
     regInstance.getValueInput();
     regInstance.callRegNum()
-    regInstance.setValueInput("CJ12334");
-    regInstance.getValueInput()
-    regInstance.testValueInput();
 
     assert.equal("Already used", regInstance.getErrorMessage());
   });
 });
 
 describe("this is a input values", function () {
-  it("this will test filter values", function () {
-    
-  });
+  it("this will test filter values", function () {});
 });

@@ -3,13 +3,49 @@ function registrationNumber() {
   let errorMessage = "";
   let locationVal = "";
   const regexNumLet = /^[a-zA-Z0-9]*$/;
-  const firstTwoLetterCheck = /^\w{2}\d+$/;
+  const firstTwoLetterCheck = /^\w{2}\d+$/
 
   let locationArr = [];
   let filteredArr = [];
 
   function setValueInput(input) {
     regInput = input.replace(/[a-zA-Z]/g, (letter) => letter.toUpperCase());
+  }
+
+  function setLocationValue(location) {
+    locationVal = location;
+  }
+
+  function setSavedArr(arr) {
+    locationArr = arr;
+  }
+
+  // tests for error messages
+
+  function testValueInput() {
+    if (!regexNumLet.test(regInput)) {
+      errorMessage = "numbers and letters only";
+    } 
+    
+    else if (!firstTwoLetterCheck.test(regInput)) {
+      errorMessage = "First 2 must be letters";
+    } 
+    else if (7 > regInput.length) {
+      errorMessage = "Too short";
+    } else if (9 < regInput.length) {
+      errorMessage = "Too long";
+    }  else if (
+      !regInput.startsWith("CJ") &&
+      !regInput.startsWith("CL") &&
+      !regInput.startsWith("CA")
+    ) {
+      errorMessage = "This is not a valid reg number";
+    } 
+    else if (regArr.some((reg) => reg.reg === regInput)) {
+      errorMessage = "Already used";
+    }else {
+      errorMessage = "";
+    }
   }
 
   // Creates new object
@@ -45,38 +81,6 @@ function registrationNumber() {
     }
   }
 
-  function setLocationValue(location) {
-    locationVal = location;
-  }
-
-  function setSavedArr(arr) {
-    locationArr = arr;
-  }
-
-  // tests for error messages
-
-  function testValueInput() {
-    if (!regexNumLet.test(regInput)) {
-      errorMessage = "numbers and letters only";
-    } else if (7 > regInput.length) {
-      errorMessage = "Too short";
-    } else if (!firstTwoLetterCheck.test(regInput)) {
-      errorMessage = "only First 2 must be letters";
-    } else if (
-      !regInput.startsWith("CJ") &&
-      !regInput.startsWith("CL") &&
-      !regInput.startsWith("CA")
-    ) {
-      errorMessage = "This is not a valid reg number";
-    } else if (9 < regInput.length) {
-      errorMessage = "Too long";
-    } else if (locationArr.some((reg) => reg.reg === regInput)) {
-      errorMessage = "Already used";
-    } else {
-      errorMessage = "";
-    }
-  }
-
   function filterReg() {
     if (locationVal === "select_town") {
       filteredArr = locationArr.map((reg) => reg.reg);
@@ -92,9 +96,8 @@ function registrationNumber() {
       regexNumLet.test(regInput) &&
       7 <= regInput.length &&
       9 > regInput.length &&
-      !locationArr.some((reg) => reg.reg === regInput) &&
-      regInput.startsWith("CJ") ||
-      regInput.startsWith("CL") ||
+      !regArr.some((reg) => reg.reg === regInput) && regInput.startsWith("CJ") &&
+      regInput.startsWith("CL") &&
       regInput.startsWith("CA") &&
       firstTwoLetterCheck.test(regInput)
     ) {

@@ -53,7 +53,6 @@ describe("this is a input values", function () {
 
     regInstance.setValueInput("CJ12334");
     regInstance.getValueInput();
-    regInstance.callRegNum()
     regInstance.setValueInput("CJ12334");
     regInstance.getValueInput()
     regInstance.testValueInput();
@@ -63,7 +62,5 @@ describe("this is a input values", function () {
 });
 
 describe("this is a input values", function () {
-  it("this will test filter values", function () {
-    
-  });
+  it("this will test filter values", function () {});
 });

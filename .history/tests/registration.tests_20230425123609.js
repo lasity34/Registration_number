@@ -52,10 +52,8 @@ describe("this is a input values", function () {
     const regInstance = registrationNumber();
 
     regInstance.setValueInput("CJ12334");
-    regInstance.getValueInput();
-    regInstance.callRegNum()
     regInstance.setValueInput("CJ12334");
-    regInstance.getValueInput()
+    regInstance.getValueInput();
     regInstance.testValueInput();
 
     assert.equal("Already used", regInstance.getErrorMessage());
@@ -63,7 +61,5 @@ describe("this is a input values", function () {
 });
 
 describe("this is a input values", function () {
-  it("this will test filter values", function () {
-    
-  });
+  it("this will test filter values", function () {});
 });

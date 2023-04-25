@@ -86,7 +86,7 @@ function changeTown() {
  
   regInstance.filterReg();
   const filteredArr = regInstance.getFilteredArr();
-
+  console.log(filteredArr)
   regDisplay.innerHTML = "";
   if (filteredArr) {
     filteredArr.forEach((reg) => {

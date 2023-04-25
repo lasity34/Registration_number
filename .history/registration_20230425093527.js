@@ -10,11 +10,11 @@ const town = document.querySelector(".town");
 const regInstance = registrationNumber();
 
 // global code
-
+let newArr = []
 let regArr = JSON.parse(localStorage.getItem("regNum")) || [];
 regInstance.setSavedArr(regArr);
-regInstance.setLocationValue(townSelect.value);
 
+regInstance.setLocationValue(townSelect.value);
 if (Array.isArray(regArr)) {
   regArr.forEach((reg) => {
     const newLi = document.createElement("li");
@@ -22,30 +22,34 @@ if (Array.isArray(regArr)) {
     regDisplay.appendChild(newLi);
   });
 }
+regInstance.filterReg();
 
 // add reg number
 
 function registrationNumAdd() {
-  // set value
-
-  const regValue = regInput.value;
+  // sett value
  
+  const regValue = regInput.value;
   regInstance.setValueInput(regValue);
-  const reg = regInstance.getValueInput();
-  console.log(reg)
-  if (reg) {
-    if (regInstance.callRegNum()) {
-      const storedRegArr = regInstance.getArr();
-      localStorage.setItem("regNum", JSON.stringify(storedRegArr));
-    }
+  regInstance.getValueInput();
+  const reg = regInstance.getArr();
 
-    regDisplay.innerHTML = "";
+  if (reg) {
+    regInstance.callRegNum();
     const newRegArr = regInstance.getArr();
-    newRegArr.forEach((reg) => {
+    console.log(newRegArr)
+    regArr.push(...newRegArr);
+
+      const storedRegArr = [...regArr] || [];
+      localStorage.setItem("regNum", JSON.stringify(storedRegArr));
+    
+    storedRegArr.forEach((reg) => {
       const newLi = document.createElement("li");
       newLi.textContent = reg.reg;
       regDisplay.appendChild(newLi);
     });
+
+    regDisplay.innerHTML = "";
   }
 
   regInput.value = "";
@@ -74,8 +78,6 @@ function clear() {
   regInput.value = "";
   regArr = [];
   townSelect.value = "select_town";
-  localStorage.setItem("regNum", JSON.stringify([]));
-  regInstance.setSavedArr([]);
 }
 
 function moveDown() {
@@ -83,15 +85,14 @@ function moveDown() {
 }
 
 function changeTown() {
- 
   regInstance.filterReg();
   const filteredArr = regInstance.getFilteredArr();
-
+  console.log(filteredArr);
   regDisplay.innerHTML = "";
   if (filteredArr) {
     filteredArr.forEach((reg) => {
       const newLi = document.createElement("li");
-      newLi.textContent = reg
+      newLi.textContent = reg;
       regDisplay.appendChild(newLi);
     });
   } else {

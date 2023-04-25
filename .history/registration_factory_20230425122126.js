@@ -12,38 +12,42 @@ function registrationNumber() {
     regInput = input.replace(/[a-zA-Z]/g, (letter) => letter.toUpperCase());
   }
 
-  // Creates new object
+ // Creates new object
 
-  function callRegNum() {
-    if (!locationArr.some((reg) => reg.reg === regInput)) {
-      if (regInput.startsWith("CL")) {
-        locationArr.push({
-          reg: regInput,
-          count: 0,
-          regLocation: "CL",
-          location: "stellenbosch",
-        });
-      } else if (regInput.startsWith("CA")) {
-        locationArr.push({
-          reg: regInput,
-          count: 0,
-          regLocation: "CA",
-          location: "cape_town",
-        });
-      } else if (regInput.startsWith("CJ")) {
-        locationArr.push({
-          reg: regInput,
-          count: 0,
-          regLocation: "CJ",
-          location: "paarl",
-        });
-      }
-
-      return true;
-    } else {
-      return false;
+ function callRegNum() {
+  if (!locationArr.some((reg) => reg.reg === regInput)) {
+    if (regInput.startsWith("CL")) {
+      locationArr.push({
+        reg: regInput,
+        count: 0,
+        regLocation: "CL",
+        location: "stellenbosch",
+      });
+    } else if (regInput.startsWith("CA")) {
+      locationArr.push({
+        reg: regInput,
+        count: 0,
+        regLocation: "CA",
+        location: "cape_town",
+      });
+    } else if (regInput.startsWith("CJ")) {
+      locationArr.push({
+        reg: regInput,
+        count: 0,
+        regLocation: "CJ",
+        location: "paarl",
+      });
     }
+
+    return true;
+  } else {
+    return false;
   }
+}
+
+
+
+  
 
   function setLocationValue(location) {
     locationVal = location;
@@ -70,13 +74,14 @@ function registrationNumber() {
       errorMessage = "This is not a valid reg number";
     } else if (9 < regInput.length) {
       errorMessage = "Too long";
-    } else if (locationArr.some((reg) => reg.reg === regInput)) {
+    } else if (filteredArr.some((reg) => reg.reg === regInput)) {
       errorMessage = "Already used";
     } else {
       errorMessage = "";
     }
   }
 
+ 
   function filterReg() {
     if (locationVal === "select_town") {
       filteredArr = locationArr.map((reg) => reg.reg);
@@ -92,9 +97,9 @@ function registrationNumber() {
       regexNumLet.test(regInput) &&
       7 <= regInput.length &&
       9 > regInput.length &&
-      !locationArr.some((reg) => reg.reg === regInput) &&
-      regInput.startsWith("CJ") ||
-      regInput.startsWith("CL") ||
+      !filteredArr.some((reg) => reg.reg === regInput) &&
+      regInput.startsWith("CJ") &&
+      regInput.startsWith("CL") &&
       regInput.startsWith("CA") &&
       firstTwoLetterCheck.test(regInput)
     ) {

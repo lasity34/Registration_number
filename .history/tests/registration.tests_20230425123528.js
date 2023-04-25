@@ -51,19 +51,13 @@ describe("this is a input values", function () {
   it("this return error if name is repeated", function () {
     const regInstance = registrationNumber();
 
-    regInstance.setValueInput("CJ12334");
-    regInstance.getValueInput();
-    regInstance.callRegNum()
-    regInstance.setValueInput("CJ12334");
-    regInstance.getValueInput()
-    regInstance.testValueInput();
+    regInstance.setValueInput("CJ1gdasd");
+    regInstance.setValueInput("CJ1gdasd");
 
     assert.equal("Already used", regInstance.getErrorMessage());
   });
 });
 
 describe("this is a input values", function () {
-  it("this will test filter values", function () {
-    
-  });
+  it("this will test filter values", function () {});
 });

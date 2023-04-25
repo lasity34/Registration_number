@@ -93,10 +93,9 @@ function registrationNumber() {
       7 <= regInput.length &&
       9 > regInput.length &&
       !locationArr.some((reg) => reg.reg === regInput) &&
-      regInput.startsWith("CJ") ||
-      regInput.startsWith("CL") ||
-      regInput.startsWith("CA") &&
-      firstTwoLetterCheck.test(regInput)
+      regInput.startsWith("CJ") &&
+      regInput.startsWith("CL") &&
+      regInput.startsWith("CA") 
     ) {
       return regInput;
     } else {
