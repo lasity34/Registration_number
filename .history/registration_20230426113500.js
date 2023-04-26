@@ -7,7 +7,7 @@ const validator = document.querySelector(".valid");
 const townSelect = document.querySelector("#dropdown");
 const town = document.querySelector(".town");
 const filterMessageDisplay = document.querySelector(".filter_message")
-const errorImage = document.querySelector(".error_image")
+const errorImage = document.querySelectorAll(".error_image")
 
 const regInstance = registrationNumber();
 
@@ -92,10 +92,7 @@ function changeTown() {
   console.log(regInstance.getFilteredArr())
   const filterMessage = regInstance.filteredMessage()
 
-  if(filteredArr.length === 0) {
-
-    errorImage.innerHTML = '<img src="./images/undraw_not_found_re_bh2e.svg" width="200"/>'
-  }
+    errorImage.innerHTML = '<img src="./images/undraw_not_found_re_bh2e.svg" width="500"/>'
   
   filterMessageDisplay.innerHTML = filterMessage
   regDisplay.innerHTML = "";

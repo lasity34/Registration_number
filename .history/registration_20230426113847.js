@@ -92,9 +92,9 @@ function changeTown() {
   console.log(regInstance.getFilteredArr())
   const filterMessage = regInstance.filteredMessage()
 
-  if(filteredArr.length === 0) {
+  if(filterMessage.length === 0) {
 
-    errorImage.innerHTML = '<img src="./images/undraw_not_found_re_bh2e.svg" width="200"/>'
+    errorImage.innerHTML = '<img src="./images/undraw_not_found_re_bh2e.svg" width="500"/>'
   }
   
   filterMessageDisplay.innerHTML = filterMessage
