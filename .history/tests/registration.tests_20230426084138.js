@@ -202,8 +202,8 @@ describe("This checks filters", function() {
   it("This will check if a message is displayed when there is no reg num in Paarl filter", function() {
     const regInstance = registrationNumber();
 
-    regInstance.setLocationValue("paarl")
-    regInstance.setValueInput("CL22334");
+    regInstance.setLocationValue("stellenbosch")
+    regInstance.setValueInput("CJ22334");
     regInstance.callRegNum()
     regInstance.filterReg()
     regInstance.getFilteredArr()
