@@ -7,6 +7,14 @@ html {
   color: #fff;
 }
 
+body {
+  display: flex;
+}
+
+.body_container {
+  width: 30%;
+}
+
 header {
   display: flex;
   justify-content: center;
@@ -63,7 +71,7 @@ header {
 /*  button */
 
 .btn_container {
-  padding-top: 1em; 
+  padding-top: 0.5em; 
 }
 
 button {

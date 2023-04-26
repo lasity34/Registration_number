@@ -63,7 +63,7 @@ header {
 /*  button */
 
 .btn_container {
-  padding-top: 1em; 
+  padding-top: 0.5em; 
 }
 
 button {
@@ -230,6 +230,8 @@ li {
 
 
 @media only screen and (max-width: 968px) {
+
+
   .input_section {
     flex-direction: column;
   }
@@ -270,6 +272,8 @@ li {
     margin-right: 50px;
   }
 }
+
+.plates_display
 
 .select_town {
   display: flex;

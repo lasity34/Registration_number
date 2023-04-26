@@ -42,7 +42,7 @@ function registrationNumAdd() {
       localStorage.setItem("regNum", JSON.stringify(storedRegArr));
     }
     
-    regInstance.filterReg();
+
     regDisplay.innerHTML = "";
     const newRegArr = regInstance.getFilteredArr() || []
     newRegArr.forEach((reg) => {

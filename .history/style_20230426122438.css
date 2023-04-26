@@ -7,6 +7,17 @@ html {
   color: #fff;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.body_container {
+  width: 30%;
+  text-align: center;
+}
+
 header {
   display: flex;
   justify-content: center;
@@ -63,7 +74,7 @@ header {
 /*  button */
 
 .btn_container {
-  padding-top: 1em; 
+  padding-top: 0.5em; 
 }
 
 button {
@@ -230,6 +241,16 @@ li {
 
 
 @media only screen and (max-width: 968px) {
+  body {
+    flex-direction: column;
+  }
+
+
+  .body_container {
+    width: 30%;
+    text-align: center;
+  }
+
   .input_section {
     flex-direction: column;
   }

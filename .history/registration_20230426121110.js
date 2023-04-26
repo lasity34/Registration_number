@@ -33,16 +33,16 @@ function registrationNumAdd() {
 
   const regValue = regInput.value;
  
-  regInstance.setValueInput(regValue.trim());
+  regInstance.setValueInput(regValue);
   const reg = regInstance.getValueInput();
-
+  
   if (reg) {
     if (regInstance.callRegNum()) {
       const storedRegArr = regInstance.getArr();
       localStorage.setItem("regNum", JSON.stringify(storedRegArr));
     }
     
-    regInstance.filterReg();
+
     regDisplay.innerHTML = "";
     const newRegArr = regInstance.getFilteredArr() || []
     newRegArr.forEach((reg) => {

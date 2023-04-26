@@ -3,16 +3,14 @@ function registrationNumber() {
   let errorMessage = "";
   let locationVal = "";
   const regexNumLet = /^[a-zA-Z0-9]*$/;
-  const firstTwoLetterCheck = /^\w{2}[\w\s-]*\d+$/;
-
-
+  const firstTwoLetterCheck = /^\w{2}\d+$/;
   let filterMessage = "";
   let locationArr = [];
   let filteredArr = [];
 
   function setValueInput(input) {
-    regInput = input.replace(/[a-zA-Z]/g, (letter) => letter.toUpperCase()).replace(/\s+/g, '').trim()
-    
+    regInput = input.replace(/[a-zA-Z]/g, (letter) => letter.toUpperCase()).trim();
+    console.log(regInput)
   } 
 
   // Creates new object
@@ -110,7 +108,6 @@ function registrationNumber() {
       regInput.startsWith("CL") ||
       (regInput.startsWith("CA") && firstTwoLetterCheck.test(regInput))
     ) {
-      
       return regInput;
     } else {
       return undefined;

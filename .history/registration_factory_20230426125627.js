@@ -110,7 +110,7 @@ function registrationNumber() {
       regInput.startsWith("CL") ||
       (regInput.startsWith("CA") && firstTwoLetterCheck.test(regInput))
     ) {
-      
+      console.log(regInput)
       return regInput;
     } else {
       return undefined;

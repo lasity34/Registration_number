@@ -3,9 +3,7 @@ function registrationNumber() {
   let errorMessage = "";
   let locationVal = "";
   const regexNumLet = /^[a-zA-Z0-9]*$/;
-  const firstTwoLetterCheck = /^\w{2}[\w\s-]*\d+$/;
-
-
+  const firstTwoLetterCheck = /^\w{2}\d+$/;
   let filterMessage = "";
   let locationArr = [];
   let filteredArr = [];
@@ -110,7 +108,6 @@ function registrationNumber() {
       regInput.startsWith("CL") ||
       (regInput.startsWith("CA") && firstTwoLetterCheck.test(regInput))
     ) {
-      
       return regInput;
     } else {
       return undefined;
