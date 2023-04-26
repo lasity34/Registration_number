@@ -97,7 +97,6 @@ function registrationNumber() {
     }
     
   }
-  
 
   function getValueInput() {
     if (

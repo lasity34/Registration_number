@@ -92,12 +92,10 @@ function registrationNumber() {
       return (filterMessage = `The are no reg numbers for any town`);
     } else if ((filteredArr.length === 0)) {
       return (filterMessage = `The are no reg numbers for ${locationVal.charAt(0).toUpperCase() + locationVal.slice(1)}`);
-    } else {
-      return (filterMessage = "");
+    } else if (!filteredArr.length === 0){
+      filterMessage = ""
     }
-    
   }
-  
 
   function getValueInput() {
     if (

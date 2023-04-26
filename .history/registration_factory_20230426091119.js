@@ -88,16 +88,14 @@ function registrationNumber() {
   }
 
   function filteredMessage() {
-    if ((filteredArr.length === 0 && locationVal === "select_town")) {
+    if ((filteredArr = [] && locationVal === "select_town")) {
       return (filterMessage = `The are no reg numbers for any town`);
-    } else if ((filteredArr.length === 0)) {
+    } else if ((filteredArr = [])) {
       return (filterMessage = `The are no reg numbers for ${locationVal.charAt(0).toUpperCase() + locationVal.slice(1)}`);
     } else {
-      return (filterMessage = "");
+      filterMessage = ""
     }
-    
   }
-  
 
   function getValueInput() {
     if (

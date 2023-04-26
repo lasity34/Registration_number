@@ -10,7 +10,7 @@ const filterMessageDisplay = document.querySelector(".filter_message")
 
 const regInstance = registrationNumber();
 
-
+console.log(filteredArr)
 // global code
 
 let regArr = JSON.parse(localStorage.getItem("regNum")) || [];
@@ -34,7 +34,7 @@ function registrationNumAdd() {
  
   regInstance.setValueInput(regValue);
   const reg = regInstance.getValueInput();
-  
+  console.log(reg)
   if (reg) {
     if (regInstance.callRegNum()) {
       const storedRegArr = regInstance.getArr();
@@ -88,7 +88,6 @@ function moveDown() {
 function changeTown() {
   regInstance.filterReg();
   const filteredArr = regInstance.getFilteredArr();
-  console.log(regInstance.getFilteredArr())
   const filterMessage = regInstance.filteredMessage()
   filterMessageDisplay.innerHTML = filterMessage
   regDisplay.innerHTML = "";

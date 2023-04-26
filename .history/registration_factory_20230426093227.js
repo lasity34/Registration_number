@@ -95,9 +95,8 @@ function registrationNumber() {
     } else {
       return (filterMessage = "");
     }
-    
+    }
   }
-  
 
   function getValueInput() {
     if (
