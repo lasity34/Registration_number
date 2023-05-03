@@ -52,7 +52,9 @@ function registrationNumber() {
     locationVal = location;
   }
 
-  
+  function getLocationValue() {
+    return locationVal
+  }
 
   function setSavedArr(arr) {
     locationArr = arr;
@@ -129,10 +131,6 @@ function registrationNumber() {
 
   function getErrorMessage() {
     return errorMessage;
-  }
-
-  function getLocationValue() {
-    return locationVal
   }
 
   return {

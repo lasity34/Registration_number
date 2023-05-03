@@ -6,21 +6,21 @@ const errorMessage = document.querySelector("#error");
 const validator = document.querySelector(".valid");
 const townList = document.querySelector("#dropdown");
 const town = document.querySelector(".town");
-const addedItem = document.querySelector(".added_item")
+const townValue = document.querySelectorAll(".values")
 const filterMessageDisplay = document.querySelector(".filter_message");
 const errorImage = document.querySelector(".error_image");
 
 const regInstance = registrationNumber();
 
-
+let locationVal
 // global code
-
-
-
-
+console.log(townValue)
+for (let i = 0; i < townValue.length; i++) {
+  locationVal = townValue[i];
+}
 let regArr = JSON.parse(localStorage.getItem("regNum")) || [];
 regInstance.setSavedArr(regArr);
-
+regInstance.setLocationValue(town.value);
 
 if (Array.isArray(regArr)) {
   regArr.forEach((reg) => {
@@ -39,8 +39,7 @@ function registrationNumAdd() {
 
   regInstance.setValueInput(regValue.trim());
   const reg = regInstance.getValueInput();
-  errorImage.innerHTML = ""
-  filterMessageDisplay.innerHTML = ""
+
   if (reg) {
     if (regInstance.callRegNum()) {
       const storedRegArr = regInstance.getArr();
@@ -87,17 +86,19 @@ function clear() {
   regInstance.setSavedArr([]);
 }
 
-function selectTown() {
-  
-  regInstance.setLocationValue(townList.value);
-  regInstance.filterReg();
-  const filteredArr = regInstance.getFilteredArr();
-  const filterMessage = regInstance.filteredMessage();
+function moveDown() {
+  document.querySelector(".clear").style.paddingTop = "5em";
+}
 
+function changeTown() {
+  regInstance.filterReg();
+  
+  const filteredArr = regInstance.getFilteredArr();
+ 
+  const filterMessage = regInstance.filteredMessage();
+ 
   if (filteredArr.length === 0) {
     errorImage.innerHTML = '<img src="./images/not_found.svg" width="200"/>';
-  } else {
-    errorImage.innerHTML = ""
   }
   
   filterMessageDisplay.innerHTML = filterMessage;
@@ -114,11 +115,8 @@ function selectTown() {
 }
 
 
-
-
-
-townList.addEventListener("click", selectTown);
+town.addEventListener("click", changeTown);
+townList.addEventListener("click", moveDown);
 clearBtn.addEventListener("click", clear);
-
 addRegNumBtn.addEventListener("click", registrationNumAdd);
 regInput.addEventListener("input", inputValid);

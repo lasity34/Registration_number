@@ -63,21 +63,17 @@ header {
 .btn_container {
   display: flex;
   justify-content: center;
-  margin-bottom: 3em;
+ 
 }
 
 .add_btn {
   background-color: #253d48;
   color: #fff;
-  
+  margin-bottom: 3em;
 }
 
 .add_btn:hover {
   background-color: #316075;
-}
-
-.clear {
-  margin-bottom: 1em;
 }
 
 .clear_btn {

@@ -6,7 +6,7 @@ const errorMessage = document.querySelector("#error");
 const validator = document.querySelector(".valid");
 const townList = document.querySelector("#dropdown");
 const town = document.querySelector(".town");
-const addedItem = document.querySelector(".added_item")
+
 const filterMessageDisplay = document.querySelector(".filter_message");
 const errorImage = document.querySelector(".error_image");
 

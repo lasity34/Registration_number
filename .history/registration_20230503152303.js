@@ -6,7 +6,7 @@ const errorMessage = document.querySelector("#error");
 const validator = document.querySelector(".valid");
 const townList = document.querySelector("#dropdown");
 const town = document.querySelector(".town");
-const addedItem = document.querySelector(".added_item")
+
 const filterMessageDisplay = document.querySelector(".filter_message");
 const errorImage = document.querySelector(".error_image");
 
@@ -39,8 +39,7 @@ function registrationNumAdd() {
 
   regInstance.setValueInput(regValue.trim());
   const reg = regInstance.getValueInput();
-  errorImage.innerHTML = ""
-  filterMessageDisplay.innerHTML = ""
+
   if (reg) {
     if (regInstance.callRegNum()) {
       const storedRegArr = regInstance.getArr();
@@ -88,16 +87,14 @@ function clear() {
 }
 
 function selectTown() {
-  
+  document.querySelector(".clear").style.paddingTop = "5em";
   regInstance.setLocationValue(townList.value);
   regInstance.filterReg();
   const filteredArr = regInstance.getFilteredArr();
   const filterMessage = regInstance.filteredMessage();
-
+ console.log(filteredArr)
   if (filteredArr.length === 0) {
     errorImage.innerHTML = '<img src="./images/not_found.svg" width="200"/>';
-  } else {
-    errorImage.innerHTML = ""
   }
   
   filterMessageDisplay.innerHTML = filterMessage;
@@ -116,9 +113,7 @@ function selectTown() {
 
 
 
-
 townList.addEventListener("click", selectTown);
 clearBtn.addEventListener("click", clear);
-
 addRegNumBtn.addEventListener("click", registrationNumAdd);
 regInput.addEventListener("input", inputValid);
