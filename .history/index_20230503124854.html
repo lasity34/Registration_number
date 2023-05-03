@@ -17,6 +17,8 @@
     />
   </head>
   <body>
+ 
+    
     <header>
       <h1>Registration Number</h1>
     </header>
@@ -35,39 +37,33 @@
         <p id="error"></p>
       </div>
     </section>
-    <section class="btn_container">
-      <button class="ui button add_btn">Add Reg Number</button>
-    </section>
+    <button class=" add_btn">
+      Add Reg Number
+    </button>
     <section class="select_town">
       <label for="dropdown">Town:</label>
       <select id="dropdown" name="dropdown" onchange="location.reload()">
-        <option value="select_town" class="town" onchange="location.reload()">
-          Select Town
-        </option>
-        <option value="cape_town" class="town" onchange="location.reload()">
-          Cape Town
-        </option>
-        <option value="stellenbosch" class="town" onchange="location.reload()">
-          Stellenbosch
-        </option>
-        <option value="paarl" class="town" onchange="location.reload()">
-          Paarl
-        </option>
+        <option value="select_town" class="town" onchange="location.reload()">Select Town</option>
+        <option value="cape_town" class="town" onchange="location.reload()">Cape Town</option>
+        <option value="stellenbosch" class="town" onchange="location.reload()">Stellenbosch</option>
+        <option value="paarl" class="town"onchange="location.reload()">Paarl</option>
       </select>
       <div class="space_select"></div>
     </section>
-    <section class="btn_container clear">
-      <button class="ui button clear_btn">
-      Clear
+    <section class="btn_container">
+      
+      <button class="">
+        <p>clear</p>
       </button>
     </section>
     <section id="reg_display_container">
       <ul class="reg_display"></ul>
       <div class="error_image"></div>
-
+      
       <p class="filter_message"></p>
     </section>
-
+  
+  
     <script src="./registration_factory.js"></script>
     <script src="./registration.js"></script>
     <script></script>

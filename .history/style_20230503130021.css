@@ -26,7 +26,7 @@ header {
 .form__label {
   font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
-  text-align: center;
+  margin-left: 37%;
   margin-top: 0.7em;
   display: block;
   transition: all 0.3s;
@@ -58,31 +58,28 @@ header {
   color: aliceblue;
 }
 
+
+
 /*  button */
 
-.btn_container {
+.add_btn_container {
   display: flex;
   justify-content: center;
   margin-bottom: 3em;
 }
 
 .add_btn {
-  background-color: #253d48;
-  color: #fff;
-}
-
-.add_btn:hover {
-  background-color: #316075;
+  background-color: #7392a1;
 }
 
 .clear_btn {
+  margin-top:  3em;
   width: 100px;
-  background-color: rgb(119, 16, 16);
-  color: antiquewhite;
+  margin-left: 44%;
 }
 
-.clear_btn:hover {
-  background-color: rgb(174, 35, 35);
+.clear_btn span {
+  background: linear-gradient(90deg, rgb(12, 14, 15) 0%, rgb(161, 45, 7) 100%);
 }
 
 /* valid checker */
@@ -111,6 +108,10 @@ header {
   align-self: center;
 }
 
+
+
+
+
 /* licence plate */
 
 #reg_display_container {
@@ -120,7 +121,7 @@ header {
   margin: 0 auto;
   text-align: center;
   list-style: none;
-  margin-top: 4em;
+  margin-top: 4em
 }
 
 ul {
@@ -129,6 +130,7 @@ ul {
 }
 
 li {
+  
   list-style: none;
   font-size: 2rem;
   font-weight: bold;
@@ -147,15 +149,19 @@ li {
   padding: 0.3em 0;
 }
 
+
 @media only screen and (max-width: 968px) {
   .input_section {
     flex-direction: column;
-    margin-bottom: 1em;
   }
 
   .form__input {
     width: 40%;
     min-width: 190px;
+  }
+
+  .form__label {
+    margin-left: 32%;
   }
 
   .btn-12 {
@@ -190,8 +196,10 @@ li {
   display: flex;
   justify-content: center;
   margin-right: 4em;
-  margin-bottom: 3em;
+  margin-bottom: 5em;
 }
+
+
 
 .select_town label {
   align-self: center;
@@ -202,7 +210,7 @@ select {
   color: rgba(250, 235, 215, 0.742);
   padding: 10px;
   font-size: 1rem;
-
+  
   border-radius: 4px;
   background-color: rgb(56, 46, 46);
   width: 200px;
@@ -216,3 +224,4 @@ option {
 .error_image {
   font-size: 1.4rem;
 }
+

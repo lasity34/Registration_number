@@ -12,7 +12,7 @@ function registrationNumber() {
 
   function setValueInput(input) {
     regInput = input.replace(/[a-zA-Z]/g, (letter) => letter.toUpperCase()).replace(/\s+/g, '').trim()
- 
+    console.log(regInput)
   } 
 
   // Creates new object
@@ -59,7 +59,7 @@ function registrationNumber() {
   // tests for error messages
 
   function testValueInput() {
-    if (5 > regInput.length) {
+    if (4 > regInput.length) {
       errorMessage = "Too short";
     } else if (!firstTwoLetterCheck.test(regInput)) {
       errorMessage = "only First 2 must be letters";

@@ -83,7 +83,7 @@ function clear() {
 }
 
 function moveDown() {
-  document.querySelector(".clear").style.paddingTop = "5em";
+  document.querySelector(".btn_container").style.paddingTop = "5em";
 }
 
 function changeTown() {

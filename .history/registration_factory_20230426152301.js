@@ -12,7 +12,7 @@ function registrationNumber() {
 
   function setValueInput(input) {
     regInput = input.replace(/[a-zA-Z]/g, (letter) => letter.toUpperCase()).replace(/\s+/g, '').trim()
- 
+    
   } 
 
   // Creates new object
@@ -59,7 +59,7 @@ function registrationNumber() {
   // tests for error messages
 
   function testValueInput() {
-    if (5 > regInput.length) {
+    if (4 > regInput.length) {
       errorMessage = "Too short";
     } else if (!firstTwoLetterCheck.test(regInput)) {
       errorMessage = "only First 2 must be letters";
@@ -69,7 +69,7 @@ function registrationNumber() {
       !regInput.startsWith("CA")
     ) {
       errorMessage = "Has to start with CA, CJ or Cl";
-    } else if (7 < regInput.length) {
+    } else if (9 < regInput.length) {
       errorMessage = "Too long";
     } else if (locationArr.some((reg) => reg.reg === regInput)) {
       errorMessage = "Already used";
@@ -104,7 +104,7 @@ function registrationNumber() {
     if (
       (
         5 <= regInput.length &&
-        7 > regInput.length &&
+        9 > regInput.length &&
         !locationArr.some((reg) => reg.reg === regInput) &&
         regInput.startsWith("CJ")) ||
       regInput.startsWith("CL") ||

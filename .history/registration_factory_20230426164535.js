@@ -12,7 +12,7 @@ function registrationNumber() {
 
   function setValueInput(input) {
     regInput = input.replace(/[a-zA-Z]/g, (letter) => letter.toUpperCase()).replace(/\s+/g, '').trim()
- 
+    console.log(regInput)
   } 
 
   // Creates new object
