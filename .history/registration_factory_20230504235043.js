@@ -37,14 +37,13 @@ function registrationNumber() {
       CA: "Cape town",
       CJ: "Paarl",
     };
-   
     return locations[prefix];
   }
 
   // Creates new object
 
   function addRegistrationNumber() {
-  
+    // ...
     const location = getLocationFromPrefix(regInput.substring(0, 2));
     if (location && !locationArr.some((reg) => reg.reg === regInput)) {
       locationArr.push({
@@ -82,10 +81,6 @@ function registrationNumber() {
   // this will filter towns in their groups
 
   function filterReg() {
-    console.log('locationVal:', locationVal);
-    console.log('locationArr:', locationArr);
-
-
     if (locationVal === "select_town") {
       filteredArr = locationArr.map((reg) => reg.reg);
     } else {
@@ -93,7 +88,6 @@ function registrationNumber() {
         .filter((reg) => reg.location === locationVal)
         .map((reg) => reg.reg);
     }
-    console.log('filteredArr:', filteredArr);
   }
 
   //  this is a filter for just the town groups

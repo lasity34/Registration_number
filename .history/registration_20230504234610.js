@@ -110,6 +110,7 @@ function selectTown() {
   regInstance.setLocationValue(townList.value);
   regInstance.filterReg();
   const filteredArr = regInstance.getFilteredArr();
+  console.log(filteredArr)
   const filterMessage = regInstance.filteredMessage();
   filterMessageDisplay.innerHTML = filterMessage;
   displayFilteredArray(filteredArr);
