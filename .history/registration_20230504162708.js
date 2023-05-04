@@ -49,7 +49,7 @@ function registrationNumAdd() {
 
       const newRegArr = regInstance.getFilteredArr() || [];
       newRegArr.forEach((reg) => {
-        appendRegToNumberList(reg);
+        appendRegToNumberList(reg.reg);
       });
 
       displayAddedMessage();
@@ -124,14 +124,12 @@ function displayFilteredArray(filteredArr) {
   regDisplay.innerHTML = "";
   if (filteredArr) {
     filteredArr.forEach((reg) => {
-      appendRegToNumberList(reg);
+      appendRegToNumberList(reg.reg);
     });
   } else {
     regDisplay.innerHTML = "";
   }
 }
-
-displayRegNumbersOnRefresh()
 
 townList.addEventListener("click", selectTown);
 clearBtn.addEventListener("click", clear);

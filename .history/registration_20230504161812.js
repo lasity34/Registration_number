@@ -54,7 +54,8 @@ function registrationNumAdd() {
 
       displayAddedMessage();
     }
-   
+  
+
   regInput.value = "";
 }
 
@@ -130,8 +131,6 @@ function displayFilteredArray(filteredArr) {
     regDisplay.innerHTML = "";
   }
 }
-
-displayRegNumbersOnRefresh()
 
 townList.addEventListener("click", selectTown);
 clearBtn.addEventListener("click", clear);

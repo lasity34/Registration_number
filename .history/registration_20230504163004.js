@@ -49,7 +49,7 @@ function registrationNumAdd() {
 
       const newRegArr = regInstance.getFilteredArr() || [];
       newRegArr.forEach((reg) => {
-        appendRegToNumberList(reg);
+        appendRegToNumberList(reg.reg);
       });
 
       displayAddedMessage();

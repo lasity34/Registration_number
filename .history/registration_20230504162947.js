@@ -23,7 +23,7 @@ function displayRegNumbersOnRefresh() {
 
   if (Array.isArray(registrationNumbersArray)) {
     registrationNumbersArray.forEach((reg) => {
-      appendRegToNumberList(reg.reg);
+      appendRegToNumberList(reg);
     });
   }
 }
@@ -49,7 +49,7 @@ function registrationNumAdd() {
 
       const newRegArr = regInstance.getFilteredArr() || [];
       newRegArr.forEach((reg) => {
-        appendRegToNumberList(reg);
+        appendRegToNumberList(reg.reg);
       });
 
       displayAddedMessage();

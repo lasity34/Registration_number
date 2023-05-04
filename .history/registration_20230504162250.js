@@ -40,8 +40,8 @@ function registrationNumAdd() {
   regInstance.setValueInput(regValue);
   const reg = regInstance.getValueInput();
 
-  
-    if (reg && regInstance.addRegistrationNumber()) {
+   if (reg) {
+    if (regInstance.addRegistrationNumber()) {
       const storedRegArr = regInstance.getArr();
       localStorage.setItem("regNum", JSON.stringify(storedRegArr));
       regInstance.filterReg();
@@ -49,12 +49,15 @@ function registrationNumAdd() {
 
       const newRegArr = regInstance.getFilteredArr() || [];
       newRegArr.forEach((reg) => {
-        appendRegToNumberList(reg);
+        appendRegToNumberList(reg.reg);
       });
 
       displayAddedMessage();
     }
-   
+   }
+  
+  
+
   regInput.value = "";
 }
 
@@ -130,8 +133,6 @@ function displayFilteredArray(filteredArr) {
     regDisplay.innerHTML = "";
   }
 }
-
-displayRegNumbersOnRefresh()
 
 townList.addEventListener("click", selectTown);
 clearBtn.addEventListener("click", clear);

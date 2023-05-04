@@ -10,27 +10,26 @@ const messageDisplay = document.querySelector(".added_item");
 const filterMessageDisplay = document.querySelector(".filter_message");
 const errorImage = document.querySelector(".error_image");
 
-
-//  Instance
 const regInstance = registrationNumber();
 
+displayRegNumbersOnRefresh();
 
-// main functions
 function displayRegNumbersOnRefresh() {
-  let registrationNumbersArray = JSON.parse(localStorage.getItem("regNum")) || [];
+  let registrationNumbersArray =
+    JSON.parse(localStorage.getItem("regNum")) || [];
   regInstance.setSavedArr(registrationNumbersArray);
   regInstance.setLocationValue(townList.value);
-
+console.log(registrationNumbersArray)
   if (Array.isArray(registrationNumbersArray)) {
     registrationNumbersArray.forEach((reg) => {
-      appendRegToNumberList(reg.reg);
+      appendRegToNumberList(reg);
     });
   }
 }
 
 function appendRegToNumberList(regNumber) {
   const newLi = document.createElement("li");
-  newLi.textContent = regNumber;
+  newLi.textContent = regNumber
   regDisplay.appendChild(newLi);
 }
 
@@ -40,26 +39,25 @@ function registrationNumAdd() {
   regInstance.setValueInput(regValue);
   const reg = regInstance.getValueInput();
 
-  
-    if (reg && regInstance.addRegistrationNumber()) {
+  if (reg) {
+    if (regInstance.addRegistrationNumber()) {
       const storedRegArr = regInstance.getArr();
       localStorage.setItem("regNum", JSON.stringify(storedRegArr));
       regInstance.filterReg();
       regDisplay.innerHTML = "";
-
       const newRegArr = regInstance.getFilteredArr() || [];
+      console.log(newRegArr)
       newRegArr.forEach((reg) => {
         appendRegToNumberList(reg);
       });
 
       displayAddedMessage();
     }
-   
+  }
+
   regInput.value = "";
 }
 
-
-// helper functions
 function resetErrorMessages() {
   errorImage.innerHTML = "";
   filterMessageDisplay.innerHTML = "";
@@ -110,9 +108,9 @@ function selectTown() {
   regInstance.filterReg();
   const filteredArr = regInstance.getFilteredArr();
   const filterMessage = regInstance.filteredMessage();
+
   filterMessageDisplay.innerHTML = filterMessage;
   displayFilteredArray(filteredArr);
-
   if (filteredArr.length === 0) {
     errorImage.innerHTML = '<img src="./images/not_found.svg" width="200"/>';
   } else {
@@ -130,8 +128,6 @@ function displayFilteredArray(filteredArr) {
     regDisplay.innerHTML = "";
   }
 }
-
-displayRegNumbersOnRefresh()
 
 townList.addEventListener("click", selectTown);
 clearBtn.addEventListener("click", clear);
