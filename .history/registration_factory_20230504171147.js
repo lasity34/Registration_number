@@ -33,9 +33,9 @@ function registrationNumber() {
 
   function getLocationFromPrefix(prefix) {
     const locations = {
-      CL: "Stellenbosch",
-      CA: "Cape town",
-      CJ: "Paarl",
+      CL: "stellenbosch",
+      CA: "cape town",
+      CJ: "paarl",
     };
     return locations[prefix];
   }
@@ -66,9 +66,11 @@ function registrationNumber() {
     } else if (!firstTwoLetterCheck.test(regInput)) {
       errorMessage = "only First 2 must be letters";
     } else if (
-      ["CJ","CL", "CA"].includes(regInput)
+      !regInput.startsWith("CJ") &&
+      !regInput.startsWith("CL") &&
+      !regInput.startsWith("CA")
     ) {
-      errorMessage = "Has to start with CA, CJ or CL";
+      errorMessage = "Has to start with CA, CJ or Cl";
     } else if (regInput.length > 10) {
       errorMessage = "Too long";
     } else if (locationArr.some((reg) => reg.reg === regInput)) {
@@ -99,7 +101,9 @@ function registrationNumber() {
        filterMessage = `The are no reg numbers for any town`;
     } else if (filteredArr.length === 0) {
 
-       filterMessage = `The are no reg numbers for ${ locationVal}`;
+       filterMessage = `The are no reg numbers for ${
+        locationVal.charAt(0).toUpperCase() + locationVal.slice(1)
+      }`;
     }
     
     return filterMessage

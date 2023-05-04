@@ -33,9 +33,9 @@ function registrationNumber() {
 
   function getLocationFromPrefix(prefix) {
     const locations = {
-      CL: "Stellenbosch",
-      CA: "Cape town",
-      CJ: "Paarl",
+      CL: "stellenbosch",
+      CA: "cape town",
+      CJ: "paarl",
     };
     return locations[prefix];
   }
@@ -99,7 +99,9 @@ function registrationNumber() {
        filterMessage = `The are no reg numbers for any town`;
     } else if (filteredArr.length === 0) {
 
-       filterMessage = `The are no reg numbers for ${ locationVal}`;
+       filterMessage = `The are no reg numbers for ${
+        locationVal.charAt(0).toUpperCase() + locationVal.slice(1)
+      }`;
     }
     
     return filterMessage
