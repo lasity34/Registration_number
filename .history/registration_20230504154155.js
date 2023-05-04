@@ -22,14 +22,14 @@ function displayRegNumbersOnRefresh() {
 
   if (Array.isArray(registrationNumbersArray)) {
     registrationNumbersArray.forEach((reg) => {
-      appendRegToNumberList(reg);
+      appendRegToNumberList(reg.reg);
     });
   }
 }
 
 function appendRegToNumberList(regNumber) {
   const newLi = document.createElement("li");
-  newLi.textContent = regNumber
+  newLi.textContent = regNumber;
   regDisplay.appendChild(newLi);
 }
 
@@ -41,17 +41,8 @@ function registrationNumAdd() {
 
   if (reg) {
     if (regInstance.addRegistrationNumber()) {
-      const storedRegArr = regInstance.getArr();
-      localStorage.setItem("regNum", JSON.stringify(storedRegArr));
-      regInstance.filterReg();
-      regDisplay.innerHTML = "";
-      const newRegArr = regInstance.getFilteredArr() || [];
-      console.log(newRegArr)
-      newRegArr.forEach((reg) => {
-        appendRegToNumberList(reg);
-      });
-
-      displayAddedMessage();
+      storeRegNumber();
+      updateDisplayWithNewRegNumber();
     }
   }
 
@@ -61,6 +52,23 @@ function registrationNumAdd() {
 function resetErrorMessages() {
   errorImage.innerHTML = "";
   filterMessageDisplay.innerHTML = "";
+}
+
+function storeRegNumber() {
+  const storedRegArr = regInstance.getArr();
+  localStorage.setItem("regNum", JSON.stringify(storedRegArr));
+}
+
+function updateDisplayWithNewRegNumber() {
+  regInstance.filterReg();
+  regDisplay.innerHTML = "";
+  const newRegArr = regInstance.getFilteredArr() || [];
+
+  newRegArr.forEach((reg) => {
+    appendRegToNumberList(reg.reg);
+  });
+
+  displayAddedMessage();
 }
 
 function displayAddedMessage() {
@@ -97,7 +105,7 @@ function clear() {
     regInput.value = "";
     townList.value = "select_town";
     localStorage.setItem("regNum", JSON.stringify([]));
-    regInstance.setSavedArr([]);
+    regInstance.setSavedArr(regArr);
     resetErrorMessages();
   }
 }
@@ -109,24 +117,26 @@ function selectTown() {
   const filteredArr = regInstance.getFilteredArr();
   const filterMessage = regInstance.filteredMessage();
 
-  filterMessageDisplay.innerHTML = filterMessage;
-  displayFilteredArray(filteredArr);
   if (filteredArr.length === 0) {
     errorImage.innerHTML = '<img src="./images/not_found.svg" width="200"/>';
   } else {
     errorImage.innerHTML = "";
   }
-}
-
-function displayFilteredArray(filteredArr) {
-  regDisplay.innerHTML = "";
+  filterMessageDisplay.innerHTML = filterMessage;
+  
   if (filteredArr) {
     filteredArr.forEach((reg) => {
-      appendRegToNumberList(reg);
+      const newLi = document.createElement("li");
+      newLi.textContent = reg;
+      regDisplay.appendChild(newLi);
     });
   } else {
     regDisplay.innerHTML = "";
   }
+}
+
+function displayFilteredArray() {
+  regDisplay.innerHTML = "";
 }
 
 townList.addEventListener("click", selectTown);

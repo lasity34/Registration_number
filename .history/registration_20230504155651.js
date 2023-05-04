@@ -29,7 +29,7 @@ function displayRegNumbersOnRefresh() {
 
 function appendRegToNumberList(regNumber) {
   const newLi = document.createElement("li");
-  newLi.textContent = regNumber
+  newLi.textContent = regNumber.reg;
   regDisplay.appendChild(newLi);
 }
 
@@ -43,12 +43,13 @@ function registrationNumAdd() {
     if (regInstance.addRegistrationNumber()) {
       const storedRegArr = regInstance.getArr();
       localStorage.setItem("regNum", JSON.stringify(storedRegArr));
+      updateDisplayWithNewRegNumber();
       regInstance.filterReg();
       regDisplay.innerHTML = "";
       const newRegArr = regInstance.getFilteredArr() || [];
-      console.log(newRegArr)
+
       newRegArr.forEach((reg) => {
-        appendRegToNumberList(reg);
+        appendRegToNumberList(reg.reg);
       });
 
       displayAddedMessage();
@@ -62,6 +63,8 @@ function resetErrorMessages() {
   errorImage.innerHTML = "";
   filterMessageDisplay.innerHTML = "";
 }
+
+
 
 function displayAddedMessage() {
   messageDisplay.classList.add("message_container");
@@ -97,7 +100,7 @@ function clear() {
     regInput.value = "";
     townList.value = "select_town";
     localStorage.setItem("regNum", JSON.stringify([]));
-    regInstance.setSavedArr([]);
+    regInstance.setSavedArr(regArr);
     resetErrorMessages();
   }
 }
@@ -122,7 +125,7 @@ function displayFilteredArray(filteredArr) {
   regDisplay.innerHTML = "";
   if (filteredArr) {
     filteredArr.forEach((reg) => {
-      appendRegToNumberList(reg);
+      appendRegToNumberList(reg.reg);
     });
   } else {
     regDisplay.innerHTML = "";

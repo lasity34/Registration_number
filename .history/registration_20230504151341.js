@@ -14,64 +14,73 @@ const regInstance = registrationNumber();
 
 displayRegNumbersOnRefresh();
 
+// global code
 function displayRegNumbersOnRefresh() {
   let registrationNumbersArray =
     JSON.parse(localStorage.getItem("regNum")) || [];
+
   regInstance.setSavedArr(registrationNumbersArray);
   regInstance.setLocationValue(townList.value);
 
+  // when refresh the list will still display
   if (Array.isArray(registrationNumbersArray)) {
     registrationNumbersArray.forEach((reg) => {
-      appendRegToNumberList(reg);
+      const newLi = document.createElement("li");
+      newLi.textContent = reg.reg;
+      regDisplay.appendChild(newLi);
     });
   }
 }
 
-function appendRegToNumberList(regNumber) {
-  const newLi = document.createElement("li");
-  newLi.textContent = regNumber
-  regDisplay.appendChild(newLi);
-}
+
+
+// add reg number
 
 function registrationNumAdd() {
-  resetErrorMessages();
-  const regValue = regInput.value.trim();
-  regInstance.setValueInput(regValue);
+  // set value
+  const regValue = regInput.value;
+  regInstance.setValueInput(regValue.trim());
+  // get value after all validations
   const reg = regInstance.getValueInput();
 
+  // when add is clicked error is cleared
+  errorImage.innerHTML = "";
+  filterMessageDisplay.innerHTML = "";
+
+  // if reg value is true object will be created an stored
   if (reg) {
     if (regInstance.addRegistrationNumber()) {
       const storedRegArr = regInstance.getArr();
-      localStorage.setItem("regNum", JSON.stringify(storedRegArr));
-      regInstance.filterReg();
-      regDisplay.innerHTML = "";
-      const newRegArr = regInstance.getFilteredArr() || [];
-      console.log(newRegArr)
-      newRegArr.forEach((reg) => {
-        appendRegToNumberList(reg);
-      });
 
-      displayAddedMessage();
+      //  local storage will save all data
+      localStorage.setItem("regNum", JSON.stringify(storedRegArr));
+
+      // message for every place added
+      messageDisplay.classList.add("message_container");
+      messageDisplay.innerHTML = regInstance.getMessage();
+      function timeout() {
+        messageDisplay.classList.remove("message_container");
+        messageDisplay.innerHTML = "";
+      }
+      setTimeout(timeout, 2000);
     }
+
+    //  this will create populate list even if on a filter/ selected town
+    regInstance.filterReg();
+    regDisplay.innerHTML = "";
+    const newRegArr = regInstance.getFilteredArr() || [];
+    newRegArr.forEach((reg) => {
+      const newLi = document.createElement("li");
+      newLi.textContent = reg;
+      regDisplay.appendChild(newLi);
+    });
   }
 
+  // resets input value
   regInput.value = "";
 }
 
-function resetErrorMessages() {
-  errorImage.innerHTML = "";
-  filterMessageDisplay.innerHTML = "";
-}
-
-function displayAddedMessage() {
-  messageDisplay.classList.add("message_container");
-  messageDisplay.innerHTML = regInstance.getMessage();
-  function timeout() {
-    messageDisplay.classList.remove("message_container");
-    messageDisplay.innerHTML = "";
-  }
-  setTimeout(timeout, 2000);
-}
+// validator message code
 
 function inputValid() {
   const regValue = regInput.value;
@@ -87,6 +96,7 @@ function inputValid() {
   }
 }
 
+//  clears all data
 function clear() {
   const userConfirm = confirm("Are you sure you want to clear all data?");
 
@@ -95,12 +105,16 @@ function clear() {
     errorMessage.innerHTML = "";
     regDisplay.innerHTML = "";
     regInput.value = "";
+    registrationNumbersArray = [];
     townList.value = "select_town";
     localStorage.setItem("regNum", JSON.stringify([]));
-    regInstance.setSavedArr([]);
-    resetErrorMessages();
+    regInstance.setSavedArr(regArr);
+    errorImage.innerHTML = "";
+    filterMessageDisplay.innerHTML = "";
   }
 }
+
+
 
 //  filters towns from the drop box
 function selectTown() {
@@ -109,20 +123,18 @@ function selectTown() {
   const filteredArr = regInstance.getFilteredArr();
   const filterMessage = regInstance.filteredMessage();
 
-  filterMessageDisplay.innerHTML = filterMessage;
-  displayFilteredArray(filteredArr);
   if (filteredArr.length === 0) {
     errorImage.innerHTML = '<img src="./images/not_found.svg" width="200"/>';
   } else {
     errorImage.innerHTML = "";
   }
-}
-
-function displayFilteredArray(filteredArr) {
+  filterMessageDisplay.innerHTML = filterMessage;
   regDisplay.innerHTML = "";
   if (filteredArr) {
     filteredArr.forEach((reg) => {
-      appendRegToNumberList(reg);
+      const newLi = document.createElement("li");
+      newLi.textContent = reg;
+      regDisplay.appendChild(newLi);
     });
   } else {
     regDisplay.innerHTML = "";

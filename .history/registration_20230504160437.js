@@ -122,7 +122,7 @@ function displayFilteredArray(filteredArr) {
   regDisplay.innerHTML = "";
   if (filteredArr) {
     filteredArr.forEach((reg) => {
-      appendRegToNumberList(reg);
+      appendRegToNumberList(reg.reg);
     });
   } else {
     regDisplay.innerHTML = "";
