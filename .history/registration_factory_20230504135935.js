@@ -4,7 +4,10 @@ function registrationNumber() {
   let addedMessage = ""
   let locationVal = "";
   const regexNumLet = /^[a-zA-Z0-9]*$/;
-  const firstTwoLetterCheck = /^[a-zA-Z]{2,3}[a-zA-Z0-9]?[0-9]*(-[0-9]*)?$/
+  const firstTwoLetterCheck = /^[a-zA-Z]{2,3}(?:\s?(\d{1,3}-)*\d{1,3})$/
+
+
+
 
   let filterMessage = "";
   let locationArr = [];
@@ -28,37 +31,45 @@ function registrationNumber() {
     console.log(locationArr)
   }
 
-  function getLocationFromPrefix(prefix) {
-    const locations = {
-      "CL": "stellenbosch",
-      "CA": "cape town",
-      "CJ": "paarl",
-    }
-    return locations[prefix]
-    }
-  
-
 
   // Creates new object
 
-
-
-   function addRegistrationNumber() {
-    // ...
-    const location = getLocationFromPrefix(regInput.substring(0, 2));
-    if (location && !locationArr.some((reg) => reg.reg === regInput)) {
-      locationArr.push({
-        reg: regInput,
-        count: 0,
-        regLocation: regInput.substring(0, 2),
-        location: location,
-      });
-      addedMessage = `Licence plate has been added to ${location}`;
+  function callRegNum() {
+    if (!locationArr.some((reg) => reg.reg === regInput)) {
+      if (regInput.startsWith("CL")) {
+        locationArr.push({
+          reg: regInput,
+          count: 0,
+          regLocation: "CL",
+          location: "stellenbosch",
+        });
+      } else if (regInput.startsWith("CA")) {
+        locationArr.push({
+          reg: regInput,
+          count: 0,
+          regLocation: "CA",
+          location: "cape town",
+        });
+      } else if (regInput.startsWith("CJ")) {
+        locationArr.push({
+          reg: regInput,
+          count: 0,
+          regLocation: "CJ",
+          location: "paarl",
+        });
+      }
+      addedMessage = `licence plate has been added to ${locationArr[locationArr.length - 1].location}`
       return true;
+    } else {
+      return false;
     }
-    return false;
   }
- 
+
+  function callMessage() {
+    
+    
+    
+  }
 
   // tests for error messages
 
@@ -148,7 +159,8 @@ function registrationNumber() {
     getValueInput,
     testValueInput,
     getErrorMessage,
-    addRegistrationNumber,
+    callRegNum,
+    callMessage,
     getMessage,
     filterReg,
     getArr,

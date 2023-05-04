@@ -80,7 +80,7 @@ function registrationNumAdd() {
   regInput.value = "";
 }
 
-// validator message code
+// error code input
 
 function inputValid() {
   const regValue = regInput.value;
@@ -96,7 +96,6 @@ function inputValid() {
   }
 }
 
-//  clears all data
 function clear() {
   const userConfirm = confirm("Are you sure you want to clear all data?");
 
@@ -114,8 +113,6 @@ function clear() {
   }
 }
 
-
-//  filters towns from the drop box
 function selectTown() {
   regInstance.setLocationValue(townList.value);
   regInstance.filterReg();

@@ -6,6 +6,10 @@ function registrationNumber() {
   const regexNumLet = /^[a-zA-Z0-9]*$/;
   const firstTwoLetterCheck = /^[a-zA-Z]{2,3}[a-zA-Z0-9]?[0-9]*(-[0-9]*)?$/
 
+
+
+
+
   let filterMessage = "";
   let locationArr = [];
   let filteredArr = [];

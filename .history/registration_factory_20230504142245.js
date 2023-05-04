@@ -6,6 +6,10 @@ function registrationNumber() {
   const regexNumLet = /^[a-zA-Z0-9]*$/;
   const firstTwoLetterCheck = /^[a-zA-Z]{2,3}[a-zA-Z0-9]?[0-9]*(-[0-9]*)?$/
 
+
+
+
+
   let filterMessage = "";
   let locationArr = [];
   let filteredArr = [];
@@ -36,17 +40,17 @@ function registrationNumber() {
     }
     return locations[prefix]
     }
-  
+  }
 
 
   // Creates new object
 
 
 
-   function addRegistrationNumber() {
+  function addRegistrationNumber() {
     // ...
     const location = getLocationFromPrefix(regInput.substring(0, 2));
-    if (location && !locationArr.some((reg) => reg.reg === regInput)) {
+    if (location) {
       locationArr.push({
         reg: regInput,
         count: 0,
@@ -58,6 +62,7 @@ function registrationNumber() {
     }
     return false;
   }
+
  
 
   // tests for error messages

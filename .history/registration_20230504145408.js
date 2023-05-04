@@ -114,8 +114,6 @@ function clear() {
   }
 }
 
-
-//  filters towns from the drop box
 function selectTown() {
   regInstance.setLocationValue(townList.value);
   regInstance.filterReg();

@@ -53,8 +53,6 @@ function registrationNumAdd() {
 
       //  local storage will save all data
       localStorage.setItem("regNum", JSON.stringify(storedRegArr));
-
-      // message for every place added
       messageDisplay.classList.add("message_container");
       messageDisplay.innerHTML = regInstance.getMessage();
       function timeout() {
@@ -63,9 +61,6 @@ function registrationNumAdd() {
       }
       setTimeout(timeout, 2000);
     }
-
-
-    //  this will create populate list even if on a filter/ selected town
     regInstance.filterReg();
     regDisplay.innerHTML = "";
     const newRegArr = regInstance.getFilteredArr() || [];
@@ -76,11 +71,10 @@ function registrationNumAdd() {
     });
   }
 
-  // resets input value
   regInput.value = "";
 }
 
-// validator message code
+// error code input
 
 function inputValid() {
   const regValue = regInput.value;
@@ -96,7 +90,6 @@ function inputValid() {
   }
 }
 
-//  clears all data
 function clear() {
   const userConfirm = confirm("Are you sure you want to clear all data?");
 
@@ -114,8 +107,6 @@ function clear() {
   }
 }
 
-
-//  filters towns from the drop box
 function selectTown() {
   regInstance.setLocationValue(townList.value);
   regInstance.filterReg();
