@@ -12,7 +12,7 @@ const errorImage = document.querySelector(".error_image");
 
 const regInstance = registrationNumber();
 
-displayRegNumbersOnRefresh()
+
 
 
 

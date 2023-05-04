@@ -12,7 +12,7 @@ const errorImage = document.querySelector(".error_image");
 
 const regInstance = registrationNumber();
 
-displayRegNumbersOnRefresh()
+// global code
 
 
 
@@ -101,7 +101,6 @@ function clear() {
   }
 }
 
-// global code
 function displayRegNumbersOnRefresh() {
   let registrationNumbersArray = JSON.parse(localStorage.getItem("regNum")) || [];
 

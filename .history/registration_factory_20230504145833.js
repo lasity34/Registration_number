@@ -81,8 +81,6 @@ function registrationNumber() {
     }
   }
 
-  // this will filter towns in their groups
-
   function filterReg() {
     if (locationVal === "select_town") {
       filteredArr = locationArr.map((reg) => reg.reg);
@@ -92,8 +90,6 @@ function registrationNumber() {
         .map((reg) => reg.reg);
     }
   }
-
-  //  this is a filter for just the town groups
 
   function filteredMessage() {
     if (filteredArr.length === 0 && locationVal === "select_town") {
@@ -106,8 +102,6 @@ function registrationNumber() {
       return (filterMessage = "");
     }
   }
-
-  // this will get the value of the groups
 
   function getValueInput() {
     if (

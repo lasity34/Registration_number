@@ -12,9 +12,22 @@ const errorImage = document.querySelector(".error_image");
 
 const regInstance = registrationNumber();
 
-displayRegNumbersOnRefresh()
+// global code
+
+let registrationNumbersArray = JSON.parse(localStorage.getItem("regNum")) || [];
+
+regInstance.setSavedArr(regArr);
+regInstance.setLocationValue(townList.value);
 
 
+// when refresh the list will still display
+if (Array.isArray(regArr)) {
+  regArr.forEach((reg) => {
+    const newLi = document.createElement("li");
+    newLi.textContent = reg.reg;
+    regDisplay.appendChild(newLi);
+  });
+}
 
 // add reg number
 
@@ -99,24 +112,6 @@ function clear() {
     errorImage.innerHTML = "";
     filterMessageDisplay.innerHTML = "";
   }
-}
-
-// global code
-function displayRegNumbersOnRefresh() {
-  let registrationNumbersArray = JSON.parse(localStorage.getItem("regNum")) || [];
-
-regInstance.setSavedArr(registrationNumbersArray);
-regInstance.setLocationValue(townList.value);
-
-
-// when refresh the list will still display
-if (Array.isArray(regArr)) {
-  regArr.forEach((reg) => {
-    const newLi = document.createElement("li");
-    newLi.textContent = reg.reg;
-    regDisplay.appendChild(newLi);
-  });
-}
 }
 
 
