@@ -133,7 +133,7 @@ function displayFilteredArray(filteredArr) {
 }
 
 
-townList.addEventListener("change", selectTown);
+townList.addEventListener("onchange", selectTown);
 clearBtn.addEventListener("click", clear);
 addRegNumBtn.addEventListener("click", registrationNumAdd);
 regInput.addEventListener("input", inputValid);
