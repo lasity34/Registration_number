@@ -46,7 +46,6 @@ function registrationNumAdd() {
     if (regInstance.callRegNum()) {
       
       const storedRegArr = regInstance.getArr();
-      
       localStorage.setItem("regNum", JSON.stringify(storedRegArr));
       regInstance.callMessage()
       messageDisplay.classList.add("message_container")

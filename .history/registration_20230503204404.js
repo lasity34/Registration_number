@@ -19,7 +19,7 @@ const regInstance = registrationNumber();
 
 
 let regArr = JSON.parse(localStorage.getItem("regNum")) || [];
-
+console.log(regArr)
 regInstance.setSavedArr(regArr);
 regInstance.setLocationValue(townList.value);
 
@@ -46,7 +46,6 @@ function registrationNumAdd() {
     if (regInstance.callRegNum()) {
       
       const storedRegArr = regInstance.getArr();
-      
       localStorage.setItem("regNum", JSON.stringify(storedRegArr));
       regInstance.callMessage()
       messageDisplay.classList.add("message_container")
@@ -99,7 +98,6 @@ function clear() {
   regInstance.setSavedArr(regArr);
   errorImage.innerHTML = ""
   filterMessageDisplay.innerHTML = ""
-  console.log(regArr)
 }
 
 function selectTown() {

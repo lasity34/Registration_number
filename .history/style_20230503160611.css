@@ -15,26 +15,12 @@ header {
   font-size: 1.4rem;
   margin-top: 2em;
 }
-
-.info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 1.5em auto;
-  text-align: center;
-}
-
-.info_town {
-  display: flex;
-  justify-content: space-around;
-  width: 30%;
-}
 /* input */
 .input_section {
   display: flex;
   justify-content: center;
   align-content: center;
-  margin-bottom: 2em;
+  margin: 3em 0;
 }
 
 .form__label {
@@ -57,8 +43,8 @@ header {
   border-radius: 0.4rem;
   background-color: rgb(56, 46, 46);
   border: none;
-  width: 20%;
-  min-width: 300px;
+  width: 25%;
+  min-width: 400px;
   display: block;
   border-bottom: 0.3rem solid transparent;
   transition: all 0.3s;
@@ -73,38 +59,28 @@ header {
 }
 
 /* message */
-.message {
-  display: flex;
-  justify-content: center;
-}
 
 .added_item {
-  margin: 0 auto;
-}
-
-.message_container {
   position: relative;
   padding: 10px;
-  width: 20%;
+  
   margin: 30px 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  background: #124e23;
-  color: #fff;
-  text-align: center;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  box-shadow:0 2px 5px rgba(0,0,0,.3);
+  background: #BBB;
+  color: #FFF;
+  
+  -webkit-transition: all .5s ease;
+     -moz-transition: all .5s ease;
+      -ms-transition: all .5s ease;
+       -o-transition: all .5s ease;
+          transition: all .5s ease;
 }
-.message_container:hover {
-  box-shadow: 0 15px 20px rgba(10, 0, 10, 0.3);
+.added_item:hover{
+  box-shadow: 0 15px 20px rgba(10,0,10,.3);
   -webkit-filter: brightness(110%);
 }
 
-.message_container.message {
-  background: rgb(35, 185, 29);
-}
+.added_item.message{background: #C43;}
 
 /*  button */
 
@@ -117,6 +93,7 @@ header {
 .add_btn {
   background-color: #253d48;
   color: #fff;
+  
 }
 
 .add_btn:hover {
@@ -128,6 +105,7 @@ header {
 }
 
 .clear_btn {
+
   width: 100px;
   background-color: rgb(119, 16, 16);
   color: antiquewhite;
@@ -168,18 +146,15 @@ header {
 #reg_display_container {
   display: flex;
   justify-content: center;
-  align-items: center;
-
   flex-direction: column;
+  margin: 0 auto;
   text-align: center;
   list-style: none;
 }
 
 ul {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 50%;
+  flex-direction: column;
 }
 
 li {
@@ -188,9 +163,11 @@ li {
   font-weight: bold;
   align-self: center;
   width: 30%;
-  min-width: 150px;
-  margin-right: 0.5em;
+
   margin-top: 0.5em;
+
+  max-width: 230px;
+  min-width: 150px;
   background-color: rgb(244, 244, 233);
   border: 3px solid black;
   border-radius: 10px;
@@ -221,10 +198,6 @@ li {
   .validCheck {
     margin-top: 1em;
     align-self: center;
-  }
-
-  .info_town {
-    flex-direction: column;
   }
 }
 

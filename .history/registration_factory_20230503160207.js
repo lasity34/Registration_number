@@ -1,10 +1,10 @@
 function registrationNumber() {
   let regInput = "";
   let errorMessage = "";
-  let addedMessage = ""
+  let addedItem = ""
   let locationVal = "";
   const regexNumLet = /^[a-zA-Z0-9]*$/;
-  const firstTwoLetterCheck = /^\w{2,3}[\w\s-]*\d{3,9}/;
+  const firstTwoLetterCheck = /^\w{2,3}[\w\s-]*\d{3,7}/;
 
 
   let filterMessage = "";
@@ -15,20 +15,6 @@ function registrationNumber() {
     regInput = input.replace(/[a-zA-Z]/g, (letter) => letter.toUpperCase()).replace(/\s+/g, '').trim()
  
   } 
-
-
-  
-  function setLocationValue(location) {
-    locationVal = location;
-  }
-
-  
-
-  function setSavedArr(arr) {
-    locationArr = arr;
-    console.log(locationArr)
-  }
-
 
   // Creates new object
 
@@ -46,7 +32,7 @@ function registrationNumber() {
           reg: regInput,
           count: 0,
           regLocation: "CA",
-          location: "cape town",
+          location: "cape_town",
         });
       } else if (regInput.startsWith("CJ")) {
         locationArr.push({
@@ -56,17 +42,21 @@ function registrationNumber() {
           location: "paarl",
         });
       }
-      addedMessage = `licence plate has been added to ${locationArr[locationArr.length - 1].location}`
+
       return true;
     } else {
       return false;
     }
   }
 
-  function callMessage() {
-    
-    
-    
+  function setLocationValue(location) {
+    locationVal = location;
+  }
+
+  
+
+  function setSavedArr(arr) {
+    locationArr = arr;
   }
 
   // tests for error messages
@@ -146,10 +136,6 @@ function registrationNumber() {
     return locationVal
   }
 
-  function getMessage() {
-    return addedMessage
-  }
-
   return {
     setValueInput,
     setLocationValue,
@@ -158,8 +144,6 @@ function registrationNumber() {
     testValueInput,
     getErrorMessage,
     callRegNum,
-    callMessage,
-    getMessage,
     filterReg,
     getArr,
     getFilteredArr,

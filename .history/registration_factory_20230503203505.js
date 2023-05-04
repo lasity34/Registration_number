@@ -4,7 +4,7 @@ function registrationNumber() {
   let addedMessage = ""
   let locationVal = "";
   const regexNumLet = /^[a-zA-Z0-9]*$/;
-  const firstTwoLetterCheck = /^\w{2,3}[\w\s-]*\d{3,9}/;
+  const firstTwoLetterCheck = /^\w{2,3}[\w\s-]*\d{3,7}/;
 
 
   let filterMessage = "";
@@ -26,7 +26,6 @@ function registrationNumber() {
 
   function setSavedArr(arr) {
     locationArr = arr;
-    console.log(locationArr)
   }
 
 
@@ -46,7 +45,7 @@ function registrationNumber() {
           reg: regInput,
           count: 0,
           regLocation: "CA",
-          location: "cape town",
+          location: "cape_town",
         });
       } else if (regInput.startsWith("CJ")) {
         locationArr.push({
@@ -56,7 +55,7 @@ function registrationNumber() {
           location: "paarl",
         });
       }
-      addedMessage = `licence plate has been added to ${locationArr[locationArr.length - 1].location}`
+      addedMessage = `licence plate has been added to ${locationArr.location}`
       return true;
     } else {
       return false;

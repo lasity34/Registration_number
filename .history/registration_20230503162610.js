@@ -19,9 +19,8 @@ const regInstance = registrationNumber();
 
 
 let regArr = JSON.parse(localStorage.getItem("regNum")) || [];
-
 regInstance.setSavedArr(regArr);
-regInstance.setLocationValue(townList.value);
+
 
 if (Array.isArray(regArr)) {
   regArr.forEach((reg) => {
@@ -44,19 +43,11 @@ function registrationNumAdd() {
   filterMessageDisplay.innerHTML = ""
   if (reg) {
     if (regInstance.callRegNum()) {
-      
       const storedRegArr = regInstance.getArr();
-      
       localStorage.setItem("regNum", JSON.stringify(storedRegArr));
       regInstance.callMessage()
-      messageDisplay.classList.add("message_container")
-      messageDisplay.innerHTML = regInstance.getMessage()
-      function timeout() {
-        messageDisplay.classList.remove("message_container")
-      messageDisplay.innerHTML = ""
-       
-      }
-         setTimeout(timeout, 2000)
+      errorDisplay.classList.add("message_container")
+      messageDisplay.innerHTML =   setTimeout(regInstance.getMessage(), 5000)
     }
 
     regInstance.filterReg();
@@ -94,12 +85,9 @@ function clear() {
   regDisplay.innerHTML = "";
   regInput.value = "";
   regArr = [];
-  townList.value = "select_town";
+  townSelect.value = "select_town";
   localStorage.setItem("regNum", JSON.stringify([]));
-  regInstance.setSavedArr(regArr);
-  errorImage.innerHTML = ""
-  filterMessageDisplay.innerHTML = ""
-  console.log(regArr)
+  regInstance.setSavedArr([]);
 }
 
 function selectTown() {

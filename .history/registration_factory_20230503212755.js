@@ -4,7 +4,7 @@ function registrationNumber() {
   let addedMessage = ""
   let locationVal = "";
   const regexNumLet = /^[a-zA-Z0-9]*$/;
-  const firstTwoLetterCheck = /^\w{2,3}[\w\s-]*\d{3,9}/;
+  const firstTwoLetterCheck = /^\w{2,3}[\w\s-]*\d{3,7}/;
 
 
   let filterMessage = "";
