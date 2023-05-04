@@ -14,7 +14,6 @@ const errorImage = document.querySelector(".error_image");
 //  Instance
 const regInstance = registrationNumber();
 
-displayRegNumbersOnRefresh()
 
 // main functions
 function displayRegNumbersOnRefresh() {
@@ -24,7 +23,7 @@ function displayRegNumbersOnRefresh() {
 
   if (Array.isArray(registrationNumbersArray)) {
     registrationNumbersArray.forEach((reg) => {
-      appendRegToNumberList(reg.reg);
+      appendRegToNumberList(reg);
     });
   }
 }
@@ -132,6 +131,7 @@ function displayFilteredArray(filteredArr) {
   }
 }
 
+displayRegNumbersOnRefresh()
 
 townList.addEventListener("click", selectTown);
 clearBtn.addEventListener("click", clear);
