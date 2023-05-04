@@ -128,7 +128,7 @@ describe("This checks filters", function() {
   it("This will check if Cape Town reg is filtered", function() {
     const regInstance = registrationNumber();
 
-    regInstance.setLocationValue("Cape Town")
+    regInstance.setLocationValue("Cape town")
     regInstance.setValueInput("CJ22334");
     regInstance.addRegistrationNumber()
     regInstance.filterReg()
@@ -148,7 +148,7 @@ describe("This checks filters", function() {
   it("This will check if a message is displayed when there is no reg num in cape town filter", function() {
     const regInstance = registrationNumber();
 
-    regInstance.setLocationValue("Cape Town")
+    regInstance.setLocationValue("cape_town")
     regInstance.setValueInput("CJ22334");
     regInstance.addRegistrationNumber()
     regInstance.filterReg()
@@ -157,41 +157,41 @@ describe("This checks filters", function() {
     regInstance.addRegistrationNumber()
     regInstance.filterReg()
     regInstance.getFilteredArr()
-    regInstance.setValueInput("CJ12334");
+    regInstance.setValueInput("CA12334");
     regInstance.addRegistrationNumber()
     regInstance.filterReg()
     regInstance.getFilteredArr()
 
-    assert.equal("The are no reg numbers for Cape Town", regInstance.filteredMessage())
+    assert.equal("CA12334", regInstance.filteredMessage())
   })
 
-  it("This will check if a message is displayed when there is no reg num in Paarl filter", function() {
+  it("This will check if a message is displayed when there is no reg num in cape town filter", function() {
     const regInstance = registrationNumber();
 
-    regInstance.setLocationValue("Paarl")
-    regInstance.setValueInput("CA22334");
-    regInstance.addRegistrationNumber()
+    regInstance.setLocationValue("cape_town")
+    regInstance.setValueInput("CJ22334");
+    regInstance.callRegNum()
     regInstance.filterReg()
     regInstance.getFilteredArr()
     regInstance.setValueInput("CL12334")
-    regInstance.addRegistrationNumber()
+    regInstance.callRegNum()
     regInstance.filterReg()
     regInstance.getFilteredArr()
    
 
-    assert.equal("The are no reg numbers for Paarl", regInstance.filteredMessage())
+    assert.equal("The are no reg numbers for Cape_town", regInstance.filteredMessage())
   })
 
   it("This will check if a message is displayed when there is no reg num in stellenbosch filter", function() {
     const regInstance = registrationNumber();
 
-    regInstance.setLocationValue("Stellenbosch")
+    regInstance.setLocationValue("stellenbosch")
     regInstance.setValueInput("CJ22334");
-    regInstance.addRegistrationNumber()
+    regInstance.callRegNum()
     regInstance.filterReg()
     regInstance.getFilteredArr()
     regInstance.setValueInput("CA12334")
-    regInstance.addRegistrationNumber()
+    regInstance.callRegNum()
     regInstance.filterReg()
     regInstance.getFilteredArr()
    
@@ -199,5 +199,20 @@ describe("This checks filters", function() {
     assert.equal("The are no reg numbers for Stellenbosch", regInstance.filteredMessage())
   })
 
- 
+  it("This will check if a message is displayed when there is no reg num in Paarl filter", function() {
+    const regInstance = registrationNumber();
+
+    regInstance.setLocationValue("paarl")
+    regInstance.setValueInput("CL22334");
+    regInstance.callRegNum()
+    regInstance.filterReg()
+    regInstance.getFilteredArr()
+    regInstance.setValueInput("CA12334")
+    regInstance.callRegNum()
+    regInstance.filterReg()
+    regInstance.getFilteredArr()
+   
+
+    assert.equal("The are no reg numbers for Paarl", regInstance.filteredMessage())
+  })
 })

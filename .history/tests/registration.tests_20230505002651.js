@@ -185,7 +185,7 @@ describe("This checks filters", function() {
   it("This will check if a message is displayed when there is no reg num in stellenbosch filter", function() {
     const regInstance = registrationNumber();
 
-    regInstance.setLocationValue("Stellenbosch")
+    regInstance.setLocationValue("stellenbosch")
     regInstance.setValueInput("CJ22334");
     regInstance.addRegistrationNumber()
     regInstance.filterReg()
@@ -199,5 +199,20 @@ describe("This checks filters", function() {
     assert.equal("The are no reg numbers for Stellenbosch", regInstance.filteredMessage())
   })
 
- 
+  it("This will check if a message is displayed when there is no reg num in Paarl filter", function() {
+    const regInstance = registrationNumber();
+
+    regInstance.setLocationValue("paarl")
+    regInstance.setValueInput("CL22334");
+    regInstance.callRegNum()
+    regInstance.filterReg()
+    regInstance.getFilteredArr()
+    regInstance.setValueInput("CA12334")
+    regInstance.callRegNum()
+    regInstance.filterReg()
+    regInstance.getFilteredArr()
+   
+
+    assert.equal("The are no reg numbers for Paarl", regInstance.filteredMessage())
+  })
 })

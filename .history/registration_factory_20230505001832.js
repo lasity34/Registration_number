@@ -82,10 +82,6 @@ function registrationNumber() {
   // this will filter towns in their groups
 
   function filterReg() {
-    console.log('locationVal:', locationVal);
-    console.log('locationArr:', locationArr);
-
-
     if (locationVal === "Select Town") {
       filteredArr = locationArr.map((reg) => reg.reg);
     } else {

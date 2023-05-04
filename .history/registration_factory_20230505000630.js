@@ -34,7 +34,7 @@ function registrationNumber() {
   function getLocationFromPrefix(prefix) {
     const locations = {
       CL: "Stellenbosch",
-      CA: "Cape Town",
+      CA: "Cape town",
       CJ: "Paarl",
     };
    
@@ -82,11 +82,7 @@ function registrationNumber() {
   // this will filter towns in their groups
 
   function filterReg() {
-    console.log('locationVal:', locationVal);
-    console.log('locationArr:', locationArr);
-
-
-    if (locationVal === "Select Town") {
+    if (locationVal === "select_town") {
       filteredArr = locationArr.map((reg) => reg.reg);
     } else {
       filteredArr = locationArr
@@ -100,7 +96,7 @@ function registrationNumber() {
 
   function filteredMessage() {
     let filterMessage = "";
-    if (filteredArr.length === 0 && locationVal === "Select Town") {
+    if (filteredArr.length === 0 && locationVal === "select_town") {
        filterMessage = `The are no reg numbers for any town`;
     } else if (filteredArr.length === 0) {
        filterMessage = `The are no reg numbers for ${locationVal}`;

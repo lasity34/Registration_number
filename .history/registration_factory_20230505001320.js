@@ -82,10 +82,6 @@ function registrationNumber() {
   // this will filter towns in their groups
 
   function filterReg() {
-    console.log('locationVal:', locationVal);
-    console.log('locationArr:', locationArr);
-
-
     if (locationVal === "Select Town") {
       filteredArr = locationArr.map((reg) => reg.reg);
     } else {
@@ -100,7 +96,7 @@ function registrationNumber() {
 
   function filteredMessage() {
     let filterMessage = "";
-    if (filteredArr.length === 0 && locationVal === "Select Town") {
+    if (filteredArr.length === 0 && locationVal === "select_town") {
        filterMessage = `The are no reg numbers for any town`;
     } else if (filteredArr.length === 0) {
        filterMessage = `The are no reg numbers for ${locationVal}`;
