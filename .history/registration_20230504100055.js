@@ -92,7 +92,7 @@ function clear() {
 
   const userConfirm = confirm("Are you sure you want to clear all data?")
 
-  if (userConfirm) {
+  ig (userConfirm) {
     localStorage.clear();
     errorMessage.innerHTML = "";
     regDisplay.innerHTML = "";
@@ -103,7 +103,7 @@ function clear() {
     regInstance.setSavedArr(regArr);
     errorImage.innerHTML = ""
     filterMessageDisplay.innerHTML = ""
-   
+    console.log(regArr)
   }
  
 }
