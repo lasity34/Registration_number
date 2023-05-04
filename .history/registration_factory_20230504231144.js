@@ -58,7 +58,7 @@ function registrationNumber() {
     return false;
   }
 
-  // tests for error messagese
+  // tests for error messages
 
   function testValueInput() {
     if (regInput.length < 5) {

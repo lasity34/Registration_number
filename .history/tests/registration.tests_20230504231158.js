@@ -90,15 +90,15 @@ describe("This checks filters", function() {
 
     regInstance.setLocationValue("stellenbosch")
     regInstance.setValueInput("CJ22334");
-    regInstance.addRegistrationNumber()
+    regInstance.callRegNum()
     regInstance.filterReg()
     regInstance.getFilteredArr()
     regInstance.setValueInput("CL12334")
-    regInstance.addRegistrationNumber()
+    regInstance.callRegNum()
     regInstance.filterReg()
     regInstance.getFilteredArr()
     regInstance.setValueInput("CA12334");
-    regInstance.addRegistrationNumber()
+    regInstance.callRegNum()
     regInstance.filterReg()
     regInstance.getFilteredArr()
 
@@ -110,15 +110,15 @@ describe("This checks filters", function() {
 
     regInstance.setLocationValue("paarl")
     regInstance.setValueInput("CJ22334");
-    regInstance.addRegistrationNumber()
+    regInstance.callRegNum()
     regInstance.filterReg()
     regInstance.getFilteredArr()
     regInstance.setValueInput("CL12334")
-    regInstance.addRegistrationNumber()
+    regInstance.callRegNum()
     regInstance.filterReg()
     regInstance.getFilteredArr()
     regInstance.setValueInput("CA12334");
-    regInstance.addRegistrationNumber()
+    regInstance.callRegNum()
     regInstance.filterReg()
     regInstance.getFilteredArr()
 
