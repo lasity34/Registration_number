@@ -51,7 +51,7 @@ describe("this is a input values", function () {
   it("this will return error if length of string is above 9", function () {
     const regInstance = registrationNumber();
 
-    regInstance.setValueInput("CA112334312");
+    regInstance.setValueInput("CJ11233434");
     regInstance.getValueInput();
     regInstance.testValueInput();
 
@@ -61,11 +61,11 @@ describe("this is a input values", function () {
   it("this will return error if string first 2 is not the right location", function () {
     const regInstance = registrationNumber();
 
-    regInstance.setValueInput("Cx11233");
+    regInstance.setValueInput("Cs11233");
     regInstance.getValueInput();
     regInstance.testValueInput();
 
-    assert.equal("Has to start with CA, CJ or CL", regInstance.getErrorMessage());
+    assert.equal("This is not a valid reg number", regInstance.getErrorMessage());
   });
 
   it("this return error if name is repeated", function () {

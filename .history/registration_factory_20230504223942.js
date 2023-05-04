@@ -66,10 +66,10 @@ function registrationNumber() {
     } else if (!firstTwoLetterCheck.test(regInput)) {
       errorMessage = "only First 2 must be letters";
     } else if (
-      !["CJ","CL", "CA"].includes(regInput)
+      ["CJ","CL", "CA"].includes(regInput)
     ) {
       errorMessage = "Has to start with CA, CJ or CL";
-    } else if (regInput.length >= 10) {
+    } else if (regInput.length > 10) {
       errorMessage = "Too long";
     } else if (locationArr.some((reg) => reg.reg === regInput)) {
       errorMessage = "Already used";
@@ -109,10 +109,13 @@ function registrationNumber() {
   // this will get the value of the groups
 
   function getValueInput() {
-    if (regInput.length >= 5 &&
+    if (
+      (regInput.length >= 5 &&
         regInput.length < 10 &&
         !locationArr.some((reg) => reg.reg === regInput) &&
-        ["CJ","CL","CA"].includes(regInput.substring(0, 2)) && firstTwoLetterCheck.test(regInput)
+        regInput.startsWith("CJ")) ||
+      regInput.startsWith("CL") ||
+      (regInput.startsWith("CA") && firstTwoLetterCheck.test(regInput))
     ) {
       return regInput;
     } else {

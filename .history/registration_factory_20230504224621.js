@@ -109,10 +109,13 @@ function registrationNumber() {
   // this will get the value of the groups
 
   function getValueInput() {
-    if (regInput.length >= 5 &&
+    if (
+      (regInput.length >= 5 &&
         regInput.length < 10 &&
         !locationArr.some((reg) => reg.reg === regInput) &&
-        ["CJ","CL","CA"].includes(regInput.substring(0, 2)) && firstTwoLetterCheck.test(regInput)
+        regInput.startsWith("CJ")) ||
+      regInput.startsWith("CL") ||
+      (regInput.startsWith("CA") && firstTwoLetterCheck.test(regInput))
     ) {
       return regInput;
     } else {
