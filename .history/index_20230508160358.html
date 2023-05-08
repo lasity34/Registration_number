@@ -22,21 +22,12 @@
 
       {{/each}}
     </script>
-    <script id="regDisplayTemplate" type="text/x-handlebars-template">
-      {{#if differentReg.length}}
-        <ul class="reg_display_temp">
-          {{#each differentReg}}
-            <li class="reg_list">{{reg}}</li>
-          {{/each}}
-        </ul>
-      {{else}}
-        <div class="error_image">{{{filterImage}}}</div>
-        <p class="filter_message">{{filterMessage}}</p>
-      {{/if}}
+    <script type="text/x-template" id="regDisplayTemplate">
+      {{#each differentReg}}
+      <li>{{reg}}</li>
+
+      {{/each}}
     </script>
-    
-    
-    
   </head>
   <body>
     <section class="original">
@@ -91,11 +82,13 @@
       <section id="reg_display_container_original">
         <ul class="reg_display"></ul>
         <div class="error_image"></div>
+
         <p class="filter_message"></p>
       </section>
 
       <script src="./registration_factory.js"></script>
       <script src="./registration.js"></script>
+   
     </section>
 
     <!-- template -->
@@ -137,18 +130,27 @@
       <div class="message">
         <div class="added_item_temp"></div>
       </div>
-      <section class="select_town_temp">
+      <section class="select_town">
         <label for="dropdown">Town:</label>
-        <select id="town_select_temp" name="dropdown"></select>
-
+        <select id="dropdown_temp" name="dropdown"></select>
         <div class="space_select"></div>
       </section>
       <section class="btn_container clear_temp">
         <button class="ui button clear_btn_temp">Clear</button>
       </section>
-      <section id="reg_display_container_template"></section>
+      <section id="reg_display_container_template">
+        <ul class="reg_display_temp"></ul>
+        <div class="error_image_temp"></div>
+
+        <p class="filter_message_temp"></p>
+      </section>
+
+
+      
       <script src="./registration_factory_temp.js"></script>
       <script src="./registrationTemplate.js"></script>
     </section>
   </body>
 </html>
+
+

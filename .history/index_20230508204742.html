@@ -23,7 +23,7 @@
       {{/each}}
     </script>
     <script id="regDisplayTemplate" type="text/x-handlebars-template">
-      {{#if differentReg.length}}
+      {{#if differentReg}}
         <ul class="reg_display_temp">
           {{#each differentReg}}
             <li class="reg_list">{{reg}}</li>
@@ -34,7 +34,6 @@
         <p class="filter_message">{{filterMessage}}</p>
       {{/if}}
     </script>
-    
     
     
   </head>

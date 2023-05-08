@@ -75,7 +75,7 @@ function renderRegDisplayTempContainer() {
 
 
 function resetErrorMessages_temp() {
-  updateRegTemplate(regInputTemp.value)
+  updateRegTemplate(regInputTemp)
 }
 
 function displayAddedMessage_temp() {

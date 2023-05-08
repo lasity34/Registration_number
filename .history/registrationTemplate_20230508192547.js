@@ -9,15 +9,13 @@ const errorMessageTemp = document.querySelector("#error_temp");
 const validatorTemp = document.querySelector(".valid_temp");
 const townDataElemTemp = document.querySelector("#town_select_temp");
 const messageDisplayTemp = document.querySelector(".added_item_temp");
-const regList = document.querySelector(".reg_list")
+
 //  Instance
 const regInstanceTemp = registrationNumber_temp();
 
 displayRegNumbersOnRefresh_temp();
 
 // main functions
-
-
 function displayRegNumbersOnRefresh_temp() {
   let registrationNumbersArray =
   JSON.parse(localStorage.getItem("regNumTemp")) || [];
@@ -26,7 +24,7 @@ function displayRegNumbersOnRefresh_temp() {
   regInstanceTemp.setLocationValue(townDataElemTemp.value);
   regInstanceTemp.filterReg();
   const filteredArr = regInstanceTemp.getFilteredArr();
-  renderRegDisplayTempContainer();
+  updateRegTemplate(regInstanceTemp.getValueInput())
   if (Array.isArray(filteredArr)) {
     filteredArr.forEach((reg) => {
       appendRegToNumberList_temp(reg);
@@ -34,7 +32,9 @@ function displayRegNumbersOnRefresh_temp() {
   }
 }
 
-
+function appendRegToNumberList_temp(regNumber) {
+  updateRegTemplate(regNumber);
+}
 
 function registrationNumAdd_temp() {
   resetErrorMessages_temp();
@@ -48,7 +48,6 @@ function registrationNumAdd_temp() {
     regDisplayTemp.innerHTML = "";
 
     const newRegArr = regInstanceTemp.getFilteredArr() || [];
-    updateRegTemplate(regInstanceTemp.getValueInput())
     newRegArr.forEach((reg) => {
       appendRegToNumberList_temp(reg);
     });
@@ -60,22 +59,8 @@ function registrationNumAdd_temp() {
 }
 
 // helper functions
-function appendRegToNumberList_temp(regNumber) {
-  const newLi = document.createElement("li");
-  newLi.innerHTML = regNumber;
-  const regDisplayList = regDisplayTemp.querySelector(".reg_display_temp");
-  if (regDisplayList) {
-    regDisplayList.appendChild(newLi);
-  }
-}
-
-function renderRegDisplayTempContainer() {
-  regDisplayTemp.innerHTML = updateRegTemplate();
-}
-
-
 function resetErrorMessages_temp() {
-  updateRegTemplate(regInputTemp.value)
+  updateRegTemplate(regInputTemp)
 }
 
 function displayAddedMessage_temp() {
@@ -114,7 +99,6 @@ function clear_temp() {
     localStorage.setItem("regNumTemp", JSON.stringify([]));
     regInstanceTemp.setSavedArr([]);
     resetErrorMessages_temp();
-    updateRegTemplate(regInstanceTemp.getValueInput())
   }
 }
 
@@ -132,11 +116,11 @@ function selectTown_temp() {
   } 
   displayFilteredArray_temp(filteredArr);
   updateTownTemplate(townDataElemTemp.value);
-  
+  updateRegTemplate(regInputTemp.value)
 }
 
 function displayFilteredArray_temp(filteredArr) {
-  renderRegDisplayTempContainer()
+  regDisplayTemp.innerHTML = "";
   if (filteredArr) {
     filteredArr.forEach((reg) => {
       appendRegToNumberList_temp(reg);
@@ -178,15 +162,11 @@ function updateRegTemplate(input) {
   const regDisplay = Handlebars.compile(regDisplayTemplate);
 
   const registrationData = {
-    differentReg: input ? [{ reg: input }] : [],
-    filterMessage: regInstanceTemp.filteredMessage(),
-    filterImage: '<img src="./images/not_found.svg" width="200"/>',
+    differentReg: [{ reg: input, filterMessage: regInstanceTemp.filteredMessage(), filterImage: '<img src="./images/not_found.svg" width="200"/>' }],
   };
 
-
   const userDataHTML = regDisplay(registrationData);
-  console.log(userDataHTML)
-  return userDataHTML
+  regDisplayTemp.innerHTML = userDataHTML;
 }
 
 

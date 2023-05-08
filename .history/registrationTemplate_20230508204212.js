@@ -48,7 +48,6 @@ function registrationNumAdd_temp() {
     regDisplayTemp.innerHTML = "";
 
     const newRegArr = regInstanceTemp.getFilteredArr() || [];
-    updateRegTemplate(regInstanceTemp.getValueInput())
     newRegArr.forEach((reg) => {
       appendRegToNumberList_temp(reg);
     });
@@ -75,7 +74,7 @@ function renderRegDisplayTempContainer() {
 
 
 function resetErrorMessages_temp() {
-  updateRegTemplate(regInputTemp.value)
+  updateRegTemplate(regInputTemp)
 }
 
 function displayAddedMessage_temp() {

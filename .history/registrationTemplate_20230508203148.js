@@ -48,7 +48,6 @@ function registrationNumAdd_temp() {
     regDisplayTemp.innerHTML = "";
 
     const newRegArr = regInstanceTemp.getFilteredArr() || [];
-    updateRegTemplate(regInstanceTemp.getValueInput())
     newRegArr.forEach((reg) => {
       appendRegToNumberList_temp(reg);
     });
@@ -63,10 +62,8 @@ function registrationNumAdd_temp() {
 function appendRegToNumberList_temp(regNumber) {
   const newLi = document.createElement("li");
   newLi.innerHTML = regNumber;
-  const regDisplayList = regDisplayTemp.querySelector(".reg_display_temp");
-  if (regDisplayList) {
-    regDisplayList.appendChild(newLi);
-  }
+  regDisplayTemp.querySelector(".reg_display_temp").appendChild(newLi)
+  
 }
 
 function renderRegDisplayTempContainer() {
@@ -75,7 +72,7 @@ function renderRegDisplayTempContainer() {
 
 
 function resetErrorMessages_temp() {
-  updateRegTemplate(regInputTemp.value)
+  updateRegTemplate(regInputTemp)
 }
 
 function displayAddedMessage_temp() {

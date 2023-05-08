@@ -22,21 +22,15 @@
 
       {{/each}}
     </script>
-    <script id="regDisplayTemplate" type="text/x-handlebars-template">
-      {{#if differentReg.length}}
-        <ul class="reg_display_temp">
-          {{#each differentReg}}
-            <li class="reg_list">{{reg}}</li>
-          {{/each}}
+    <script type="text/x-template" id="regDisplayTemplate">
+      {{#each differentReg}}
+        <ul class="reg_display">
+          {{reg}}
         </ul>
-      {{else}}
-        <div class="error_image">{{{filterImage}}}</div>
+        <div class="error_image">{{filterImage}}</div>
         <p class="filter_message">{{filterMessage}}</p>
-      {{/if}}
+      {{/each}}
     </script>
-    
-    
-    
   </head>
   <body>
     <section class="original">
@@ -89,7 +83,9 @@
         <button class="ui button clear_btn">Clear</button>
       </section>
       <section id="reg_display_container_original">
-        <ul class="reg_display"></ul>
+        <ul class="reg_display">
+          
+        </ul>
         <div class="error_image"></div>
         <p class="filter_message"></p>
       </section>
@@ -140,7 +136,8 @@
       <section class="select_town_temp">
         <label for="dropdown">Town:</label>
         <select id="town_select_temp" name="dropdown"></select>
-
+        
+        
         <div class="space_select"></div>
       </section>
       <section class="btn_container clear_temp">

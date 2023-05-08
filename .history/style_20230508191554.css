@@ -187,7 +187,7 @@ ul {
   width: 50%;
 }
 
-.number_display {
+li {
   list-style: none;
   font-size: 2rem;
   font-weight: bold;
@@ -254,14 +254,14 @@ ul {
   }
 }
 
-.select_town, .select_town_temp {
+.select_town {
   display: flex;
   justify-content: center;
   margin-right: 4em;
   margin-bottom: 3em;
 }
 
-.select_town label, .select_town_temp label {
+.select_town label {
   align-self: center;
   margin-right: 0.6em;
 }
@@ -275,7 +275,15 @@ select {
   width: 200px;
 }
 
+.select_town_temp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
+.select_town_temp label {
+  align-self: center;
+}
 
 option {
   margin: 1em 0;

@@ -187,7 +187,7 @@ ul {
   width: 50%;
 }
 
-.number_display {
+li {
   list-style: none;
   font-size: 2rem;
   font-weight: bold;

@@ -22,21 +22,17 @@
 
       {{/each}}
     </script>
-    <script id="regDisplayTemplate" type="text/x-handlebars-template">
-      {{#if differentReg.length}}
-        <ul class="reg_display_temp">
-          {{#each differentReg}}
-            <li class="reg_list">{{reg}}</li>
-          {{/each}}
+    <script type="text/x-template" id="regDisplayTemplate">
+      <ul class="reg_display_temp">
+      {{#if differentReg}}
+      {{#each differentReg}}
+         <li class="reg_list">{{reg}}</li>
+         {{/each}}
+         <div class="error_image">{{{filterImage}}}</div>
+         <p class="filter_message">{{filterMessage}}</p>
+         {{/if}}
         </ul>
-      {{else}}
-        <div class="error_image">{{{filterImage}}}</div>
-        <p class="filter_message">{{filterMessage}}</p>
-      {{/if}}
     </script>
-    
-    
-    
   </head>
   <body>
     <section class="original">
