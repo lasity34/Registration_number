@@ -42,7 +42,7 @@ header {
   margin-bottom: 2em;
 }
 
-.form__label, .form__label_temp {
+.form__label {
   font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
   text-align: center;
@@ -69,7 +69,7 @@ header {
   transition: all 0.3s;
 }
 
-.form__input:placeholder-shown + .form__label, .form__input_temp:placeholder-shown + .form__label_temp {
+.form__input:placeholder-shown + .form__label {
   opacity: 0;
   visibility: hidden;
   -webkit-transform: translateY(-4rem);
@@ -128,7 +128,7 @@ header {
   background-color: #226a31;
 }
 
-.clear, .clear_temp {
+.clear {
   margin-bottom: 1em;
 }
 
@@ -214,7 +214,7 @@ li {
     margin-bottom: 1em;
   }
 
-  .form__input, .form__input_temp {
+  .form__input {
     width: 40%;
     min-width: 190px;
   }

@@ -42,7 +42,7 @@ header {
   margin-bottom: 2em;
 }
 
-.form__label, .form__label_temp {
+.form__label {
   font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
   text-align: center;
@@ -69,7 +69,7 @@ header {
   transition: all 0.3s;
 }
 
-.form__input:placeholder-shown + .form__label, .form__input_temp:placeholder-shown + .form__label_temp {
+.form__input:placeholder-shown + .form__label {
   opacity: 0;
   visibility: hidden;
   -webkit-transform: translateY(-4rem);
@@ -83,7 +83,7 @@ header {
   justify-content: center;
 }
 
-.added_item, .added_item_temp {
+.added_item {
   margin: 0 auto;
 }
 
@@ -128,17 +128,17 @@ header {
   background-color: #226a31;
 }
 
-.clear, .clear_temp {
+.clear {
   margin-bottom: 1em;
 }
 
-.clear_btn, .clear_btn_temp {
+.clear_btn {
   width: 100px;
   background-color: rgb(119, 16, 16);
   color: antiquewhite;
 }
 
-.clear_btn:hover, .clear_btn_temp:hover {
+.clear_btn:hover {
   background-color: rgb(174, 35, 35);
 }
 
@@ -214,7 +214,7 @@ li {
     margin-bottom: 1em;
   }
 
-  .form__input, .form__input_temp {
+  .form__input {
     width: 40%;
     min-width: 190px;
   }
