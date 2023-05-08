@@ -1,7 +1,7 @@
 const addRegNumBtn = document.querySelector(".add_btn");
 const clearBtn = document.querySelector(".clear_btn");
 const regInput = document.querySelector(".form__input");
-const regDisplay = document.querySelector("#reg_display_container_original ul.reg_display");
+const regDisplay = document.querySelector(".reg_display");
 const errorMessage = document.querySelector("#error");
 const validator = document.querySelector(".valid");
 const townList = document.querySelector("#dropdown");
@@ -14,10 +14,10 @@ const errorImage = document.querySelector(".error_image");
 //  Instance
 const regInstance = registrationNumber();
 
-displayRegNumbersOnRefresh_temp()
+displayRegNumbersOnRefresh()
 
 // main functions
-function displayRegNumbersOnRefresh_temp() {
+function displayRegNumbersOnRefresh() {
   let registrationNumbersArray = JSON.parse(localStorage.getItem("regNum")) || [];
   regInstance.setSavedArr(registrationNumbersArray);
   regInstance.setLocationValue(townList.value);
@@ -35,7 +35,7 @@ function appendRegToNumberList(regNumber) {
   regDisplay.appendChild(newLi);
 }
 
-function registrationNumAdd() {
+function registrationNumAdd_temp() {
   resetErrorMessages();
   const regValue = regInput.value.trim();
   regInstance.setValueInput(regValue);
@@ -76,7 +76,7 @@ function displayAddedMessage() {
   setTimeout(timeout, 2000);
 }
 
-function inputValid() {
+function inputValid_temp() {
   const regValue = regInput.value;
   regInstance.setValueInput(regValue);
   regInstance.testValueInput();
@@ -90,7 +90,7 @@ function inputValid() {
   }
 }
 
-function clear() {
+function clear_temp() {
   const userConfirm = confirm("Are you sure you want to clear all data?");
 
   if (userConfirm) {
@@ -106,13 +106,13 @@ function clear() {
 }
 
 //  filters towns from the drop box
-function selectTown() {
+function selectTown_temp() {
   regInstance.setLocationValue(townList.value);
   regInstance.filterReg();
   const filteredArr = regInstance.getFilteredArr();
   const filterMessage = regInstance.filteredMessage();
   filterMessageDisplay.innerHTML = filterMessage;
-  displayFilteredArray_temp(filteredArr);
+  displayFilteredArray(filteredArr);
 
   if (filteredArr.length === 0) {
     errorImage.innerHTML = '<img src="./images/not_found.svg" width="200"/>';
@@ -133,7 +133,7 @@ function displayFilteredArray(filteredArr) {
 }
 
 
-townList.addEventListener("change", selectTown);
-clearBtn.addEventListener("click", clear);
-addRegNumBtn.addEventListener("click", registrationNumAdd);
-regInput.addEventListener("input", inputValid);
+townList.addEventListener("change", selectTown_temp);
+clearBtn.addEventListener("click", clear_temp);
+addRegNumBtn.addEventListener("click", registrationNumAdd_temp);
+regInput.addEventListener("input", inputValid_temp);

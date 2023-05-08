@@ -116,7 +116,7 @@ function selectTown_temp() {
   const filteredArr = regInstanceTemp.getFilteredArr();
   const filterMessage = regInstanceTemp.filteredMessage();
   filterMessageDisplayTemp.innerHTML = filterMessage;
-  localStorage.setItem("selectedTown", townDataElemTemp.value);
+ 
 
   if (filteredArr.length === 0) {
     errorImageTemp.innerHTML = '<img src="./images/not_found.svg" width="200"/>';
@@ -166,8 +166,7 @@ function updateTownTemplate(selectedValue) {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  const savedTownValue = localStorage.getItem("selectedTown") || "Select Town";
-  updateTownTemplate(savedTownValue);
+  updateTownTemplate("Select Town");
   displayRegNumbersOnRefresh_temp();
   selectTown_temp()
   

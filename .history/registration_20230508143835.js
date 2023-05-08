@@ -1,7 +1,7 @@
 const addRegNumBtn = document.querySelector(".add_btn");
 const clearBtn = document.querySelector(".clear_btn");
 const regInput = document.querySelector(".form__input");
-const regDisplay = document.querySelector("#reg_display_container_original ul.reg_display");
+const regDisplay = document.querySelector(".reg_display");
 const errorMessage = document.querySelector("#error");
 const validator = document.querySelector(".valid");
 const townList = document.querySelector("#dropdown");
@@ -14,10 +14,10 @@ const errorImage = document.querySelector(".error_image");
 //  Instance
 const regInstance = registrationNumber();
 
-displayRegNumbersOnRefresh_temp()
+displayRegNumbersOnRefresh()
 
 // main functions
-function displayRegNumbersOnRefresh_temp() {
+function displayRegNumbersOnRefresh() {
   let registrationNumbersArray = JSON.parse(localStorage.getItem("regNum")) || [];
   regInstance.setSavedArr(registrationNumbersArray);
   regInstance.setLocationValue(townList.value);
@@ -106,13 +106,13 @@ function clear() {
 }
 
 //  filters towns from the drop box
-function selectTown() {
+function selectTown_temp() {
   regInstance.setLocationValue(townList.value);
   regInstance.filterReg();
   const filteredArr = regInstance.getFilteredArr();
   const filterMessage = regInstance.filteredMessage();
   filterMessageDisplay.innerHTML = filterMessage;
-  displayFilteredArray_temp(filteredArr);
+  displayFilteredArray(filteredArr);
 
   if (filteredArr.length === 0) {
     errorImage.innerHTML = '<img src="./images/not_found.svg" width="200"/>';

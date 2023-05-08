@@ -1,7 +1,7 @@
 const addRegNumBtn = document.querySelector(".add_btn");
 const clearBtn = document.querySelector(".clear_btn");
 const regInput = document.querySelector(".form__input");
-const regDisplay = document.querySelector("#reg_display_container_original ul.reg_display");
+const regDisplay = document.querySelector(".reg_display");
 const errorMessage = document.querySelector("#error");
 const validator = document.querySelector(".valid");
 const townList = document.querySelector("#dropdown");
@@ -24,7 +24,7 @@ function displayRegNumbersOnRefresh_temp() {
 
   if (Array.isArray(registrationNumbersArray)) {
     registrationNumbersArray.forEach((reg) => {
-      appendRegToNumberList(reg.reg);
+      appendRegToNumberList_temp(reg.reg);
     });
   }
 }

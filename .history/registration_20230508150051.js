@@ -24,7 +24,7 @@ function displayRegNumbersOnRefresh_temp() {
 
   if (Array.isArray(registrationNumbersArray)) {
     registrationNumbersArray.forEach((reg) => {
-      appendRegToNumberList(reg.reg);
+      appendRegToNumberList_temp(reg.reg);
     });
   }
 }

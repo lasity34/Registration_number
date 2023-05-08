@@ -1,7 +1,7 @@
 const addRegNumBtnTemp = document.querySelector(".add_btn_temp");
 const clearBtnTemp = document.querySelector(".clear_btn_temp");
 const regInputTemp = document.querySelector(".form__input_temp");
-const regDisplayTemp = document.querySelector("#reg_display_container_template ul.reg_display_temp");
+const regDisplay = document.querySelector("#reg_display_container_original ul.reg_display");
 const errorMessageTemp = document.querySelector("#error_temp");
 const validatorTemp = document.querySelector(".valid_temp");
 const townDataElemTemp = document.querySelector("#dropdown_temp");
@@ -19,16 +19,12 @@ function displayRegNumbersOnRefresh_temp() {
   let registrationNumbersArray =
     JSON.parse(localStorage.getItem("regNum")) || [];
     regInstanceTemp.setSavedArr(registrationNumbersArray);
-
-    
-    
+    updateTownTemplate()
     regInstanceTemp.setLocationValue(townDataElemTemp.value);
-    regInstanceTemp.filterReg();
-    const filteredArr = regInstanceTemp.getFilteredArr();
 
-  if (Array.isArray(filteredArr)) {
-    filteredArr.forEach((reg) => {
-      appendRegToNumberList_temp(reg);
+  if (Array.isArray(registrationNumbersArray)) {
+    registrationNumbersArray.forEach((reg) => {
+      appendRegToNumberList_temp(reg.reg);
     });
   }
 
@@ -116,14 +112,14 @@ function selectTown_temp() {
   const filteredArr = regInstanceTemp.getFilteredArr();
   const filterMessage = regInstanceTemp.filteredMessage();
   filterMessageDisplayTemp.innerHTML = filterMessage;
-  localStorage.setItem("selectedTown", townDataElemTemp.value);
+  displayFilteredArray_temp(filteredArr);
 
   if (filteredArr.length === 0) {
     errorImageTemp.innerHTML = '<img src="./images/not_found.svg" width="200"/>';
   } else {
     errorImageTemp.innerHTML = "";
   }
-  displayFilteredArray_temp(filteredArr)
+
   updateTownTemplate(townDataElemTemp.value)
 }
 
@@ -144,15 +140,15 @@ function updateTownTemplate(selectedValue) {
 
   const townData = {
     differentTowns: [
-      { name: "Select Town", selected: selectedValue === "Select Town" },
+      { name: "Select Town" },
       {
-        name: "Cape Town", selected: selectedValue === "Cape Town"
+        name: "Cape Town",
       },
       {
-        name: "Stellenbosch", selected: selectedValue === "Stellenbosch"
+        name: "Stellenbosch",
       },
       {
-        name: "Paarl", selected: selectedValue === "Paarl"
+        name: "Paarl",
       },
     ],
   };
@@ -160,18 +156,9 @@ function updateTownTemplate(selectedValue) {
   const userDataHTML = registrationTemplate(townData);
 
   townDataElemTemp.innerHTML = userDataHTML;
+
   townDataElemTemp.value = selectedValue
- 
 }
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  const savedTownValue = localStorage.getItem("selectedTown") || "Select Town";
-  updateTownTemplate(savedTownValue);
-  displayRegNumbersOnRefresh_temp();
-  selectTown_temp()
-  
-});
 
 townDataElemTemp.addEventListener("change", selectTown_temp);
 clearBtnTemp.addEventListener("click", clear_temp);

@@ -1,7 +1,7 @@
 const addRegNumBtnTemp = document.querySelector(".add_btn_temp");
 const clearBtnTemp = document.querySelector(".clear_btn_temp");
 const regInputTemp = document.querySelector(".form__input_temp");
-const regDisplayTemp = document.querySelector("#reg_display_container_template ul.reg_display_temp");
+const regDisplayTemp = document.querySelector(".reg_display_temp");
 const errorMessageTemp = document.querySelector("#error_temp");
 const validatorTemp = document.querySelector(".valid_temp");
 const townDataElemTemp = document.querySelector("#dropdown_temp");
@@ -10,38 +10,33 @@ const filterMessageDisplayTemp = document.querySelector(".filter_message_temp");
 const errorImageTemp = document.querySelector(".error_image_temp");
 
 //  Instance
-const regInstanceTemp = registrationNumber_temp();
+const regInstanceTemp = registrationNumber();
 
-displayRegNumbersOnRefresh_temp();
+displayRegNumbersOnRefresh();
 
 // main functions
-function displayRegNumbersOnRefresh_temp() {
+function displayRegNumbersOnRefresh() {
   let registrationNumbersArray =
     JSON.parse(localStorage.getItem("regNum")) || [];
     regInstanceTemp.setSavedArr(registrationNumbersArray);
-
-    
-    
     regInstanceTemp.setLocationValue(townDataElemTemp.value);
-    regInstanceTemp.filterReg();
-    const filteredArr = regInstanceTemp.getFilteredArr();
 
-  if (Array.isArray(filteredArr)) {
-    filteredArr.forEach((reg) => {
-      appendRegToNumberList_temp(reg);
+  if (Array.isArray(registrationNumbersArray)) {
+    registrationNumbersArray.forEach((reg) => {
+      appendRegToNumberList(reg.reg);
     });
   }
-
+  updateTownTemplate()
 }
 
-function appendRegToNumberList_temp(regNumber) {
+function appendRegToNumberList(regNumber) {
   const newLi = document.createElement("li");
   newLi.textContent = regNumber;
   regDisplayTemp.appendChild(newLi);
 }
 
-function registrationNumAdd_temp() {
-  resetErrorMessages_temp();
+function registrationNumAdd() {
+  resetErrorMessages();
   const regValue = regInputTemp.value.trim();
   regInstanceTemp.setValueInput(regValue);
   const reg = regInstanceTemp.getValueInput();
@@ -52,25 +47,25 @@ function registrationNumAdd_temp() {
     regInstanceTemp.filterReg();
     regDisplayTemp.innerHTML = "";
 
-    const newRegArr = regInstanceTemp.getFilteredArr() || [];
+    const newRegArr = regInstance.getFilteredArr() || [];
     newRegArr.forEach((reg) => {
-      appendRegToNumberList_temp(reg);
+      appendRegToNumberList(reg);
     });
 
-    displayAddedMessage_temp();
+    displayAddedMessage();
   }
 
   regInputTemp.value = "";
-  updateTownTemplate(townDataElemTemp.value)
+  updateTownTemplate()
 }
 
 // helper functions
-function resetErrorMessages_temp() {
+function resetErrorMessages() {
   errorImageTemp.innerHTML = "";
   filterMessageDisplayTemp.innerHTML = "";
 }
 
-function displayAddedMessage_temp() {
+function displayAddedMessage() {
   messageDisplayTemp.classList.add("message_container");
   messageDisplayTemp.innerHTML = regInstanceTemp.getMessage();
   function timeout() {
@@ -80,7 +75,7 @@ function displayAddedMessage_temp() {
   setTimeout(timeout, 2000);
 }
 
-function inputValid_temp() {
+function inputValid() {
   const regValue = regInputTemp.value;
   regInstanceTemp.setValueInput(regValue);
   regInstanceTemp.testValueInput();
@@ -94,7 +89,7 @@ function inputValid_temp() {
   }
 }
 
-function clear_temp() {
+function clear() {
   const userConfirm = confirm("Are you sure you want to clear all data?");
 
   if (userConfirm) {
@@ -105,54 +100,52 @@ function clear_temp() {
     townDataElemTemp.value = "Select Town";
     localStorage.setItem("regNum", JSON.stringify([]));
     regInstanceTemp.setSavedArr([]);
-    resetErrorMessages_temp();
+    resetErrorMessages();
   }
 }
 
 //  filters towns from the drop box
-function selectTown_temp() {
+function selectTown() {
   regInstanceTemp.setLocationValue(townDataElemTemp.value);
   regInstanceTemp.filterReg();
   const filteredArr = regInstanceTemp.getFilteredArr();
   const filterMessage = regInstanceTemp.filteredMessage();
   filterMessageDisplayTemp.innerHTML = filterMessage;
-  localStorage.setItem("selectedTown", townDataElemTemp.value);
+  displayFilteredArray(filteredArr);
 
   if (filteredArr.length === 0) {
     errorImageTemp.innerHTML = '<img src="./images/not_found.svg" width="200"/>';
   } else {
     errorImageTemp.innerHTML = "";
   }
-  displayFilteredArray_temp(filteredArr)
-  updateTownTemplate(townDataElemTemp.value)
 }
 
-function displayFilteredArray_temp(filteredArr) {
+function displayFilteredArray(filteredArr) {
   regDisplayTemp.innerHTML = "";
   if (filteredArr) {
     filteredArr.forEach((reg) => {
-      appendRegToNumberList_temp(reg);
+      appendRegToNumberList(reg);
     });
   } else {
     regDisplayTemp.innerHTML = "";
   }
 }
 
-function updateTownTemplate(selectedValue) {
+function updateTownTemplate() {
   const templateSource = document.querySelector("#regTemplate").innerHTML;
   const registrationTemplate = Handlebars.compile(templateSource);
 
   const townData = {
     differentTowns: [
-      { name: "Select Town", selected: selectedValue === "Select Town" },
+      { name: "Select Town" },
       {
-        name: "Cape Town", selected: selectedValue === "Cape Town"
+        name: "Cape Town",
       },
       {
-        name: "Stellenbosch", selected: selectedValue === "Stellenbosch"
+        name: "Stellenbosch",
       },
       {
-        name: "Paarl", selected: selectedValue === "Paarl"
+        name: "Paarl",
       },
     ],
   };
@@ -160,20 +153,9 @@ function updateTownTemplate(selectedValue) {
   const userDataHTML = registrationTemplate(townData);
 
   townDataElemTemp.innerHTML = userDataHTML;
-  townDataElemTemp.value = selectedValue
- 
 }
 
-
-document.addEventListener("DOMContentLoaded", function () {
-  const savedTownValue = localStorage.getItem("selectedTown") || "Select Town";
-  updateTownTemplate(savedTownValue);
-  displayRegNumbersOnRefresh_temp();
-  selectTown_temp()
-  
-});
-
-townDataElemTemp.addEventListener("change", selectTown_temp);
-clearBtnTemp.addEventListener("click", clear_temp);
-addRegNumBtnTemp.addEventListener("click", registrationNumAdd_temp);
-regInputTemp.addEventListener("input", inputValid_temp);
+townDataElemTemp.addEventListener("change", selectTown);
+clearBtnTemp.addEventListener("click", clear);
+addRegNumBtnTemp.addEventListener("click", registrationNumAdd);
+regInputTemp.addEventListener("input", inputValid);

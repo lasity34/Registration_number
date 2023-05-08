@@ -166,8 +166,7 @@ function updateTownTemplate(selectedValue) {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  const savedTownValue = localStorage.getItem("selectedTown") || "Select Town";
-  updateTownTemplate(savedTownValue);
+  updateTownTemplate("Select Town");
   displayRegNumbersOnRefresh_temp();
   selectTown_temp()
   
