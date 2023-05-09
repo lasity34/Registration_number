@@ -94,7 +94,7 @@ function clear() {
   const userConfirm = confirm("Are you sure you want to clear all data?");
 
   if (userConfirm) {
-    localStorage.removeItem("regNum");
+    localStorage.clear();
     errorMessage.innerHTML = "";
     regDisplay.innerHTML = "";
     regInput.value = "";

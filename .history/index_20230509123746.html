@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration number</title>
+
+    <link href="./semantic.css" rel="stylesheet" type="text/css" />
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arvo:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script type="text/x-template" id="regTemplate">
+      {{#each differentTowns}}
+      <option class="town" value="{{selectedValue}}">{{name}}</option>
+
+      {{/each}}
+    </script>
+    <script id="regDisplayTemplate" type="text/x-handlebars-template">
+      {{#if differentReg.length}}
+        <ul class="reg_display_temp">
+          {{#each differentReg}}
+            <li class="reg_list">{{reg}}</li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <div class="error_image">{{{filterImage}}}</div>
+        <p class="filter_message">{{filterMessage}}</p>
+      {{/if}}
+    </script>
+    
+    
+    
+  </head>
+  <body>
+    <section class="original">
+      <header>
+        <h1>Registration Number</h1>
+      </header>
+      <div class="info">
+        <h5>Please type in your registration number for either:</h5>
+        <div class="info_town">
+          <p>Cape town : (CA3234)</p>
+          <p>Stellenbosch : (CL3234)</p>
+          <p>Paarl : (CJ3234)</p>
+        </div>
+      </div>
+
+      <section class="input_section">
+        <div class="form__group">
+          <input
+            type="text"
+            class="form__input"
+            id="reg_num"
+            placeholder="Registration Number"
+          />
+          <label for="reg_num" class="form__label">Registration Number</label>
+        </div>
+
+        <div class="validCheck">
+          <div class="valid"></div>
+          <p id="error"></p>
+        </div>
+      </section>
+      <section class="btn_container">
+        <button class="ui button add_btn">Add Reg Number</button>
+      </section>
+
+      <div class="message">
+        <div class="added_item"></div>
+      </div>
+      <section class="select_town">
+        <label for="dropdown">Town:</label>
+        <select id="dropdown" name="dropdown">
+          <option value="Select Town" class="town">Select Town</option>
+          <option value="Cape Town" class="town">Cape Town</option>
+          <option value="Stellenbosch" class="town">Stellenbosch</option>
+          <option value="Paarl" class="town">Paarl</option>
+        </select>
+        <div class="space_select"></div>
+      </section>
+      <section class="btn_container clear">
+        <button class="ui button clear_btn">Clear</button>
+      </section>
+      <section id="reg_display_container_original">
+        <ul class="reg_display"></ul>
+        <div class="error_image"></div>
+        <p class="filter_message"></p>
+      </section>
+
+      <script src="./registration_factory.js"></script>
+      <script src="./registration.js"></script>
+    </section>
+
+    <!-- template -->
+    <section class="template">
+      <header>
+        <h1>Registration Number</h1>
+      </header>
+      <div class="info">
+        <h5>Please type in your registration number for either:</h5>
+        <div class="info_town">
+          <p>Cape town : (CA3234)</p>
+          <p>Stellenbosch : (CL3234)</p>
+          <p>Paarl : (CJ3234)</p>
+        </div>
+      </div>
+
+      <section class="input_section">
+        <div class="form__group">
+          <input
+            type="text"
+            class="form__input_temp"
+            id="reg_num"
+            placeholder="Registration Number"
+          />
+          <label for="reg_num" class="form__label_temp"
+            >Registration Number</label
+          >
+        </div>
+
+        <div class="validCheck">
+          <div class="valid_temp"></div>
+          <p id="error_temp"></p>
+        </div>
+      </section>
+      <section class="btn_container">
+        <button class="ui button add_btn_temp">Add Reg Number</button>
+      </section>
+
+      <div class="message">
+        <div class="added_item_temp"></div>
+      </div>
+      <section class="select_town_temp">
+        <label for="dropdown">Town:</label>
+        <select id="town_select_temp" name="dropdown"></select>
+
+        <div class="space_select"></div>
+      </section>
+      <section class="btn_container clear_temp">
+        <button class="ui button clear_btn_temp">Clear</button>
+      </section>
+      <section id="reg_display_container_template"></section>
+      <script src="./registration_factory_temp.js"></script>
+      <script src="./registrationTemplate.js"></script>
+    </section>
+  </body>
+</html>

@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function clear_temp() {
 
     if ( confirm("Are you sure you want to clear all data?")) {
-      localStorage.removeItem("regNumTemp");
+      localStorage.clear()
       localStorage.setItem("regNumTemp", JSON.stringify([]));
       regInstanceTemp.setSavedArr([]);
       regDisplayTemp.innerHTML = "";
