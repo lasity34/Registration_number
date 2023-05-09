@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
       regInputTemp.value = "";
       townDataElemTemp.value = "Select Town";
      
-      updateRegTemplate(townDataElemTemp.value);
+      updateRegTemplate(regInstanceTemp.getValueInput());
     }
   }
 
@@ -139,9 +139,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const filteredArr = regInstanceTemp.getFilteredArr();
 
     localStorage.setItem("selectedTown", townDataElemTemp.value);
+    
+
+    if (filteredArr.length === 0) {
+      updateRegTemplate(regInstanceTemp.getValueInput());
+      console.log(regInstanceTemp.getValueInput())
+      
+    }
     displayFilteredArray_temp(filteredArr);
     updateTownTemplate(townDataElemTemp.value);
-  
+    console.log(townDataElemTemp.value)
   }
 
   function displayFilteredArray_temp(filteredArr) {

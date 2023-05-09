@@ -29,9 +29,10 @@ document.addEventListener("DOMContentLoaded", function () {
     regInstanceTemp.setLocationValue(townDataElemTemp.value);
     regInstanceTemp.filterReg();
     displayFilteredArray_temp(regInstanceTemp.getFilteredArr());
-   
+    updateRegTemplate(regInstanceTemp.getValueInput())
     
- 
+  console.log(regInstanceTemp.getValueInput())
+  console.log(townDataElemTemp.value)
 
   }
 
@@ -128,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
       regInputTemp.value = "";
       townDataElemTemp.value = "Select Town";
      
-      updateRegTemplate(townDataElemTemp.value);
+      updateRegTemplate(regInstanceTemp.getValueInput());
     }
   }
 
@@ -139,9 +140,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const filteredArr = regInstanceTemp.getFilteredArr();
 
     localStorage.setItem("selectedTown", townDataElemTemp.value);
+    
+
+    if (filteredArr.length === 0) {
+      updateRegTemplate(regInstanceTemp.getValueInput());
+    }
     displayFilteredArray_temp(filteredArr);
     updateTownTemplate(townDataElemTemp.value);
-  
   }
 
   function displayFilteredArray_temp(filteredArr) {

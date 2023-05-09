@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
       regInputTemp.value = "";
       townDataElemTemp.value = "Select Town";
      
-      updateRegTemplate(townDataElemTemp.value);
+      updateRegTemplate(regInstanceTemp.getValueInput());
     }
   }
 
@@ -139,6 +139,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const filteredArr = regInstanceTemp.getFilteredArr();
 
     localStorage.setItem("selectedTown", townDataElemTemp.value);
+    
+
+  
     displayFilteredArray_temp(filteredArr);
     updateTownTemplate(townDataElemTemp.value);
   

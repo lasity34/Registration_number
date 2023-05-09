@@ -183,8 +183,9 @@ header {
 ul {
   display: flex;
   justify-content: center;
+
   flex-wrap: wrap;
-  width: 100%;
+  width: 30%;
 }
 
 li {
@@ -193,9 +194,8 @@ li {
   font-weight: bold;
   align-self: center;
 
-  width: 30%;
+  width: auto;
   min-width: 150px;
-  max-width: 250px;
   margin-right: 0.5em;
   margin-top: 0.5em;
   background-color: rgb(244, 244, 233);

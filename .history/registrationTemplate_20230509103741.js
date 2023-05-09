@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
       regInputTemp.value = "";
       townDataElemTemp.value = "Select Town";
      
-      updateRegTemplate(townDataElemTemp.value);
+      updateRegTemplate(regInstanceTemp.getValueInput());
     }
   }
 

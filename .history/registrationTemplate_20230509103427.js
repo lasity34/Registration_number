@@ -127,8 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
       regDisplayTemp.innerHTML = "";
       regInputTemp.value = "";
       townDataElemTemp.value = "Select Town";
-     
-      updateRegTemplate(townDataElemTemp.value);
+
     }
   }
 
