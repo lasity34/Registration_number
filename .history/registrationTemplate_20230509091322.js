@@ -188,21 +188,21 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("regDisplayTemplate").innerHTML;
     const regDisplay = Handlebars.compile(regDisplayTemplate);
 
-    const selectedTown = localStorage.getItem("selectedTown");
-    const showFilterMessageAndImage = selectedTown && selectedTown !== "Select Town" && filteredArr.length === 0;
+    const selectedTown = localStorage.setItem("selectedTown", townDataElemTemp.value);
+    const showFilterMessageAndImage = selectedTown && selectedTown !== "Select Town" && filteredArr === 0 
 
     const registrationData = {
       differentReg: filteredArr,
-      filterMessage: showFilterMessageAndImage ? regInstanceTemp.filteredMessage() : "",
-      filterImage: showFilterMessageAndImage
+      filterMessage: regInstanceTemp.filteredMessage(),
+      filterImage:
+        filteredArr.length === 0
           ? '<img src="./images/not_found.svg" width="200"/>'
           : "",
     };
 
     const userDataHTML = regDisplay(registrationData);
     return userDataHTML;
-}
-
+  }
 
   const savedTownValue = localStorage.getItem("selectedTown") || "Select Town";
   updateRegTemplate(regInstanceTemp.getValueInput());
