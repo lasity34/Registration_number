@@ -89,6 +89,9 @@ document.addEventListener("DOMContentLoaded", function () {
     regDisplayTemp.innerHTML = updateRegTemplate(filteredArr);
   }
 
+  function resetErrorMessages_temp() {
+    updateRegTemplate(regInputTemp.value);
+  }
 
   function displayAddedMessage_temp() {
     messageDisplayTemp.classList.add("message_container");
@@ -153,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
       regDisplayTemp.innerHTML = "";
     }
   }
-// templates
+
   function updateTownTemplate(selectedValue) {
     const templateSource = document.querySelector("#regTemplate").innerHTML;
     const townTemplate = Handlebars.compile(templateSource);

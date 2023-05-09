@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const validatorTemp = document.querySelector(".valid_temp");
   const townDataElemTemp = document.querySelector("#town_select_temp");
   const messageDisplayTemp = document.querySelector(".added_item_temp");
-  
+  const regList = document.querySelector(".reg_list");
   //  Instance
   const regInstanceTemp = registrationNumber_temp();
 
@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function init() {
     displayRegNumbersOnRefresh_temp();
-    updateTownTemplate(getSavedTownValue())
     addEventListener()
+    updateTownTemplate(getSavedTownValue())
   }
   // main functions
 
@@ -32,14 +32,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function registrationNumAdd_temp() {
-  
+    resetErrorMessages_temp();
     const regValue = regInputTemp.value.trim();
     regInstanceTemp.setValueInput(regValue);
     const reg = regInstanceTemp.getValueInput();
-
     if (reg && regInstanceTemp.addRegistrationNumber()) {
       UpdateLocalStorage();
       regInstanceTemp.filterReg();
+      regDisplayTemp.innerHTML = "";
       displayFilteredArray_temp(regInstanceTemp.getFilteredArr());
       displayAddedMessage_temp();
     }
@@ -89,6 +89,9 @@ document.addEventListener("DOMContentLoaded", function () {
     regDisplayTemp.innerHTML = updateRegTemplate(filteredArr);
   }
 
+  function resetErrorMessages_temp() {
+    updateRegTemplate(regInputTemp.value);
+  }
 
   function displayAddedMessage_temp() {
     messageDisplayTemp.classList.add("message_container");
@@ -115,15 +118,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function clear_temp() {
+    const userConfirm = confirm("Are you sure you want to clear all data?");
 
-    if ( confirm("Are you sure you want to clear all data?")) {
-      localStorage.clear()
-      localStorage.setItem("regNumTemp", JSON.stringify([]));
-      regInstanceTemp.setSavedArr([]);
+    if (userConfirm) {
+      localStorage.clear();
+      errorMessageTemp.innerHTML = "";
       regDisplayTemp.innerHTML = "";
       regInputTemp.value = "";
       townDataElemTemp.value = "Select Town";
-     
+      localStorage.setItem("regNumTemp", JSON.stringify([]));
+      regInstanceTemp.setSavedArr([]);
+      resetErrorMessages_temp();
       updateRegTemplate(regInstanceTemp.getValueInput());
     }
   }
@@ -153,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
       regDisplayTemp.innerHTML = "";
     }
   }
-// templates
+
   function updateTownTemplate(selectedValue) {
     const templateSource = document.querySelector("#regTemplate").innerHTML;
     const townTemplate = Handlebars.compile(templateSource);

@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function registrationNumAdd_temp() {
-  
+    resetErrorMessages_temp();
     const regValue = regInputTemp.value.trim();
     regInstanceTemp.setValueInput(regValue);
     const reg = regInstanceTemp.getValueInput();
@@ -89,6 +89,9 @@ document.addEventListener("DOMContentLoaded", function () {
     regDisplayTemp.innerHTML = updateRegTemplate(filteredArr);
   }
 
+  function resetErrorMessages_temp() {
+    updateRegTemplate(regInputTemp.value);
+  }
 
   function displayAddedMessage_temp() {
     messageDisplayTemp.classList.add("message_container");
@@ -123,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
       regDisplayTemp.innerHTML = "";
       regInputTemp.value = "";
       townDataElemTemp.value = "Select Town";
-     
+      resetErrorMessages_temp();
       updateRegTemplate(regInstanceTemp.getValueInput());
     }
   }
@@ -153,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
       regDisplayTemp.innerHTML = "";
     }
   }
-// templates
+
   function updateTownTemplate(selectedValue) {
     const templateSource = document.querySelector("#regTemplate").innerHTML;
     const townTemplate = Handlebars.compile(templateSource);

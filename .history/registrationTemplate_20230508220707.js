@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
       regDisplayTemp.innerHTML = "";
     }
   }
-// templates
+
   function updateTownTemplate(selectedValue) {
     const templateSource = document.querySelector("#regTemplate").innerHTML;
     const townTemplate = Handlebars.compile(templateSource);
